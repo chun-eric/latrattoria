@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   showReviewCard(0);
 
   // Add event listenter to all review buttons
-  reviewButtons.forEach((button, index) => {
+  document.querySelectorAll('.review-button').forEach((button, index) => {
     button.addEventListener('click', () => {
       console.log('button clicked');
       showReviewCard(index);

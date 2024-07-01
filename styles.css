@@ -347,6 +347,7 @@ header .columns nav a.active {
   flex-direction: column;
   position: relative;
   padding: 60px 0;
+  margin-top: 60px;
 }
 
 .background-carousel-image {
@@ -359,7 +360,7 @@ header .columns nav a.active {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.3;
+  opacity: 0.2;
   z-index: 1;
 }
 
@@ -572,7 +573,7 @@ header .columns nav a.active {
 /* Reviews */
 .reviews-container {
   width: 100%;
-  height: 1100px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -582,19 +583,22 @@ header .columns nav a.active {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  padding: 120px 0;
 }
 
 .review-cards {
-  width: 1920px;
-  max-width: 100%;
+  width: 90%;
+  max-width: 1440px !important;
   height: auto;
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
 .review-heading {
-  width: 85%;
+  width: 75%;
   max-width: 100%;
   font-size: 45px;
   font-family: 'Sacramento', cursive;
@@ -627,7 +631,7 @@ header .columns nav a.active {
   justify-content: space-between;
   gap: 5px;
   padding: 0 10px;
-  width: 85%;
+  width: 75%;
   height: 100%;
   margin: 0 auto;
 }
@@ -679,7 +683,7 @@ header .columns nav a.active {
   padding-top: 40px;
   padding-bottom: 30px;
   margin: 0 auto;
-  width: 85%;
+  width: 75%;
 }
 
 .review-buttons .review-button {
@@ -741,6 +745,227 @@ header .columns nav a.active {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.menu {
+  width: 100%;
+  max-width: 1440px !important;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 120px 0;
+}
+
+.menu-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.menu-header h2 {
+  width: 100%;
+  max-width: 100%;
+  font-size: 45px;
+  font-family: 'Sacramento', cursive;
+  color: #b7b095;
+  display: block;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.menu-items {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.menu-items h2 {
+  font-family: 'playfair display', serif;
+  font-size: 3.8rem;
+  color: rgb(41, 40, 40);
+  font-weight: bold;
+  margin-left: 0px;
+}
+
+.menu-category {
+  display: flex;
+  align-items: bottom;
+  justify-content: center;
+  gap: 10px;
+  color: rgb(41, 40, 40);
+}
+
+.menu-category p {
+  font-size: 1.8rem;
+  margin-right: 20px;
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+  color: #a7a084;
+  padding-bottom: 5px;
+}
+
+.menu-category p:hover {
+  color: #1a1c1b;
+  transition: all 0.3s ease;
+}
+
+.menu-board-container {
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.menu-board {
+  color: #1a1c1b;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  width: calc(46% - 10px); /* Two items per row with gap */
+  /* max-width: 100%; */
+  height: 130px;
+  gap: 80px;
+}
+
+@media (max-width: 1499px) {
+  .menu-container {
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .menu-board {
+    width: 100%;
+  }
+  .menu-items {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 699px) {
+  .menu-container {
+    padding: 0 40px;
+  }
+  .menu-board-container {
+    padding: 40px 0;
+  }
+  .menu-board {
+    gap: 30px;
+  }
+  .menu-category p {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 450px) {
+  .menu-container {
+    padding: 0 15px;
+  }
+
+  .menu-category {
+    flex-direction: column;
+    align-items: left;
+    padding-left: 2px;
+  }
+  .menu-board {
+    gap: 15px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-board img {
+    width: 400px !important;
+    max-width: 100%;
+  }
+  .menu-description {
+    width: 80%;
+
+    align-items: flex-start;
+  }
+  .menu-description p {
+    width: 80%;
+  }
+}
+
+.menu-board img {
+  width: 200px; /* Placeholder size, adjust as needed */
+  height: 100%;
+  border: 1px solid #1a1c1b;
+  object-fit: cover;
+}
+
+.description-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.description-container p {
+  font-size: 20px;
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+  color: #a7a084;
+  padding-right: 40px;
+}
+
+.menu-description {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #1a1c1b;
+}
+
+.description-container .item-name {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px; /* adjust padding to make space for the underline*/
+}
+
+.description-container .item-name::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 1px;
+  background-color: rgb(41, 40, 40);
+}
+
+.description-container .item-price {
+  text-align: right;
+  padding: 0;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.menu-description p {
+  color: rgb(41, 40, 40);
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+}
+
+.menu-items h4 {
+  margin: 0;
+  font-size: 24px;
 }
 
 /* Content Blocks */
