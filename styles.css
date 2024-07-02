@@ -1228,7 +1228,7 @@ input[type='checkbox'] {
 
 .email-input input[type='email'] {
   width: 400px;
-  padding: 15px !important;
+  padding: 16px;
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
   flex-grow: 1;
@@ -1237,8 +1237,9 @@ input[type='checkbox'] {
 input[type='email']:focus {
   outline: none;
 }
+
 .subscribe-btn {
-  padding: 10px 40px;
+  padding: 5px 40px;
   cursor: pointer;
   background-color: #b7b095;
   border: none;
@@ -1257,21 +1258,81 @@ input[type='email']:focus {
 }
 
 .terms-conditions {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
+  width: 80%; /* this keeps it aligned with the other children */
+  align-items: left;
+  margin-top: 14px;
+  text-align: left;
 }
 
-.terms-conditions input[type='checkbox'] {
-  margin-left: 8px;
+.terms-conditions label {
+  font-size: 15px;
+  margin-left: 5px;
+  font-family: 'Cormorant', serif;
 }
-
 
 input[type='checkbox'] {
-  width: 20px;
-  height: 20px;
-  margin-right: 6px;
+  width: 14px;
+  height: 14px;
   outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .email-container {
+    padding: 20px;
+  }
+
+  .email-section h2 {
+    font-size: 24px;
+  }
+
+  .email-section p {
+    font-size: 24px;
+  }
+
+  .subscribe-btn {
+    padding: 10px 20px;
+  }
+
+  .email-input input[type='email'] {
+    max-width: 100%;
+    padding: 14px !important;
+  }
+
+  .terms-conditions label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .email-section h2 {
+    font-size: 20px;
+  }
+
+  .email-section p {
+    font-size: 16px;
+  }
+
+  .subscribe-btn {
+    padding: 8px 16px;
+  }
+
+  .email-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .subscribe-btn {
+    padding: 15px;
+  }
+  .terms-conditions label {
+    font-size: 13px;
+  }
+  .email-input input[type='email'] {
+    max-width: 100%;
+    padding: 14px !important;
+  }
 }
 
 /* footer */
