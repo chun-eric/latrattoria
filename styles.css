@@ -1175,6 +1175,105 @@ input[type='checkbox'] {
   left: -8px;
 }
 
+/* Email Subscribe */
+.email-container {
+  width: 100%;
+  height: 100%;
+  padding: 80px;
+  background-color: #1a1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-section {
+  width: 800px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.email-section h2 {
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.email-section p {
+  color: #b7b095;
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+  font-size: 35px;
+  padding-bottom: 10px;
+}
+
+.email-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.email-input {
+  width: 100%;
+  display: flex;
+  align-items: bottom;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  border: none;
+}
+
+.email-input input[type='email'] {
+  width: 400px;
+  padding: 15px !important;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  flex-grow: 1;
+}
+
+input[type='email']:focus {
+  outline: none;
+}
+.subscribe-btn {
+  padding: 10px 40px;
+  cursor: pointer;
+  background-color: #b7b095;
+  border: none;
+}
+
+.subscribe-btn:hover {
+  transition: all 0.3s ease;
+  background-color: #a7a084;
+  color: #2b2c2c;
+}
+
+.subscribe-btn a {
+  color: #1a1c1c;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.terms-conditions {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.terms-conditions input[type='checkbox'] {
+  margin-left: 8px;
+}
+
+
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  outline: none;
+}
+
 /* footer */
 footer {
   width: 100%;
