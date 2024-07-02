@@ -1228,10 +1228,13 @@ input[type='checkbox'] {
 
 .email-input input[type='email'] {
   width: 400px;
-  padding: 16px;
-  border-radius: 2px;
+  padding: 18px;
+  height: auto;
+  border-radius: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
   flex-grow: 1;
+  box-sizing: border-box;
+  border: none;
 }
 
 input[type='email']:focus {
@@ -1239,7 +1242,8 @@ input[type='email']:focus {
 }
 
 .subscribe-btn {
-  padding: 5px 40px;
+  padding: 0 40px;
+  height: auto;
   cursor: pointer;
   background-color: #b7b095;
   border: none;
