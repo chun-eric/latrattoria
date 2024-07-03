@@ -1621,6 +1621,133 @@ input[type='checkbox'] {
   }
 }
 
+/* Big Banner */
+.big-banner {
+  width: 100vw;
+  height: 600px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.banner-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: url('./images/pasta4.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+}
+
+.big-banner-container {
+  width: 1200px;
+  max-width: 100%;
+  opacity: 1;
+  z-index: 2;
+  box-sizing: border-box;
+  /* Ensures padding is included in the width */
+  color: #fff;
+  text-align: left;
+  padding: 0 30px;
+}
+
+.banner-text {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 30px;
+}
+
+.banner-text h2 {
+  font-size: 4rem;
+  font-family: 'Cormorant', serif;
+  color: #fff;
+  display: block;
+  margin: 0;
+}
+
+.banner-text p {
+  font-family: 'Sacramento', cursive;
+  color: var(--primary-color);
+  font-size: 2.6rem;
+  position: relative;
+}
+
+.banner-text p::before,
+.banner-text p::after {
+  content: '';
+  left: 0;
+  display: block;
+  position: absolute;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.banner-text p::before {
+  bottom: -14px; /* Position of the first underline */
+  width: 20%; /* Width of the first underline */
+}
+
+.banner-text p::after {
+  bottom: -24px; /* Position of the second underline */
+  width: 15%; /* Width of the second underline */
+}
+
+@media (max-width: 799px) {
+  .big-banner {
+    height:100%;
+    padding: 20px;
+  }
+
+  .big-banner-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .banner-text {
+    width: 100%;
+  }
+
+  .banner-text h2 {
+    font-size: 2.5rem;
+    text-align: left;
+  }
+
+  .banner-text p {
+    font-size: 1.8rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-text h2 {
+    font-size: 2rem;
+  }
+
+  .banner-text p {
+    font-size: 1.5rem;
+  }
+
+  .banner-text p::before {
+    bottom: -8px; /* Adjusted position for smaller screens */
+    width: 40%; /* Adjusted width for smaller screens */
+  }
+
+  .banner-text p::after {
+    bottom: -14px; /* Adjusted position for smaller screens */
+    width: 35%; /* Adjusted width for smaller screens */
+  }
+}
+
 /* footer */
 footer {
   width: 100%;
