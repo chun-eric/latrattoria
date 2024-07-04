@@ -1710,16 +1710,32 @@ input[type='checkbox'] {
   font-weight: 500;
 }
 
-.team-left .view-all-team {
+.team-left p.view-all-team {
   font-family: 'cormorant', serif;
   font-size: 24px;
   color: var(--primary-heading-color);
   font-weight: bold;
-  text-decoration: underline; /* Adds underline */
+  text-decoration: none;
+  position: relative;
   cursor: pointer;
-  text-decoration-color: var(--primary-heading-color);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 15px;
+  display: inline-block;
+}
+
+.team-left p.view-all-team::after {
+  content: '';
+  position: absolute;
+  left: 13%;
+  bottom: -13px; /* Adjust this value to position the underline */
+  width: 24%;
+  height: 1px; /* Thickness of the underline */
+  background-color: var(--primary-heading-color);
+  transform: translateX(-50%) scaleX(1); /* Center the underline and set initial scale */
+  transform-origin: center; /* Set the transform origin to the center */
+  transition: transform 0.3s ease;
+}
+
+.team-left p.view-all-team:hover::after {
+  transform: translateX(-50%) scaleX(0); /* Scale the underline to 0 on hover */
 }
 
 .team-right {
@@ -1886,6 +1902,138 @@ input[type='checkbox'] {
   .view-all-team {
     font-size: 14px;
   }
+}
+
+/* Image Gallery */
+.gallery-carousel {
+  width: 100%;
+  max-width: 100%;
+  height: 1200px;
+  position: relative;
+}
+
+.gallery-background-image {
+  width: 100%;
+
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: url('./images/background-altered.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.gallery-carousel-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  height: 80%;
+  align-items: center;
+  z-index: 3;
+  width: 95%;
+  position: relative;
+  padding: 60px 40px;
+}
+
+.gallery-carousel-container p {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+  font-size: 45px;
+  font-family: 'Sacramento', cursive;
+  color: #b7b095;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.gallery-carousel-container p::before,
+.gallery-carousel-container p::after {
+  content: '';
+  left: 0;
+  display: block;
+  position: absolute;
+  height: 2px;
+  background-color: #b7b095;
+}
+
+.gallery-carousel-container p::before {
+  bottom: -14px;
+  width: 80%;
+}
+
+.gallery-carousel-container p::after {
+  bottom: -24px;
+  width: 60%;
+}
+
+.gallery-carousel-container h2 {
+  width: 100%;
+  font-size: 3.5rem;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Cormorant', serif;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.gallery-carousel-container .slider-container {
+  padding: 0 20px;
+  width: 100%;
+  height: 500px;
+  border: 1px solid red;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  z-index: 44;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  object-fit: cover;
+  /* width: calc(570px * 6); */
+  /* Total width for all images */
+}
+
+.slider-images {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slider-images img {
+  width: 570px; /* Width of each image */
+  height: 440px; /* Height of each image */
+  z-index: 5;
+}
+
+.gallery-carousel-buttons {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.gallery-button {
+  width: 10px;
+  height: 10px;
+  background-color: #222020;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.gallery-button.active {
+  background-color: #ccc;
 }
 
 /* Big Banner */
