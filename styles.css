@@ -2194,7 +2194,7 @@ textarea:focus,
 }
 
 .form-left .link {
-  color: #a7a084;
+  color: hsl(38, 61%, 73%);
 }
 
 .form-right {
@@ -2427,7 +2427,7 @@ footer .columns div.a {
 }
 
 .columns h4 {
-  font-size: 22px;
+  font-size: 20px;
   font-family: 'Playfair Display', serif;
   color: #fff;
 }
@@ -2447,7 +2447,7 @@ footer .columns div.a {
 .left-column p {
   padding-top: 30px;
   padding-left: 5px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Cormorant', serif;
   color: #dbd4b7;
   text-align: left;
@@ -2487,7 +2487,7 @@ footer .columns div.a {
 .right-column p {
   padding-top: 10px;
   padding-left: 5px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Cormorant', serif;
   color: #fff;
   text-align: right;
