@@ -54,6 +54,12 @@
     />
   </head>
   <body>
+    <!-- Preloader -->
+    <div class="preload" data-preload>
+      <div class="circle"></div>
+      <p class="text">La Trattoria</p>
+    </div>
+
     <!-- Header-->
     <header>
       <div class="columns">
@@ -81,7 +87,9 @@
       <div class="content">
         <h1>La Trattoria</h1>
         <h2>Authentic Fine Dining Italian Cuisine since 1979.</h2>
-        <button class="book-btn"><a href="book.html">Book A Table</a></button>
+        <button class="book-btn reserve-button">
+          <a href="book.html">Book Your Table</a>
+        </button>
       </div>
     </div>
 
@@ -323,7 +331,7 @@
     <div class="blog-container">
       <div class="blog">
         <div class="blog-header">
-          <p class="">blogs</p>
+          <p class="">blog</p>
           <h2>Our latest Blogs</h2>
         </div>
         <div class="blog-feed">
@@ -723,6 +731,113 @@
       </div>
     </div>
 
+    <!-- Contact Section  -->
+    <div class="contact-container">
+      <div class="form contact-form contact-form-background">
+        <!-- form on the left -->
+        <form action="" class="form-left">
+          <h2 class="headline-1 text-center">Online Reservation</h2>
+          <p class="form-text text-center">
+            Make a booking by calling
+            <a href="tel:+81987456321" class="link">+81-987-456321</a> or fill out the order form below
+          </p>
+
+          <div class="input-wrapper">
+            <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
+            <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
+          </div>
+          
+          <!-- Number of People-->
+          <div class="input-wrapper">
+            <div class="icon-wrapper">
+              <ion-icon name="person-outline" aria-hidden="true"></ion-icon> 
+              <select name="person" id="" class="input-field">
+                <option value="1-person">1 Person</option>
+                <option value="1-person">2 People</option>
+                <option value="1-person">3 People</option>
+                <option value="1-person">4 People</option>
+                <option value="1-person">5 People</option>
+                <option value="1-person">6 People</option>
+                <option value="1-person">7 People</option>
+                <option value="1-person">8 People</option>
+              </select>
+              <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+            </div>
+          </div>
+
+          <!-- Date Selection -->
+          <div class="input-wrapper">
+            <div class="icon-wrapper">
+              <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon> 
+              <input type="date" name="reservation-date" id="" class="input-field">
+              <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+            </div>
+          </div>
+
+
+          <!-- Time Selection -->
+          <div class="input-wrapper">
+          <div class="icon-wrapper">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon> 
+            <select name="person" id="" class="input-field">
+              <option value="011:00am">11 : 00 am</option>
+              <option value="012:00am">12 : 00 am</option>
+              <option value="01:00pm">01 : 00 pm</option>
+              <option value="02:00pm">02 : 00 pm</option>
+              <option value="06:00pm">06 : 00 pm</option>
+              <option value="07:00pm">07 : 00 pm</option>
+              <option value="08:00pm">08 : 00 pm</option>
+              <option value="09:00pm">09 : 00 pm</option>
+              <option value="10:00pm">10 : 00 pm</option>
+            </select>
+            <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+          </div>
+          </div>
+
+          <!-- Message Area -->
+           <textarea name="message" id="" placeholder="Message" autocomplete="off" class="input-field"></textarea>
+
+          <!-- Submit Button -->
+           <button type="submit" class="btn-secondary">
+            <span class="text text-1">Book A Table</span>
+            <span class="text text-2" aria-hidden="true">Book A Table</span>
+           </button>
+
+          </form>
+
+
+        <!-- form contact details right -->
+        <div
+          class="form-right text-center"
+          style="background-image: url('./images/form-pattern.png')"
+        >
+          <h2>Contact Us</h2>
+          <p>Reservation Request</p>
+          <a
+            href="tel:+81987456321"
+            class="body-1 contact-number hover-underline"
+            >+81 (987) 456 321</a
+          >
+          <div class="separator"></div>
+          <p class="contact-label">Location</p>
+          <address class="body-4">
+            1-4-21 Osaka, Kita Ward Umeda, 1st Floor, Osaka, Japan
+          </address>
+          <p class="contact-label">Lunch Time</p>
+          <p class="body-4">Monday to Sunday 
+            <br/>11:00 AM - 2:00 PM</p>
+          </p>
+
+          <p class="contact-label">Dinner Time</p>
+          <p class="body-4">
+            Monday to Sunday
+            <br/>6:00 PM - 10:30 PM
+          </p>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Email Subscribe-->
     <div class="email-container">
       <div class="email-section">
@@ -986,5 +1101,8 @@
     </div>
 
     <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
   </body>
 </html>

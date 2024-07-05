@@ -50,14 +50,14 @@ img {
 
 /* buttons */
 .btn {
-  border: 0;
+  /* border: 0;
   background-color: #fff;
   color: #000;
   display: inline-block;
   padding: 10px 50px;
   text-decoration: none;
   font-weight: 500;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
 .outline {
@@ -88,8 +88,9 @@ header {
   width: 100%;
   padding: 20px;
   z-index: 10;
-  position: absolute;
-  height: 100%;
+  position: relative;
+  /* position: absolute; */
+  /* height: 100%; */
 }
 
 header .columns {
@@ -112,6 +113,7 @@ a.phone {
 header .columns nav {
   display: flex;
   align-items: center;
+  z-index: 253;
 }
 
 header .columns nav a {
@@ -167,7 +169,6 @@ header .columns nav a.active {
 
 /* intro / hero */
 .intro {
-  position: relative;
 }
 
 .intro .background {
@@ -179,8 +180,11 @@ header .columns nav a.active {
 .intro .background img {
   object-fit: cover;
   width: 100%;
-  height: 100%;
+  height: 800px;
   opacity: 0.25;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .intro .overlay {
@@ -193,11 +197,16 @@ header .columns nav a.active {
 }
 
 .intro .content {
-  padding-top: 280px;
-  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 650px;
+  max-height: 100%;
+  align-items: center;
   text-align: center;
   position: relative;
-  z-index: 2;
+  z-index: 250;
+  padding-top: 120px;
 }
 
 .intro .content h1 {
@@ -217,17 +226,21 @@ header .columns nav a.active {
 
 .content .book-btn {
   margin: 0 auto;
-  width: 12%;
+  width: 18%;
   z-index: 10;
   cursor: pointer !important;
   padding: 16px 40px;
-  z-index: 15;
+  z-index: 251;
 }
 
-.content .book-btn a {
+.content .book-btn.reserve-button a {
   text-decoration: none;
   cursor: pointer !important;
-  z-index: 15;
+  color: #000;
+  font-family: 'Cormorant', serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
 }
 .content .book-btn a:hover {
   cursor: pointer !important;
@@ -1054,6 +1067,7 @@ header .columns nav a.active {
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
+  margin: auto;
 }
 
 .blog {
@@ -1072,7 +1086,7 @@ header .columns nav a.active {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  text-align: center;
 }
 
 .blog-header h2 {
@@ -1080,7 +1094,7 @@ header .columns nav a.active {
   font-family: 'Cormorant', serif;
   color: var(--primary-heading-color);
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .blog-header p {
@@ -1093,7 +1107,7 @@ header .columns nav a.active {
 .blog-feed {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   width: 100%;
   color: var(--primary-heading-color);
@@ -1914,9 +1928,7 @@ input[type='checkbox'] {
 
 .gallery-background-image {
   width: 100%;
-
   height: 100%;
-
   position: absolute;
   top: 0;
   right: 0;
@@ -2034,6 +2046,18 @@ input[type='checkbox'] {
 
 .gallery-button.active {
   background-color: #ccc;
+}
+
+/* Contact Online Reservation */
+.contact-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--primary-bg-color);
+  padding: 60px 0;
 }
 
 /* Big Banner */
