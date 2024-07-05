@@ -34,6 +34,7 @@
       href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
     <!-- Remix Icons -->
     <link
@@ -733,6 +734,7 @@
 
     <!-- Contact Section  -->
     <div class="contact-container">
+      <div class="form-container">
       <div class="form contact-form contact-form-background">
         <!-- form on the left -->
         <form action="" class="form-left">
@@ -742,13 +744,14 @@
             <a href="tel:+81987456321" class="link">+81-987-456321</a> or fill out the order form below
           </p>
 
-          <div class="input-wrapper">
+          <div class="input-wrapper two-columns">
             <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
             <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
           </div>
           
+          <!-- Middle Input wrapper -->
           <!-- Number of People-->
-          <div class="input-wrapper">
+          <div class="input-wrapper three-column-input-wrapper">
             <div class="icon-wrapper">
               <ion-icon name="person-outline" aria-hidden="true"></ion-icon> 
               <select name="person" id="" class="input-field">
@@ -763,20 +766,20 @@
               </select>
               <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
             </div>
-          </div>
+        
 
           <!-- Date Selection -->
-          <div class="input-wrapper">
+      
             <div class="icon-wrapper">
               <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon> 
               <input type="date" name="reservation-date" id="" class="input-field">
               <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
             </div>
-          </div>
+        
 
 
           <!-- Time Selection -->
-          <div class="input-wrapper">
+  
           <div class="icon-wrapper">
             <ion-icon name="time-outline" aria-hidden="true"></ion-icon> 
             <select name="person" id="" class="input-field">
@@ -798,10 +801,9 @@
            <textarea name="message" id="" placeholder="Message" autocomplete="off" class="input-field"></textarea>
 
           <!-- Submit Button -->
-           <button type="submit" class="btn-secondary">
-            <span class="text text-1">Book A Table</span>
-            <span class="text text-2" aria-hidden="true">Book A Table</span>
-           </button>
+           <button type="submit" class="btn-submit">
+            <a class="text text-1">Book A Table</a>
+            </button>
 
           </form>
 
@@ -812,15 +814,15 @@
           style="background-image: url('./images/form-pattern.png')"
         >
           <h2>Contact Us</h2>
-          <p>Reservation Request</p>
+          <p class="contact-label">Reservation Request</p>
           <a
             href="tel:+81987456321"
-            class="body-1 contact-number hover-underline"
+            class="contact-number hover-underline"
             >+81 (987) 456 321</a
           >
           <div class="separator"></div>
           <p class="contact-label">Location</p>
-          <address class="body-4">
+          <address class="body-4" >
             1-4-21 Osaka, Kita Ward Umeda, 1st Floor, Osaka, Japan
           </address>
           <p class="contact-label">Lunch Time</p>
@@ -835,6 +837,7 @@
           </p>
         </div>
       </div>
+    </div>
     </div>
 
 

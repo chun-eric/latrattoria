@@ -125,7 +125,7 @@ header .columns nav a {
 }
 
 header .columns nav a:hover {
-  color: #cec5a7;
+  color: #c2bb9f;
   transition: all 0.3s ease-in-out;
 }
 
@@ -134,9 +134,9 @@ header .columns nav a.active {
 }
 
 .book-btn {
-  background-color: #cec5a7;
+  background-color: hsl(38, 61%, 73%);
   padding: 14px 40px;
-  border-radius: 2px;
+  border-radius: 1px;
   outline: none;
   border: none;
   display: inline-block;
@@ -149,10 +149,11 @@ header .columns nav a.active {
 
 .book-btn a {
   color: var(--primary-bg-color);
-  font-size: 18px;
-  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
   font-weight: bold;
-  letter-spacing: 1px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 @media (max-width: 1400px) {
@@ -236,10 +237,11 @@ header .columns nav a.active {
 .content .book-btn.reserve-button a {
   text-decoration: none;
   cursor: pointer !important;
-  color: #000;
-  font-family: 'Cormorant', serif;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   text-align: center;
 }
 .content .book-btn a:hover {
@@ -1538,13 +1540,13 @@ input[type='email']:focus {
   padding: 0 40px;
   height: auto;
   cursor: pointer;
-  background-color: #b7b095;
+  background-color: hsl(38, 61%, 73%);
   border: none;
 }
 
 .subscribe-btn:hover {
   transition: all 0.3s ease;
-  background-color: #a7a084;
+  background-color: #fff;
   color: #2b2c2c;
 }
 
@@ -2055,9 +2057,208 @@ input[type='checkbox'] {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+
   background-color: var(--primary-bg-color);
-  padding: 60px 0;
+  padding: 100px 0;
+}
+
+.form-container {
+  width: 1200px;
+  max-width: 100%;
+  height: 100%;
+  padding-inline: 16px;
+}
+
+.form {
+  width: 100%;
+  height: 750px;
+  max-height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.form-text {
+  margin-block-end: 40px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+}
+
+textarea {
+  display: block;
+  background-color: inherit;
+  padding: 20px;
+  height: 140px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+textarea .input-field {
+  font-family: 'DM Sans', sans-serif;
+  color: #fff;
+  font-size: 16px;
+}
+
+textarea:focus,
+.input-wrapper .input-field:focus {
+  border-color: 1px solid hsl(38, 61%, 73%);
+}
+
+.input-wrapper {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.three-column-input-wrapper {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.input-wrapper .input-field {
+  background-color: #1b1c1d;
+  color: #fff;
+  height: 56px;
+  padding: 10px 20px;
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  margin-block-end: 20px;
+  outline: none;
+  transition: border-color 500ms ease;
+}
+
+.input-field::placeholder {
+  color: inherit;
+}
+
+.icon-wrapper {
+  position: relative;
+  margin-block-end: 20px;
+  display: flex;
+}
+
+.icon-wrapper .input-field {
+  margin-block-end: 0px;
+
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.three-column-input-wrapper .icon-wrapper {
+  position: relative;
+}
+.icon-wrapper .ion-icon {
+  position: absolute;
+
+  pointer-events: none;
+  --ionicon-stroke-width: 50px;
+  font-size: 1.4rem;
+  transform: translateY(-50%);
+}
+
+.icon-wrapper .ion-icon:first-child {
+  position: absolute;
+  left: 15px;
+}
+
+.icon-wrapper .ion-icon:last-child {
+  top: 50%;
+  right: 10px;
+}
+
+.form-left {
+  flex: 2;
+  height: 100%;
+  flex-direction: column;
+  background-color: #0e0d0c;
+  padding: 80px 40px;
+}
+.form-left h2 {
+  font-size: 3rem;
+  padding-bottom: 20px;
+}
+
+.form-left h2,
+.form-left p {
+  color: #fff;
+  text-align: center;
+}
+
+.form-left p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+}
+
+.form-left .link {
+  color: #a7a084;
+}
+
+.form-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  padding: 80px 40px;
+  height: 100%;
+}
+
+.form-right h2,
+.form-right p {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.form-right h2 {
+  font-size: 3rem;
+  padding-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+.form-right .contact-number {
+  font-size: 1.5rem;
+  color: hsl(38, 61%, 73%);
+}
+
+.body-4 {
+  color: #cfcfcf;
+  font-size: 16px;
+}
+
+.contact-label {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+address {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.btn-submit {
+  margin-top: 20px;
+  width: 100%;
+  background-color: hsl(38, 61%, 73%);
+
+  padding: 20px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn-submit a {
+  color: #0e0d0c;
+}
+
+.btn-submit:hover {
+  background-color: #fff;
 }
 
 /* Big Banner */
