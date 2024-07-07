@@ -1047,9 +1047,15 @@ header .columns nav a.active {
   box-sizing: border-box;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
+  .reviews-cards {
+    padding: 0 40px;
+  }
   .review .left {
-    font-size: 30px;
+    font-size: 40px;
+  }
+  .review-cards .review .right {
+    margin-left: 20px !important;
   }
 }
 
@@ -1152,6 +1158,10 @@ header .columns nav a.active {
   max-height: 100%;
   object-fit: cover;
   align-items: flex-start;
+  transition: all 0.3s ease-in-out;
+}
+
+.blog-image img:hover {
   filter: brightness(70%);
 }
 
@@ -1179,6 +1189,11 @@ header .columns nav a.active {
   text-decoration: none;
   padding: 10px;
   transition: all 0.3s ease-in-out;
+}
+
+.blog-icons svg:hover {
+  background-color: #b7b095;
+  transform: scale(1.1);
 }
 
 .blog-icons p {
@@ -1264,6 +1279,43 @@ header .columns nav a.active {
 
 .read-more a {
   color: #1a1c1c;
+}
+
+@media (max-width: 1000px) {
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 30px;
+    width: 90%;
+  }
+  .blog-card .blog-content {
+    padding: 20px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 599px) {
+  .blog-icons {
+    padding-right: 20px;
+  }
+
+  .blog-icons svg {
+    width: 30px;
+    height: 30px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 399px) {
+  .blog-icons {
+    width: 50%;
+  }
+  .blog-icons svg {
+    width: 2rem;
+    height: 2rem;
+    padding: 5px;
+  }
 }
 
 /* Email Subscribe */
