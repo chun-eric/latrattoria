@@ -263,6 +263,9 @@ header .columns nav a.active {
   .intro .content .btn {
     margin-top: 30px;
   }
+  .book-btn.reserve-button {
+    width: 25%;
+  }
 }
 
 /* About Section */
@@ -1342,13 +1345,6 @@ header .columns nav a.active {
   padding: 0 20px;
 }
 
-.instagram svg {
-  fill: white;
-  height: 16px;
-  position: relative;
-  top: 2px;
-}
-
 .instagram .columns {
   display: flex;
   justify-content: space-between;
@@ -1394,80 +1390,6 @@ header .columns nav a.active {
 
 .arrow:hover {
   color: #dad9d9;
-}
-
-/* Booking */
-.booking {
-  padding: 0 20px;
-  margin-top: 80px;
-  margin-bottom: 80px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 50px;
-  align-items: end;
-}
-
-.booking h2 {
-  margin-bottom: 20px;
-}
-@media (max-width: 899px) {
-  .booking {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .booking .side-img {
-    margin-top: 12px;
-  }
-  .booking .btn {
-    display: block;
-  }
-}
-
-.booking a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.booking label {
-  position: relative;
-  left: 10px;
-  top: 10px;
-  background-color: #000;
-  padding: 0 4px;
-}
-
-input[type='text'] {
-  display: block;
-  width: 100%;
-  background-color: #000;
-  color: #fff;
-  border: 1px solid #d4d3d3;
-  padding: 14px 10px 12px;
-}
-
-.booking label.cb {
-  left: 0;
-  top: 0;
-}
-
-input[type='checkbox'] {
-  margin-top: 20px;
-}
-
-.booking button {
-  margin-top: 20px;
-  font-weight: 500;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  display: block;
-}
-
-.booking .side-img.right img {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  top: -6px;
-  left: -8px;
 }
 
 /* Email Subscribe */
@@ -2058,7 +1980,7 @@ input[type='checkbox'] {
   justify-content: center;
   align-items: center;
 
-  background-color: var(--primary-bg-color);
+  background-color: #161718;
   padding: 100px 0;
 }
 
@@ -2088,25 +2010,27 @@ textarea {
   width: 100%;
 }
 
-textarea {
+textarea.input-field {
   display: block;
-  background-color: inherit;
-  padding: 20px;
-  height: 140px;
-  color: #fff;
+  background-color: #1b1c1d;
+  padding-top: 20px;
+  height: 160px;
+  /* doesnt allow resizing the heigth and width of textarea*/
+  resize: none;
   font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
   border: 1px solid hsla(0, 0%, 100%, 0.1);
+  outline: none;
+  transition: border-color 500ms ease !important;
 }
 
-textarea .input-field {
-  font-family: 'DM Sans', sans-serif;
+textarea.input-field::placeholder {
   color: #fff;
-  font-size: 16px;
+  /* font-family: 'DM Sans', sans-serif; */
 }
 
-textarea:focus,
-.input-wrapper .input-field:focus {
-  border-color: 1px solid hsl(38, 61%, 73%);
+textarea.input-field:focus {
+  border-color: hsl(38, 61%, 73%) !important;
 }
 
 .input-wrapper {
@@ -2115,11 +2039,7 @@ textarea:focus,
   grid-template-columns: repeat(2, 1fr);
 }
 
-.three-column-input-wrapper {
-  grid-template-columns: repeat(3, 1fr) !important;
-}
-
-.input-wrapper .input-field {
+.input-field {
   background-color: #1b1c1d;
   color: #fff;
   height: 56px;
@@ -2130,44 +2050,67 @@ textarea:focus,
   transition: border-color 500ms ease;
 }
 
-.input-field::placeholder {
+input.input-field:focus {
+  border-color: hsl(38, 61%, 73%);
+}
+
+input.input-field::placeholder {
   color: inherit;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.three-column-input-wrapper {
+  grid-template-columns: repeat(3, 1fr) !important;
 }
 
 .icon-wrapper {
   position: relative;
   margin-block-end: 20px;
   display: flex;
+  align-items: center;
+}
+
+.icon-wrapper select.input-field,
+.icon-wrapper input.input-field {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  appearance: none; /* to remove default select arrow */
+  transition: border-color 500ms ease;
+}
+
+.icon-wrapper .input-field.select-focused {
+  outline: none;
+  border-color: hsl(38, 61%, 73%);
+}
+
+.icon-wrapper ion-icon:first-child {
+  position: absolute;
+  left: 10px;
+  padding-right: 10px;
+  padding-left: 5px;
+  font-size: 1rem;
+}
+
+.icon-wrapper ion-icon:last-child {
+  position: absolute;
+  right: 10px;
+  padding-right: 10px;
+  padding-left: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  /*Prevents the icon from blocking clicks on the input - so a click allows the dropdown to  */
+  pointer-events: none;
+}
+
+/* hide the input type data default icon */
+.icon-wrapper input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0; /* Hides the default calendar icon */
 }
 
 .icon-wrapper .input-field {
   margin-block-end: 0px;
-
-  appearance: none;
   cursor: pointer;
-  position: relative;
-}
-
-.three-column-input-wrapper .icon-wrapper {
-  position: relative;
-}
-.icon-wrapper .ion-icon {
-  position: absolute;
-
-  pointer-events: none;
-  --ionicon-stroke-width: 50px;
-  font-size: 1.4rem;
-  transform: translateY(-50%);
-}
-
-.icon-wrapper .ion-icon:first-child {
-  position: absolute;
-  left: 15px;
-}
-
-.icon-wrapper .ion-icon:last-child {
-  top: 50%;
-  right: 10px;
+  padding-inline-start: 40px;
 }
 
 .form-left {
@@ -2201,7 +2144,7 @@ textarea:focus,
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 22px;
   align-items: center;
   padding: 80px 40px;
   height: 100%;
@@ -2214,7 +2157,7 @@ textarea:focus,
 
 .form-right h2 {
   font-size: 3rem;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   font-family: 'Playfair Display', serif;
 }
 .form-right .contact-number {
@@ -2231,14 +2174,19 @@ textarea:focus,
   color: #fff;
   font-weight: bold;
   font-size: 1rem;
+  padding-top: 14px;
 }
+.location-label {
+  margin-top: 30px;
+}
+
 address {
   text-align: center;
   font-size: 1rem;
 }
 
 .btn-submit {
-  margin-top: 20px;
+  margin-top: 0px;
   width: 100%;
   background-color: hsl(38, 61%, 73%);
 
@@ -2259,6 +2207,43 @@ address {
 
 .btn-submit:hover {
   background-color: #fff;
+}
+
+@media (max-width: 920px) {
+  .form {
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-left,
+  .form-right {
+    display: block;
+    width: 100%;
+    padding: 60px 40px;
+  }
+
+  .form-right {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+  }
+  .form-right h2 {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .input-wrapper.two-columns {
+    grid-template-columns: 1fr;
+  }
+  .input-wrapper.three-column-input-wrapper {
+    flex-direction: column;
+    display: block;
+  }
 }
 
 /* Big Banner */

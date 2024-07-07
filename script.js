@@ -71,4 +71,20 @@ document.addEventListener('DOMContentLoaded', function () {
       showReviewCard(index);
     });
   });
+
+  // function to handle chevron down click border effect
+  document
+    .querySelectorAll('.icon-wrapper ion-icon:last-child')
+    .forEach(icon => {
+      icon.addEventListener('click', function () {
+        const inputField = this.previousElementSibling;
+        inputField.focus();
+        const iconWrapper = this.parentElement;
+        iconWrapper.classList.add('select-focused');
+
+        inputField.addEventListener('blur', function () {
+          iconWrapper.classList.remove('select-focused');
+        });
+      });
+    });
 });
