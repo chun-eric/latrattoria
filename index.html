@@ -844,34 +844,74 @@
         <p class="">gallery</p>
         <h2>Check out our Gallery</h2>
         <div class="slider-container">
-          <div class="slider-images">
-            <img class="" src="./images/restaurant.jpg" alt="" />
-            <img src="/images/pasta4.jpg" alt="" />
-            <img src="/images/pasta3.jpg" alt="" />
-            <img src="/images/pasta2.jpg" alt="" />
-            <img src="/images/pasta4.jpg" alt="" />
-            <img src="/images/pasta3.jpg" alt="" />
-            <img src="/images/pasta2.jpg" alt="" />
+          <div class="slider-images no-transition">
+            <div class="image-container">
+              <img class="" src="./images/restaurant.jpg" alt="image" draggable="false" onclick="currentSlide(1)"/>
+            </div>
+            <div class="image-container">
+              <img src="/images/pasta4.jpg" alt="image" draggable="false" onclick="currentSlide(2)"/>
+            </div>
+            <div class="image-container">
+              <img src="/images/pasta3.jpg" alt="image" draggable="false" onclick="currentSlide(3)"/>
+            </div>
+            <div class="image-container">
+              <img src="/images/pasta2.jpg" alt="image" draggable="false" onclick="currentSlide(4)"/>
+            </div>
+            <div class="image-container">
+              <img src="/images/pasta4.jpg" alt="image" draggable="false" onclick="currentSlide(5)"/>
+            </div>
+            <div class="image-container">
+              <img src="/images/pasta3.jpg" alt="image" draggable="false"onclick="currentSlide(6)" />
+            </div>
+            <div class="image-container">
+              <img src="/images/pasta2.jpg" alt="image" draggable="false" onclick="currentSlide(1)" />
+            </div>
           </div>
         </div>
+        <div class="gallery-carousel-buttons">
+          <div class="gallery-button active"></div>
+          <div class="gallery-button"></div>
+          <div class="gallery-button"></div>
+          <div class="gallery-button"></div>
+          <div class="gallery-button"></div>
+          <div class="gallery-button"></div>
+        </div>
       </div>
-      <div class="gallery-carousel-buttons">
-        <div class="gallery-button active"></div>
-        <div class="gallery-button"></div>
-        <div class="gallery-button"></div>
-        <div class="gallery-button"></div>
-        <div class="gallery-button"></div>
-        <div class="gallery-button"></div>
-      </div>
+     
     </div>
 
   
-
-
-
+    <!-- Working Hours including Map -->
 
     <!-- Upcoming Events -->
-    <!-- Working Hours including Map -->
+    <div class="events-container">
+      <div class="events">
+        <div class="events-header">
+          <p>events</p>
+          <h2>Upcoming events at La Trattoria</h2>
+        </div>
+        <div class="events-table">
+          <div class="date">
+            <span class="event-item date">July 20, <p>2024</p></span>
+          </div>
+          <span class="event-item event-name">How to Make Restaurant Quality Pasta</span>
+          <span class="event-item event-date">All Day</span>
+          <span class="event-item details">Details</span>
+        </div>
+        <div class="events-table">
+          <div class="date">
+            <span class="event-item date">August 15, <p>2024</p></span>
+          </div>
+          <span class="event-item event-name">How to be a great home chef in just 3 Hours</span>
+          <span class="event-item event-date">Saturday 3pm - 4pm</span>
+          <span class="event-item details">Details</span>
+        </div>
+    
+      </div>
+    </div>
+
+
+
 
     <!-- Footer -->
     <footer>

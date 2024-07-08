@@ -1778,7 +1778,8 @@ input[type='checkbox'] {
 .gallery-carousel {
   width: 100%;
   max-width: 100%;
-  height: 1200px;
+  height: auto;
+  max-height: 100%;
   position: relative;
 }
 
@@ -1795,6 +1796,7 @@ input[type='checkbox'] {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 1;
+  transform: rotate(180deg);
 }
 
 .gallery-carousel-container {
@@ -1803,7 +1805,7 @@ input[type='checkbox'] {
   flex-direction: column;
   justify-content: center;
   gap: 30px;
-  height: 80%;
+  height: 100%;
   align-items: center;
   z-index: 3;
   width: 95%;
@@ -1847,7 +1849,7 @@ input[type='checkbox'] {
 .gallery-carousel-container h2 {
   width: 100%;
   font-size: 3.5rem;
-  color: #fff;
+  color: var(--primary-heading-color);
   font-weight: bold;
   font-family: 'Cormorant', serif;
   text-align: center;
@@ -1857,14 +1859,13 @@ input[type='checkbox'] {
 .gallery-carousel-container .slider-container {
   padding: 0 20px;
   width: 100%;
-  height: 500px;
   border: 1px solid red;
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
   z-index: 44;
-  transition: transform 0.5s ease-in-out;
+  /* transition: transform 0.5s ease-in-out; */
   overflow: hidden;
   object-fit: cover;
   /* width: calc(570px * 6); */
@@ -1873,35 +1874,115 @@ input[type='checkbox'] {
 
 .slider-images {
   overflow: hidden;
+  display: grid;
+  grid-auto-flow: column;
+  /* shrinks the grid columns and maintains the number of columns */
+  grid-auto-columns: calc(33.333% - 10px);
+  gap: 10px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.slider-images::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-images :where(.image-container, img) {
+  align-items: center;
+  justify-content: center;
+  filter: saturate(85%);
+}
+
+.slider-images.dragging .image-container {
+  cursor: grab;
+  /* user-select: none; */
+}
+
+.slider-images .image-container {
+  width: 560px; /* Full width for responsive grid */
+  max-width: 100%; /* Ensure it doesn't exceed container width */
+  height: 400px;
+  /* Maintain aspect ratio */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.slider-images img {
-  width: 570px; /* Width of each image */
-  height: 440px; /* Height of each image */
+
+.slider-images .image-container img {
+  width: 100%; /* Width of each image */
+  height: 100%; /* Maintain aspect ratio */
   z-index: 5;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.slider-images .image-container img:hover {
+  filter: brightness(70%);
+  transition: all 0.5s ease-in-out !important;
 }
 
 .gallery-carousel-buttons {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: auto;
+  height: 100px;
   display: flex;
-  gap: 10px;
+  gap: 25px;
+  z-index: 20;
+  margin: auto;
 }
 
 .gallery-button {
   width: 10px;
   height: 10px;
-  background-color: #222020;
+  background-color: var(--primary-text-color);
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
 }
 
+.gallery-button:hover,
 .gallery-button.active {
-  background-color: #ccc;
+  background-color: #b7b095;
+  border-color: #b7b095;
+  transition: 0.5s ease;
+}
+
+.gallery-button.active::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transform: translate(-50%, -50%);
+  width: 35px;
+  height: 35px;
+  border: 1px solid #b7b095;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 899px) {
+  .slider-images {
+    grid-auto-columns: calc(50% - 10px);
+  }
+  .gallery-carousel-container h2 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .slider-images {
+    grid-auto-columns: calc(100%);
+    /* 1 image per row */
+  }
+
+  .gallery-carousel-container h2 {
+    font-size: 2.2rem; /* Adjust heading size for smaller screens */
+  }
 }
 
 /* Contact Online Reservation */
@@ -2302,6 +2383,126 @@ address {
   }
 }
 
+/* Upcoming Events */
+.events-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdfdfd;
+  margin: auto;
+}
+
+.events {
+  width: 1200px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  margin-bottom: 60px;
+}
+
+.events-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.events-header h2 {
+  font-size: 3.4rem;
+  font-family: 'Cormorant', serif;
+  color: var(--primary-heading-color);
+  display: block;
+  margin-bottom: 40px;
+}
+
+.events-header p {
+  font-family: 'Sacramento', cursive;
+  color: var(--primary-text-color);
+  font-size: 2.6rem;
+}
+
+.events-table {
+  width: 100%;
+  height: 200px;
+  max-height: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  scrollbar-width: none;
+  margin-top: 40px;
+  color: #888473;
+  font-family: 'Cormorant', serif;
+  font-size: 24px;
+  transition: transform 0.5s ease;
+}
+
+.events-table span {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1eee8;
+  font-weight: 500;
+}
+
+.events-table .date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.events-table .event-item.date > p {
+  color: #e4c590;
+  display: block;
+  font-family: 'Cormorant', serif;
+  font-size: 2rem;
+}
+
+.events-table span:first-child {
+  background-color: var(--primary-bg-color);
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.events-table span:nth-child(2) {
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.4rem;
+  padding: 10px;
+  word-wrap: break-word;
+  align-items: center;
+  justify-content: center;
+  padding-left: 30px;
+}
+
+.events-table span:nth-child(2),
+.events-table span:nth-child(3) {
+  position: relative;
+}
+
+.events-table span:nth-child(2)::after,
+.events-table span:nth-child(3)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%; /* Start from the middle of the element */
+  height: 50%; /* Adjust the height of the pseudo-element */
+  width: 0; /* No width needed, just a border */
+  border-right: 0.5px solid #d1cebc; /* Your desired border style */
+  transform: translateY(-50%); /* Center the pseudo-element vertically */
+}
+
+.events-table span:nth-child(4) {
+  cursor: pointer;
+}
 /* footer */
 footer {
   width: 100%;
