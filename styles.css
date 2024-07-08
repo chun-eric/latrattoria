@@ -2392,6 +2392,8 @@ address {
   justify-content: center;
   background-color: #fdfdfd;
   margin: auto;
+  flex-direction: column;
+  padding: 60px 0px 140px;
 }
 
 .events {
@@ -2401,8 +2403,7 @@ address {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
-  margin-bottom: 60px;
+  padding: 80px 20px 40px;
 }
 
 .events-header {
@@ -2435,7 +2436,7 @@ address {
   grid-auto-flow: column;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   scrollbar-width: none;
-  margin-top: 40px;
+  margin-top: 20px;
   color: #888473;
   font-family: 'Cormorant', serif;
   font-size: 24px;
@@ -2457,10 +2458,11 @@ address {
   align-items: flex-start;
   justify-content: center;
   width: 100%;
+  font-size: 30px;
 }
 
 .events-table .event-item.date > p {
-  color: #e4c590;
+  color: var(--primary-color);
   display: block;
   font-family: 'Cormorant', serif;
   font-size: 2rem;
@@ -2470,6 +2472,7 @@ address {
   background-color: var(--primary-bg-color);
   color: #fff;
   font-size: 1.8rem;
+  align-items: center;
 }
 
 .events-table span:nth-child(2) {
@@ -2481,6 +2484,11 @@ address {
   align-items: center;
   justify-content: center;
   padding-left: 30px;
+  transition: 0.3s ease-in;
+}
+
+.events-table span:nth-child(2):hover {
+  color: var(--secondary-bg-color);
 }
 
 .events-table span:nth-child(2),
@@ -2502,7 +2510,177 @@ address {
 
 .events-table span:nth-child(4) {
   cursor: pointer;
+  color: var(--primary-heading-color);
+  font-weight: 700;
 }
+
+.events-table span:nth-child(4) a {
+  position: relative;
+  color: var(--primary-heading-color);
+}
+
+.events-table span:nth-child(4) a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -13px; /* Adjust this value to position the underline */
+  width: 95%;
+  height: 1px; /* Thickness of the underline */
+  background-color: var(--primary-heading-color);
+  transform: translateX(-50%) scaleX(1); /* Center the underline and set initial scale */
+  transform-origin: center; /* Set the transform origin to the center */
+  transition: transform 0.3s ease;
+}
+
+.events-table span:nth-child(4) a:hover::after {
+  transform: translateX(-50%) scaleX(0); /* Scale the underline to 0 on hover */
+}
+
+.more-events {
+  width: 100%;
+  height: 50;
+  color: var(--secondary-bg-color);
+  position: relative;
+  cursor: pointer;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+}
+.more-events a {
+  color: var(--secondary-bg-color);
+  font-size: 24px;
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.more-events a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -13px; /* Adjust this value to position the underline */
+  width: 95%;
+  height: 1px; /* Thickness of the underline */
+  background-color: var(--primary-heading-color);
+  transform: translateX(-50%) scaleX(1); /* Center the underline and set initial scale */
+  transform-origin: center; /* Set the transform origin to the center */
+  transition: transform 0.3s ease;
+}
+
+.more-events a:hover::after {
+  transform: translateX(-50%) scaleX(0); /* Scale the underline to 0 on hover */
+}
+
+@media (max-width: 992px) {
+  .events-header h2 {
+    font-size: 2.8rem;
+  }
+  .events-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    font-size: 20px;
+  }
+
+  .events-table span:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .events-container {
+    padding: 40px 15px 100px;
+  }
+
+  .events {
+    padding: 40px 0 20px;
+  }
+
+  .events-header h2 {
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+  }
+
+  .events-header p {
+    font-size: 2.2rem;
+  }
+
+  .events-table {
+    font-size: 18px;
+  }
+
+  .events-table .date {
+    font-size: 22px;
+  }
+
+  .events-table .event-item.date > p {
+    font-size: 1.8rem;
+  }
+
+  .events-table span:first-child {
+    font-size: 1.6rem;
+  }
+
+  .events-table span:nth-child(2) {
+    font-size: 1.2rem;
+  }
+
+  .more-events a {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .events-container {
+    padding: 30px 10px 80px;
+  }
+
+  .events {
+    padding: 30px 0 15px;
+  }
+
+  .events-header h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .events-header p {
+    font-size: 2rem;
+  }
+
+  .events-table {
+    grid-template-columns: 1fr;
+    font-size: 16px;
+  }
+
+  .events-table .date {
+    font-size: 20px;
+  }
+
+  .events-table .event-item.date > p {
+    font-size: 1.6rem;
+  }
+
+  .events-table span:first-child {
+    font-size: 1.4rem;
+  }
+
+  .events-table span:nth-child(2) {
+    font-size: 1.1rem;
+  }
+
+  .more-events a {
+    font-size: 18px;
+  }
+}
+
 /* footer */
 footer {
   width: 100%;
