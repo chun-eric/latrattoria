@@ -2681,6 +2681,155 @@ address {
   }
 }
 
+/* Map and Directions section */
+.directions-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0ede7;
+  padding: 160px 0;
+}
+
+.directions {
+  width: 1200px;
+  max-width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 0px 80px;
+  background-image: linear-gradient(
+    to left,
+    #fefefe,
+    #fefefe 50%,
+    #1a1c1b 50%,
+    #1a1c1b 100%
+  );
+  flex-direction: row-reverse;
+}
+
+.separator {
+  width: 30%;
+  height: 0.5px;
+  border-top: 1px solid #e9e9e9;
+  margin: 20px 0;
+}
+
+.directions-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888473;
+  gap: 20px;
+  flex: 1;
+  width: 80%;
+  justify-content: start;
+}
+
+.directions-left > * {
+  align-items: center;
+  font-family: 'Cormorant', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.directions-left a {
+  color: #888473;
+}
+.directions-left h2,
+.directions-right h2 {
+  font-size: 2.4rem;
+  color: var(--primary-heading-color);
+  font-weight: bold;
+}
+
+.directions-right h2 {
+  color: #fff;
+}
+
+.directions-left .direction-heading {
+  color: #343332;
+  font-weight: bold;
+}
+
+.direction-address {
+  text-align: center;
+}
+
+.directions-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888473;
+  gap: 20px;
+  flex: 1;
+  width: 80%;
+  height: 100vh;
+  justify-content: flex-start;
+  margin: auto;
+}
+
+.directions-right > * {
+  align-items: flex-start;
+  font-family: 'Cormorant', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  justify-content: flex-start;
+}
+
+.google-map {
+  margin-top: 10px;
+  height: 500px;
+  width: 500px;
+  position: relative;
+}
+
+.google-map iframe {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+@media (max-width: 1200px) {
+  .directions-container {
+    padding: 0px 0px !important;
+    background-color: transparent;
+    height: auto;
+    flex-direction: row-reverse;
+  }
+
+  .directions {
+    display: flex;
+    flex-direction: column-reverse;
+    background: transparent;
+    padding: 0px 0px;
+  }
+
+  .directions-left,
+  .directions-right {
+    width: 100%;
+    height: 100%;
+    padding: 60px 20px;
+  }
+
+  .directions-left {
+    background-color: #fff;
+  }
+
+  .directions-right {
+    background-color: #1a1c1b;
+    padding-bottom: 80px;
+  }
+
+  .google-map {
+    width: 90%;
+  }
+}
+
 /* footer */
 footer {
   width: 100%;
