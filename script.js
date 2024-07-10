@@ -1,6 +1,27 @@
 'use strict';
 /* photo caoursel slider function */
 
+// function to handle hero overlay image transitions
+// select all hero images
+const heroImages = document.querySelectorAll('.intro .background img');
+
+// set the current image index to 0
+let currentImageIndex = 0;
+
+function changeHeroImage() {
+  // remove active class from current image
+  heroImages[currentImageIndex].classList.remove('active');
+
+  // update current image index
+  currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+
+  // add active class to the new image
+  heroImages[currentImageIndex].classList.add('active');
+}
+
+// Initialize the changeHeroImage function
+setInterval(changeHeroImage, 10000);
+
 // select all buttons and images elements
 const buttons = document.querySelectorAll('.carousel-button');
 const images = document.querySelectorAll('.images img');
