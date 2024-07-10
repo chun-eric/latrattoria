@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
   setInterval(changeHeroImage, 10000);
   // End
 
-  //
-  //
   // Start
   // Function to handle header navigation and side menu on mobile and tablet
 
@@ -39,10 +37,117 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // function to toggle Menu
   function toggleMenu() {
-    sideMenu.classList.toggle("active")
-    overlay.classList.toggle("active")
-
+    sideMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  }
   // End
+
+  // Event listeners
+  hamburger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toggleMenu();
+    animateHambuger();
+  });
+
+  closeBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toggleMenu();
+    animateClose();
+  });
+
+  overlay.addEventListener('click', function (e) {
+    toggleMenu();
+    animateClose();
+  });
+
+  // Prevent clicks on the side menu from closing it
+  // sideMenu.addEventListener('click', function(e) {
+  //   e.stopPropagation();
+  // });
+
+  // Function to handle resize and close side menu on desktop
+  function handleResize() {
+    if (window.innerWidth > 1200) {
+      // remove active class from side menu
+      sideMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+  }
+
+  // Call handleResize on window resize and initial load
+  handleResize();
+  window.addEventListener('resize', handleResize);
+  // End
+
+  // Start
+  // Function to animate Hamburger on open
+  function animateHambuger() {
+    hamburger.classList.add('active');
+    hamburger.style.transform = 'rotate(90deg)';
+  }
+  // End
+
+  // Start
+  // Function to animate Hamburger on close
+  function animateClose() {
+    hamburger.classList.remove('active');
+    hamburger.style.transform = 'rotate(0deg)';
+  }
+
+  // Start
+  // function to add staggered animation to the hero intro content
+  const content = document.querySelector('.fade-in-content');
+
+  // returns the html collection of all the children of the content element
+  const elements = content.children;
+  console.log(elements);
+
+  // function to show each element with a delay
+  function showElement(index) {
+    if (index < elements.length) {
+      elements[index].classList.add('show');
+      // call the showElement function recursively with a delay
+      setTimeout(() => showElement(index + 1), 1000);
+    }
+  }
+
+  // Run the function and start the animation when the page loads
+  showElement(0);
+
+  // Add an Intersection Observer to the content element when in view. Maybe not necessary here.
+  // const observer = new IntersectionObserver((entires) => {
+  //   entires.forEach((entry) => {
+  //     if (entry.isIntersecting) {
+  //       showElement(0);
+  //       observer.unobserve(entry.target);
+  //     }
+  //   });
+  // }, { threshold: 0.1});
+  /* the threshold means trigger when 10% of the element is visible */
+  // observer.observe(content);
+  // End
+
+  // Start
+  // function to handle scroll down and show the header
+  const header = document.querySelector('header');
+  // A number value to store to determine when the header should changed to scrolled state
+  const scrollThreshold = 20;
+
+  function handleScroll() {
+    if (window.scrollY > scrollThreshold) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
+  // Call the handleScroll function
+  handleScroll();
+
+  // Call handleScroll on window scroll and initial load
+  window.addEventListener('scroll', handleScroll);
 
   // select all buttons and images elements
   const buttons = document.querySelectorAll('.carousel-button');

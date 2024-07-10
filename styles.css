@@ -26,6 +26,9 @@ body {
   margin: 0 auto;
   letter-spacing: -0.2;
 }
+body.menu-open {
+  overflow: hidden;
+}
 
 h1,
 h2,
@@ -93,15 +96,31 @@ header {
   top: 0;
   left: 0;
   position: absolute;
-
+  transition: background-color 0.3s ease;
   /* height: 100%; */
   background-color: transparent;
 }
 
 header .columns {
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* adding padding transition when scrolling down */
+  transition: padding 0.3s ease;
+}
+
+/* new class for scrolled state */
+header.scrolled {
+  background-color: var(--primary-bg-color);
+  z-index: 1000;
+}
+
+header.scrolled .columns {
+  padding: 5px 20px;
+  /* reducing the padding when scrolled */
+  background-color: var(--primary-bg-color);
+  z-index: 1000;
 }
 
 a.logo {
@@ -180,6 +199,7 @@ header .columns nav a.active {
 
 .side-menu {
   display: none;
+  z-index: 1004 !important;
 }
 
 @media (min-width: 1201px) {
@@ -208,13 +228,27 @@ header .columns nav a.active {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    transition: transform 0.3s ease;
   }
   .hamburger-menu .bar {
     width: 35px;
     height: 3px;
     background-color: #fff;
     margin: 6px 9;
-    transition: 0.4s;
+    transition: 0.3s ease;
+  }
+
+  /* create an x shape when active */
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
   }
 
   .side-menu {
@@ -223,8 +257,9 @@ header .columns nav a.active {
     left: 0;
     left: -360px;
     width: 360px;
+    max-width: 100%;
     background-color: #0e0d0b;
-    z-index: 1002;
+    z-index: 1200 !important;
     transition: 0.4s;
     padding: 50px 40px;
     box-sizing: border-box;
@@ -238,7 +273,7 @@ header .columns nav a.active {
   }
 
   .side-menu.active {
-    left: 360px;
+    left: 0px;
   }
 
   .close-btn {
@@ -455,6 +490,29 @@ header .columns nav a.active {
   z-index: 10;
   padding-top: 200px;
   transition: all 0.3s ease;
+}
+
+/* all children of has opacity 0 */
+.fade-in-content > * {
+  opacity: 0;
+}
+
+/* applies a show class to all children */
+.fade-in-content > *.show {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  /* starts 20px lower */
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  /* ends at original vertical position */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .intro .content h1 {
