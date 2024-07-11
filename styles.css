@@ -1121,7 +1121,7 @@ header .columns nav a.active {
   padding: 0;
   width: calc(46% - 10px); /* Two items per row with gap */
   /* max-width: 100%; */
-  height: 130px;
+
   gap: 80px;
   transition: opacity 0.5s ease, transform 0.5s ease width, 0.5s ease,
     height 0.5s ease;
@@ -1295,7 +1295,7 @@ header .columns nav a.active {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 120px 0;
+  padding: 120px 40px;
 }
 
 .review-cards {
@@ -1327,28 +1327,29 @@ header .columns nav a.active {
 
 .reviews-grid {
   display: flex;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  position: relative;
-  align-items: center;
   padding-bottom: 20px;
-  transition: all 1s ease;
+  transition: transform 0.7s ease-in-out;
 }
 
 .review {
-  display: none !important;
+  flex: 0 0 100%; /* grow, shrink, basis */
   align-items: flex-start;
-  gap: 5px;
+  gap: 20px;
   padding: 0 10px;
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  display: flex;
+  transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+  transform: translateY(20px);
 }
 
 .review.active {
-  display: flex !important;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
+
 .review .left {
   font-family: 'Cormorant', serif;
   font-size: 44px;
@@ -1363,21 +1364,20 @@ header .columns nav a.active {
   align-items: flex-end;
   justify-content: center;
   width: 25%;
-  margin-left: -10px;
 }
 
 .review .right img {
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   border: 1px solid #b7b095;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   object-fit: cover;
 }
 
 .review .right h3 {
   font-family: 'Cormorant', serif;
-  font-size: 27px;
+  font-size: 22px;
   color: #b7b095;
   align-items: right !important;
   text-align: right !important;
@@ -1426,14 +1426,8 @@ header .columns nav a.active {
 }
 
 @media (max-width: 1200px) {
-  .reviews-cards {
-    padding: 0 40px;
-  }
   .review .left {
-    font-size: 40px;
-  }
-  .review-cards .review .right {
-    margin-left: 20px !important;
+    font-size: 34px;
   }
 }
 
@@ -1445,6 +1439,10 @@ header .columns nav a.active {
   }
   .review .right {
     align-items: start;
+  }
+  .review .right,
+  .review .left {
+    width: 100%;
   }
 }
 
