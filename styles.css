@@ -626,6 +626,7 @@ header .columns nav a.active {
   -webkit-filter: brightness(0.8);
   filter: brightness(1.1); */
   background-color: #fdfdfd;
+  padding: 60px 0;
 }
 
 .about-contents {
@@ -639,10 +640,11 @@ header .columns nav a.active {
   max-width: 100%;
   width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .about-content .about-text {
-  flex: 0 0 65%;
+  flex: 0 0 60%;
   color: black;
   z-index: 6;
   padding: 20px;
@@ -653,11 +655,9 @@ header .columns nav a.active {
   font-size: 3rem;
   color: var(--primary-color);
   font-weight: normal;
-  margin-bottom: 3px;
-  display: flex;
+  margin-bottom: 10px;
   position: relative;
   display: inline-block;
-  height: fit-content;
 }
 
 .about-welcome-text::after,
@@ -682,7 +682,8 @@ header .columns nav a.active {
 
 .about-text h2 {
   font-size: 3.4rem;
-  padding: 30px 0;
+  padding-top: 10px;
+  padding-bottom: 40px;
 
   color: var(--primary-heading-color);
   font-weight: bold;
@@ -694,12 +695,13 @@ header .columns nav a.active {
 
 .about-welcome-content .content-text {
   font-family: 'Cormorant', serif;
-  font-size: 24px;
-  color: #554f35;
+  font-size: 22px;
+  color: #79682c;
   word-wrap: break-word;
-  width: 80%;
+  width: 75%;
   margin-top: 20px;
   word-spacing: 1.1px;
+  line-height: 1.4;
 }
 
 .about-img {
@@ -712,7 +714,7 @@ header .columns nav a.active {
 
 .about-img img {
   width: 100%;
-  height: 70%;
+  height: 80%;
   vertical-align: middle;
   object-fit: cover;
   /* border-top-left-radius: 25px;
@@ -733,15 +735,21 @@ header .columns nav a.active {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .about-section {
     min-height: 100vh;
+    padding: 100px 0px;
   }
 
+  .about-welcome-content h2 {
+    width: 80%;
+    padding-bottom: 20px;
+  }
   .about-contents {
     display: flex;
     flex-direction: column;
     gap: 60px;
+    padding: 0 40px;
   }
   .about-text {
     display: block;
@@ -750,6 +758,10 @@ header .columns nav a.active {
   .about-img {
     display: block;
     width: 100%;
+  }
+
+  p.content-text {
+    width: 50%;
   }
 }
 
