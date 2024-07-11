@@ -95,24 +95,25 @@ header {
   z-index: 1000;
   top: 0;
   left: 0;
-  position: absolute;
   transition: background-color 0.3s ease;
-  /* height: 100%; */
   background-color: transparent;
+  /* position: absolute; */
+  /* height: 100%; */
 }
 
 header .columns {
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* adding padding transition when scrolling down */
-  transition: padding 0.3s ease;
+  transition: padding 0.3s ease-in;
 }
 
 /* new class for scrolled state */
 header.scrolled {
   background-color: var(--primary-bg-color);
+
   z-index: 1000;
 }
 
@@ -182,7 +183,7 @@ header .columns nav a.active {
 
 @media (max-width: 1400px) {
   header .columns nav a {
-    font-size: 18px !important;
+    font-size: 22px !important;
   }
 }
 

@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   // End
 
+  /* ---------------------------------- */
   // Event listeners
   hamburger.addEventListener('click', function (e) {
     e.stopPropagation();
@@ -87,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
     hamburger.classList.add('active');
     hamburger.style.transform = 'rotate(90deg)';
   }
-  // End
 
   // Start
   // Function to animate Hamburger on close
@@ -95,7 +95,10 @@ document.addEventListener('DOMContentLoaded', function () {
     hamburger.classList.remove('active');
     hamburger.style.transform = 'rotate(0deg)';
   }
+  // End
+  /* ---------------------------------- */
 
+  /* ---------------------------------- */
   // Start
   // function to add staggered animation to the hero intro content
   const content = document.querySelector('.fade-in-content');
@@ -133,22 +136,59 @@ document.addEventListener('DOMContentLoaded', function () {
   // function to handle scroll down and show the header
   const header = document.querySelector('header');
   // A number value to store to determine when the header should changed to scrolled state
-  const scrollThreshold = 20;
+  const scrollThreshold = 60;
 
   function handleScroll() {
-    if (window.scrollY > scrollThreshold) {
+    // check if the window has scrolled past the threshold
+    if (window.pageYOffset > scrollThreshold) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
   }
 
-  // Call the handleScroll function
+  // Call the handleScroll function to check the initial scroll position
   handleScroll();
 
-  // Call handleScroll on window scroll and initial load
+  // Call handleScroll on window scroll
   window.addEventListener('scroll', handleScroll);
+  // End
+  /* ---------------------------------- */
 
+  // Start
+  // function to handle smooth scrolling to the reservation form when clicking the book button
+  const bookButtons = document.querySelectorAll('.book-btn a');
+
+  // adding click event listener to all book buttons
+  bookButtons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      // prevents the default navigation to the url link
+      e.preventDefault();
+
+      // getting the href attribute of the button aka the #contact-section
+      const targetId = this.getAttribute('href');
+      console.log(targetId);
+
+      // our target section element which is the #contact-section
+      const targetSection = document.querySelector(targetId);
+
+      // check if the target section exists
+      // then scroll to the target section smoothly
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    });
+  });
+  // End
+
+  // Start
+  // function to handle Filtering the menu items
+
+  // End
+
+  /* ---------------------------------- */
   // select all buttons and images elements
   const buttons = document.querySelectorAll('.carousel-button');
   const images = document.querySelectorAll('.images img');
