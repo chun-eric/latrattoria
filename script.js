@@ -131,7 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
   /* the threshold means trigger when 10% of the element is visible */
   // observer.observe(content);
   // End
+  /* ---------------------------------- */
 
+  /* ---------------------------------- */
   // Start
   // function to handle scroll down and show the header
   const header = document.querySelector('header');
@@ -155,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // End
   /* ---------------------------------- */
 
+  /* ---------------------------------- */
   // Start
   // function to handle smooth scrolling to the reservation form when clicking the book button
   const bookButtons = document.querySelectorAll('.book-btn a');
@@ -182,13 +185,56 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   // End
-
-  // Start
-  // function to handle Filtering the menu items
-
-  // End
+  /* ---------------------------------- */
 
   /* ---------------------------------- */
+  // Start
+  // function to handle Filtering the menu items
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const menuItems = document.querySelectorAll('.menu-board');
+
+  // loop through the filter buttons and add click event
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // getting the data-filter value of the clicked button
+      const filter = button.getAttribute('data-filter');
+
+      // removing all active state on all filterbuttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      // add active class to the clicked button
+      button.classList.add('active');
+
+      // Filter menu items
+      menuItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.classList.remove('hide');
+          item.style.order = setTimeout(
+            () => (item.style.display = 'flex'),
+            10
+          );
+        } else {
+          item.classList.add('hide');
+          setTimeout(() => (item.style.display = 'none'), 10);
+        }
+
+        // dynamically adjust the container height
+        // setTimeout(() => {
+        //   const visibleItems = document.querySelectorAll(
+        //     '.menu-board:not(.hide)'
+        //   );
+        //   const rows = Math.ceil(visibleItems.length / 2);
+        //   const itemHeight = visibleItems[0].offsetHeight;
+        //   const containerHeight = rows * itemHeight + (rows - 1) * 20;
+        //   menuContainer.style.height = `${containerHeight}px`;
+        // }, 50);
+      });
+    });
+  });
+  // End
+  /* ---------------------------------- */
+
+  /* ---------------------------------- */
+  // Start
   // select all buttons and images elements
   const buttons = document.querySelectorAll('.carousel-button');
   const images = document.querySelectorAll('.images img');
