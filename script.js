@@ -365,34 +365,69 @@ document.addEventListener('DOMContentLoaded', function () {
   // Pause autoslide on hover
   carousel.addEventListener('mouseover', carouselStopAutoSlide);
   carousel.addEventListener('mouseout', carouselStartAutoSlide);
+  // End
+  /* ---------------------------------- */
 
-
+  /* ---------------------------------- */
   // Start
-  // function to handle smooth scrolling to the reservation form when clicking the book a Table link 
-  const bookButtons = document.querySelectorAll('.book-btn a');
+  // function to handle Email Validation
+  const emailForm = document.querySelector('.email-form');
+  const emailInput = document.getElementById('.email');
+  const termsCheckbox = document.getElementById('.termsCb');
+  const preloader = document.getElementById('.preloader');
+  const successMessage = document.getElementById('.successMessage');
 
-  // adding click event listener to all book buttons
-  bookButtons.forEach(button => {
-    button.addEventListener('click', function (e) {
-      // prevents the default navigation to the url link
-      e.preventDefault();
+  // add submit event listener to the emailForm
+  emailForm.addEventListener('submit', function (e) {
+    // prevent the default form submission
+    e.preventDefault();
 
-      // getting the href attribute of the button aka the #contact-section
-      const targetId = this.getAttribute('href');
-      console.log(targetId);
+    // conditional check for a valid email input and terms checkbox checked
+    if (validateEmail(emailInput.value) && termsCheckbox.checked) {
+      // show the preloader
+      showPreloader();
 
-      // our target section element which is the #contact-section
-      const targetSection = document.querySelector(targetId);
-
-      // check if the target section exists
-      // then scroll to the target section smoothly
-      if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-        });
-      }
-    });
+      // simulate a form submission
+      setTimeout(() => {
+        // hide the preloader
+        hidePreloader();
+      }, 3000);
+    } else {
+      alert('Please enter a valid email and accept the terms');
+    }
   });
+
+  // function to validate email
+  function validateEmail(email) {
+    // regex for email validation.
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // converts email string to lowercase to ensure case insensitivity
+    return emailRegex.test(String(email).toLowerCase());
+  }
+
+  // function to show the preloader
+  function showPreloader() {
+    preloader.classList.add('show');
+  }
+  // function to hide the preloader
+  function hidePreloader() {
+    preloader.classList.remove('show');
+    setTimeout(() => {
+      showSuccessMessage();
+    }, 500); // wait for preloader to slide up before showing success message
+  }
+
+  function showSuccessMessage() {
+    // displays a success message for 3 seconds
+    successMessage.style.display = 'block';
+    // hids the success message and resets the form
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+      form.reset(); // rest form
+    }, 3000); // success message stays for 3 seconds
+  }
+
   // End
   /* ---------------------------------- */
 });

@@ -55,11 +55,17 @@
     />
   </head>
   <body>
-    <!-- Preloader -->
-    <!-- <div class="preload" data-preload>
-      <div class="circle"></div>
-      <p class="text">La Trattoria</p>
-    </div> -->
+
+  <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="spinner"></div>
+      <div class="preloader-logo">La Trattoria</div>
+    </div>
+
+    <!-- Success Message -->
+     <div class="success-message" id="successMessage">
+      Thank you for Subscribing!
+     </div>
 
     <!-- Header-->
     <header>
@@ -666,16 +672,16 @@
       <div class="email-section">
         <h2>Subscribe to Our Newsletter for Weekly Updates.</h2>
         <p>Sign up now.</p>
-        <form action="submit">
+        <form id="email-form">
           <div class="email-input">
-            <input type="email" placeholder="Enter your email" />
+            <input type="email" id="email" placeholder="Enter your email" required />
             <button class="subscribe-btn" type="submit">
               <a href="">SUBSCRIBE</a>
             </button>
           </div>
         </form>
         <div class="terms-conditions">
-          <input type="checkbox" id="termsCb" />
+          <input type="checkbox" id="termsCb" required />
           <label class="cb" for="termCb"
             ><span>I have agreed with the</span>
             <a href="#">Terms and Conditions</a>
@@ -683,6 +689,8 @@
         </div>
       </div>
     </div>
+
+
     
     <!-- Our Team-->
     <div class="team">
