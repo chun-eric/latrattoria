@@ -261,10 +261,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // function to show the previous review
-  function prevReview() {
-    currentIndex = currentIndex - 1 < 0 ? reviews.length - 1 : currentIndex - 1;
-    showReview(currentIndex);
-  }
+  // function prevReview() {
+  //   currentIndex = currentIndex - 1 < 0 ? reviews.length - 1 : currentIndex - 1;
+  //   showReview(currentIndex);
+  // }
 
   // function for the autoslide
   function startAutoSlide() {
@@ -294,6 +294,105 @@ document.addEventListener('DOMContentLoaded', function () {
   // Pause autoslide on hover
   reviewsGrid.addEventListener('mouseover', stopAutoSlide);
   reviewsGrid.addEventListener('mouseout', startAutoSlide);
+  // End
+  /* ---------------------------------- */
+
+  /* ---------------------------------- */
+  // Start
+  // function to handle Photo Carousel Slider
+  const images = document.querySelectorAll(
+    '.photo-carousel-container .images img'
+  );
+  const photoCarouselButtons = document.querySelectorAll('.carousel-button');
+  const carousel = document.querySelector('.photo-carousel');
+  let currentPhotoCarouselIndex = 0;
+  let carouselIntervalId;
+
+  // function to show the photo at given index
+  function showPhoto(index) {
+    // loop through the images and set the opacity of the image at the given index to 1
+    images.forEach((image, i) => {
+      image.style.opacity = i === index ? '1' : '0';
+    });
+
+    // loop through the photoCarouselButtons and toggle active class to the button at the given index
+    photoCarouselButtons.forEach((button, i) => {
+      i === index
+        ? button.classList.toggle('active', i === index)
+        : button.classList.remove('active');
+    });
+  }
+
+  // function to show the next photo
+  function nextPhoto() {
+    currentPhotoCarouselIndex =
+      currentPhotoCarouselIndex + 1 >= images.length
+        ? 0
+        : currentPhotoCarouselIndex + 1;
+    showPhoto(currentPhotoCarouselIndex);
+  }
+
+  // function to start carousel autoslide
+  function carouselStartAutoSlide() {
+    carouselIntervalId = setInterval(nextPhoto, 9000);
+  }
+
+  // function to stop carousel autoslide
+  function carouselStopAutoSlide() {
+    clearInterval(carouselIntervalId);
+  }
+
+  // Add click event listener to the photoCarouselButtons
+  photoCarouselButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      // update the currentPhotoCarouselIndex to the clicked button index
+      currentPhotoCarouselIndex = index;
+
+      // show the photo at the clicked button index
+      showPhoto(index);
+
+      // stop the autoslide
+      carouselStopAutoSlide();
+
+      // start the autoslide after manual intervention
+      carouselStartAutoSlide();
+    });
+  });
+
+  // start the carousel autoslide
+  carouselStartAutoSlide();
+
+  // Pause autoslide on hover
+  carousel.addEventListener('mouseover', carouselStopAutoSlide);
+  carousel.addEventListener('mouseout', carouselStartAutoSlide);
+
+
+  // Start
+  // function to handle smooth scrolling to the reservation form when clicking the book a Table link 
+  const bookButtons = document.querySelectorAll('.book-btn a');
+
+  // adding click event listener to all book buttons
+  bookButtons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      // prevents the default navigation to the url link
+      e.preventDefault();
+
+      // getting the href attribute of the button aka the #contact-section
+      const targetId = this.getAttribute('href');
+      console.log(targetId);
+
+      // our target section element which is the #contact-section
+      const targetSection = document.querySelector(targetId);
+
+      // check if the target section exists
+      // then scroll to the target section smoothly
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    });
+  });
   // End
   /* ---------------------------------- */
 });

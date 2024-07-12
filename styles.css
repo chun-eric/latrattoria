@@ -887,7 +887,7 @@ header .columns nav a.active {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 120px 0;
+  padding: 120px 20px;
 }
 
 .background-carousel-image {
@@ -907,7 +907,9 @@ header .columns nav a.active {
 .photo-carousel-container {
   width: 1200px;
   max-width: 100%;
-  height: 100%;
+  height: 800px; /* allows container to adjust to content */
+  /* max-height: 80vh;  */
+  /* Limit maximum height */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -923,25 +925,29 @@ header .columns nav a.active {
 
 .photo-carousel-container .images {
   width: 100%;
-  height: 600px;
+  height: 800px;
   max-height: 100%;
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .photo-carousel-container .images img {
-  width: 100%;
+  width: 90%;
   max-width: 100%;
+  height: 100%; /* Make images fill the container height */
   object-fit: cover;
   z-index: 5;
   display: block; /* all images are block elements*/
-  transition: opacity 0.2s ease-in; /* smooth transition for opacity */
+  transition: opacity 0.7s ease-in; /* smooth transition for opacity */
   opacity: 0; /* all images are hidden initially*/
   position: absolute;
   /* images are absolute for overlapping images*/
+
+  border-radius: 2px;
 }
 
 .photo-carousel-container .images img:first-child {
@@ -968,53 +974,60 @@ header .columns nav a.active {
   width: 10px;
   height: 10px;
   border: 1px solid transparent;
+  transition: backgound-color 0.3s ease;
+  position: relative;
+}
+
+.carousel-buttons .carousel-button::after {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #b7b095;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .carousel-buttons .carousel-button.active {
   background-color: #b7b095;
   border-color: #b7b095;
 }
+
 .carousel-buttons .carousel-button.active::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  transform: translate(-50%, -50%);
-  width: 35px;
-  height: 35px;
-  border: 1px solid #b7b095;
-  border-radius: 50%;
-  box-sizing: border-box;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
 
 .photo-carousel-footer {
-  width: 1200px;
-  max-width: 100%;
+  width: 90%;
+  max-width: 1200px;
   height: auto;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
   color: white;
   font-family: 'Cormorant', serif;
   z-index: 11;
   position: relative;
-  padding: 30px 0;
+  padding: 30px 20px;
+  box-sizing: border-box;
 }
 
-/* .photo-carousel-footer .book,
-.photo-coursel-footer .social {
-  display: flex;
-  align-items: center;
-  font-family: 'playfair display', serif !important;
-} */
+.photo-carousel-footer .book {
+  position: relative;
+}
+
 .book p {
   font-family: 'Cormorant', serif;
   font-size: 1.6rem;
   color: #fff;
   z-index: 10;
   cursor: pointer;
+  display: inline-block;
   /* text-decoration: underline;
   text-underline-offset: 20px;
   text-decoration-line: 1px;
@@ -1024,9 +1037,9 @@ header .columns nav a.active {
 .book p::after {
   content: '';
   position: absolute;
-  left: 5%;
-  bottom: 2px; /* Adjust this value to position the underline */
-  width: 10%;
+  left: 50%;
+  bottom: -15px; /* Adjust this value to position the underline */
+  width: 95%;
   height: 1px; /* Thickness of the underline */
   background-color: #fff;
   transform: translateX(-50%) scaleX(1); /* Center the underline and set initial scale */
@@ -1068,70 +1081,61 @@ header .columns nav a.active {
   fill: var(--primary-color);
   transition: all 0.3s ease;
 }
-@media (max-width: 799px) {
+
+@media (max-width: 599px) {
+  .photo-carousel {
+    justify-content: space-between;
+    padding: 100px 0px;
+    height: 100vh; /* takes up the full view port and fixes images height*/
+    padding-bottom: 140px !important;
+  }
+
+  .photo-carousel-container .carousel-buttons {
+    padding-top: 20px !important;
+
+    /* Adjust as needed for smaller screens */
+  }
+
+  .photo-carousel-container .images img {
+    object-fit: cover;
+  }
   .photo-carousel-footer {
-    width: 75%;
-    height: auto;
-  }
-
-  .photo-carousel-footer .book,
-  .photo-carousel-footer .social {
-    width: 100%;
-    display: block;
+    width: 90%;
+    height: 20%; /* adjusts how much height needed for the carousel footer */
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 10px;
+    gap: 40px;
     text-align: center;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 
-  .photo-carousel-footer p {
-    font-size: 1.3rem;
+  .photo-carousel-footer .book {
+    padding: 20px 0px;
   }
 
-  .photo-carousel-footer .icon {
-    display: block !important;
+  .photo-carousel-footer .book p::after {
+    bottom: -3px; /* Adjust this value to position the underline */
   }
+  .photo-carousel-footer .social {
+    display: flex;
+    flex-direction: column;
+  }
+
   .photo-carousel-footer .icons svg {
     width: 20px;
     height: 20px;
     margin-right: 5px;
+    display: flex;
+    flex-direction: row;
   }
-  .photo-carousel-footer .icons {
+  .photo-carousel-footer .social .icons {
     padding-top: 10px;
     margin: 0 auto;
-    display: block !important;
+
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-}
-
-@media (max-width: 468px) {
-  .photo-carousel-container .carousel-buttons {
-    bottom: 20%; /* Adjust as needed for smaller screens */
-  }
-  .photo-carousel-footer {
-    width: 75%;
-    height: auto;
-  }
-
-  .photo-carousel-footer .book,
-  .photo-carousel-footer .social {
-    width: 100%;
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 399px) {
-  .photo-carousel-container .carousel-buttons {
-    bottom: 25%; /* Adjust as needed for smaller screens */
-  }
-  .photo-carousel-footer {
-    width: 75%;
-    height: auto;
-    flex-direction: column;
-    padding: 10px;
-    text-align: center;
   }
 }
 
