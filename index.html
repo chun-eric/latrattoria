@@ -788,7 +788,7 @@
       <div class="form-container">
       <div class="form contact-form contact-form-background">
         <!-- form on the left -->
-        <form action="" class="form-left">
+        <form action="" class="form-left" id="reservationForm">
           <h2 class="headline-1 text-center">Online Reservation</h2>
           <p class="form-text text-center">
             Make a booking by calling
@@ -796,8 +796,8 @@
           </p>
 
           <div class="input-wrapper two-columns">
-            <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
-            <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
+            <input id="name" type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
+            <input id="phone" type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
           </div>
           
           <!-- Middle Input wrapper -->
@@ -824,7 +824,6 @@
             <div class="icon-wrapper">
               <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon> 
               <input type="date" type="date" name="reservation-date" id="date-input" class="input-field">
-            
             </div>
         
 
@@ -851,7 +850,7 @@
         </div>
 
           <!-- Message Area -->
-            <textarea name="message" id="" placeholder="Message" autocomplete="off" class="input-field" ></textarea>
+            <textarea name="message" id="message" placeholder="Message" autocomplete="off" class="input-field" ></textarea>
 
           <!-- Submit Button -->
             <button type="submit" class="btn-submit">

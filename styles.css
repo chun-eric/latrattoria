@@ -2850,6 +2850,17 @@ address {
   background-color: #fff;
 }
 
+/* error messages */
+.error-message {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.input-field.error {
+  border-color: #ff6b6b;
+}
+
 @media (max-width: 920px) {
   .form {
     flex-direction: column;

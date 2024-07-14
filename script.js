@@ -452,35 +452,6 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---------------------------------- */
 
   /* ---------------------------------- */
-  // Start
-  // function to handle chevron down clicks for contact reservation
-  // document
-  //   .querySelectorAll('.icon-wrapper ion-icon[name="chevron-down"]')
-  //   .forEach(icon => {
-  //     icon.addEventListener('click', function () {
-  //       const previousElement = this.previousElementSibling;
-
-  //       if (previousElement) {
-  //         if (previousElement.type === 'date') {
-  //           console.log('Date input found', previousElement);
-  //           // Trigger the date picker
-  //           previousElement.showPicker();
-
-  //         } else if (previousElement.tagName.toLowerCase() === 'select') {
-  //           // Show select opti
-  //           console.log('Select input found', previousElement);
-  //           previousElement.classList.remove('custom-focus');
-  //           previousElement.focus();
-  //           previousElement.dispatchEvent(
-  //             new MouseEvent('mousedown', { bubbles: true, cancelable: true })
-  //           );
-  //         } else {
-  //           console.log('No matching input found');
-  //         }
-  //       }
-  //     });
-  //   });
-
   /* Start */
   // function for chevron down click for contact reservation on the date picker
   const iconWrappers = document.querySelectorAll('.icon-wrapper');
@@ -530,4 +501,108 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* End;*/
+  /* ---------------------------------- */
+
+  /* ---------------------------------- */
+  // Start
+  // function to handle form validation for reservation form
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('reservationForm');
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const personSelect = document.getElementById('person-select');
+    const dateInput = document.getElementById('date-input');
+    const timeSelect = document.getElementById('time-select');
+    const messageTextarea = document.getElementById('message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (validateForm()) {
+        // If the form is valid, you can submit it
+        console.log('Form is valid. Submitting...');
+        // Uncomment the next line to actually submit the form
+        form.submit();
+      }
+    });
+
+    function validateForm() {
+      let isValid = true;
+
+      // Name validation
+      if (nameInput.value.trim() === '') {
+        showError(nameInput, 'Name is required');
+        isValid = false;
+      } else {
+        clearError(nameInput);
+      }
+
+      // Phone validation (simple format check)
+      const phoneRegex = /^\+?\d{10,14}$/;
+      if (!phoneRegex.test(phoneInput.value.trim())) {
+        showError(phoneInput, 'Please enter a valid phone number');
+        isValid = false;
+      } else {
+        clearError(phoneInput);
+      }
+
+      // Person select validation
+      if (personSelect.value === '') {
+        showError(personSelect, 'Please select the number of people');
+        isValid = false;
+      } else {
+        clearError(personSelect);
+      }
+
+      // Date validation
+      if (dateInput.value === '') {
+        showError(dateInput, 'Please select a date');
+        isValid = false;
+      } else {
+        const selectedDate = new Date(dateInput.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (selectedDate < today) {
+          showError(dateInput, 'Please select a future date');
+          isValid = false;
+        } else {
+          clearError(dateInput);
+        }
+      }
+
+      // Time validation
+      if (timeSelect.value === '') {
+        showError(timeSelect, 'Please select a time');
+        isValid = false;
+      } else {
+        clearError(timeSelect);
+      }
+
+      return isValid;
+    }
+
+    function showError(input, message) {
+      const formControl = input.parentElement;
+      const errorElement =
+        formControl.querySelector('.error-message') ||
+        document.createElement('div');
+      errorElement.className = 'error-message';
+      errorElement.textContent = message;
+      if (!formControl.querySelector('.error-message')) {
+        formControl.appendChild(errorElement);
+      }
+      input.classList.add('error');
+    }
+
+    function clearError(input) {
+      const formControl = input.parentElement;
+      const errorElement = formControl.querySelector('.error-message');
+      if (errorElement) {
+        formControl.removeChild(errorElement);
+      }
+      input.classList.remove('error');
+    }
+  });
+
+  /* End;*/
+  /* ---------------------------------- */
 });
