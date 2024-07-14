@@ -371,11 +371,12 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---------------------------------- */
   // Start
   // function to handle Email Validation
-  const emailForm = document.querySelector('.email-form');
-  const emailInput = document.getElementById('.email');
-  const termsCheckbox = document.getElementById('.termsCb');
-  const preloader = document.getElementById('.preloader');
-  const successMessage = document.getElementById('.successMessage');
+  const emailForm = document.getElementById('email-form');
+  const emailInput = document.getElementById('email');
+  const termsCheckbox = document.getElementById('termsCb');
+  const preloader = document.getElementById('preloader');
+  const successMessage = document.getElementById('successMessage');
+  const overlayEmailBg = document.getElementById('overlay-email-bg');
 
   // add submit event listener to the emailForm
   emailForm.addEventListener('submit', function (e) {
@@ -384,14 +385,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // conditional check for a valid email input and terms checkbox checked
     if (validateEmail(emailInput.value) && termsCheckbox.checked) {
+      // show overlay
+      showOverlay();
       // show the preloader
       showPreloader();
 
       // simulate a form submission
       setTimeout(() => {
-        // hide the preloader
+        // hide the preloader after 2 seconds
         hidePreloader();
-      }, 3000);
+      }, 2000);
     } else {
       alert('Please enter a valid email and accept the terms');
     }
@@ -406,28 +409,125 @@ document.addEventListener('DOMContentLoaded', function () {
     return emailRegex.test(String(email).toLowerCase());
   }
 
+  // function to show the overlay
+  function showOverlay() {
+    overlayEmailBg.classList.add('show');
+  }
+
+  // function to hide the overlay
+  function hideOverlay() {
+    overlayEmailBg.classList.remove('show');
+  }
+
   // function to show the preloader
   function showPreloader() {
-    preloader.classList.add('show');
+    preloader.style.display = 'flex';
+    setTimeout(() => {
+      preloader.classList.add('show');
+    }, 10); // wait for 10ms before adding preloader show class
   }
+
   // function to hide the preloader
   function hidePreloader() {
     preloader.classList.remove('show');
     setTimeout(() => {
+      // preloader is hidden after 1 second
+      preloader.style.display = 'none';
+      // show success message
       showSuccessMessage();
-    }, 500); // wait for preloader to slide up before showing success message
+    }, 1000); // wait for preloader to slide up before showing success message
   }
 
   function showSuccessMessage() {
     // displays a success message for 3 seconds
     successMessage.style.display = 'block';
-    // hids the success message and resets the form
+    // hides the success message and resets the form
     setTimeout(() => {
       successMessage.style.display = 'none';
-      form.reset(); // rest form
+      hideOverlay();
+      emailForm.reset(); // rest form
     }, 3000); // success message stays for 3 seconds
   }
-
   // End
   /* ---------------------------------- */
+
+  /* ---------------------------------- */
+  // Start
+  // function to handle chevron down clicks for contact reservation
+  // document
+  //   .querySelectorAll('.icon-wrapper ion-icon[name="chevron-down"]')
+  //   .forEach(icon => {
+  //     icon.addEventListener('click', function () {
+  //       const previousElement = this.previousElementSibling;
+
+  //       if (previousElement) {
+  //         if (previousElement.type === 'date') {
+  //           console.log('Date input found', previousElement);
+  //           // Trigger the date picker
+  //           previousElement.showPicker();
+
+  //         } else if (previousElement.tagName.toLowerCase() === 'select') {
+  //           // Show select opti
+  //           console.log('Select input found', previousElement);
+  //           previousElement.classList.remove('custom-focus');
+  //           previousElement.focus();
+  //           previousElement.dispatchEvent(
+  //             new MouseEvent('mousedown', { bubbles: true, cancelable: true })
+  //           );
+  //         } else {
+  //           console.log('No matching input found');
+  //         }
+  //       }
+  //     });
+  //   });
+
+  /* Start */
+  // function for chevron down click for contact reservation on the date picker
+  const iconWrappers = document.querySelectorAll('.icon-wrapper');
+  let currentlyActive = null;
+
+  function highlightInput(input) {
+    if (currentlyActive && currentlyActive !== input) {
+      currentlyActive.style.borderColor = '';
+    }
+    input.style.borderColor = 'hsl(38, 61%, 73%)';
+    currentlyActive = input;
+  }
+
+  iconWrappers.forEach(wrapper => {
+    const input = wrapper.querySelector('select, input[type="date"]');
+
+    input.addEventListener('focus', function () {
+      highlightInput(this);
+    });
+
+    if (input.type === 'date') {
+      // Create a div to act as the custom dropdown arrow for date input
+      const dateArrow = document.createElement('div');
+      dateArrow.className = 'date-arrow';
+      wrapper.appendChild(dateArrow);
+
+      dateArrow.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        input.showPicker();
+        highlightInput(input);
+      });
+    }
+
+    if (input.tagName.toLowerCase() === 'select') {
+      input.addEventListener('change', function () {
+        setTimeout(() => this.blur(), 0);
+      });
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (currentlyActive && !e.target.closest('.icon-wrapper')) {
+      currentlyActive.style.borderColor = '';
+      currentlyActive = null;
+    }
+  });
+
+  /* End;*/
 });

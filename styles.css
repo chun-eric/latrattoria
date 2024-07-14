@@ -74,6 +74,8 @@ img {
   position: fixed;
   top: -100%;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background-color: #e4c590;
@@ -88,6 +90,8 @@ img {
 
 .preloader.show {
   top: 0;
+  /* transform: translateY(100%);
+  transition-delay: 250ms; */
 }
 
 .spinner {
@@ -116,20 +120,30 @@ img {
 
 /* success message */
 .success-message {
-  display: none;
+  display: none !important;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #e9e9e9;
-  color: #222424;
+  background-color: #f1eee8;
+  color: #343332;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
-  z-index: 10000;
+  z-index: 10000 !important;
   font-size: 20px;
-  width: 300px;
+  transition: 0.4s ease-in;
+  width: 400px;
   height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+  font-size: 26px;
+  border: 1px solid #292723;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 /* header */
@@ -1905,6 +1919,26 @@ header .columns nav a.active {
   flex-direction: column;
 }
 
+.overlay-email-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.7);
+  opacity: 0;
+  z-index: 9998;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.overlay-email-bg.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 .email-section h2 {
   font-size: 30px;
   text-align: center;
@@ -2553,13 +2587,13 @@ input[type='checkbox'] {
 }
 
 /* Contact Online Reservation */
+/* Contact Online Reservation */
 .contact-container {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: #161718;
   padding: 100px 0;
 }
@@ -2590,35 +2624,6 @@ textarea {
   width: 100%;
 }
 
-textarea.input-field {
-  display: block;
-  background-color: #1b1c1d;
-  padding-top: 20px;
-  height: 160px;
-  /* doesnt allow resizing the heigth and width of textarea*/
-  resize: none;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  border: 1px solid hsla(0, 0%, 100%, 0.1);
-  outline: none;
-  transition: border-color 500ms ease !important;
-}
-
-textarea.input-field::placeholder {
-  color: #fff;
-  /* font-family: 'DM Sans', sans-serif; */
-}
-
-textarea.input-field:focus {
-  border-color: hsl(38, 61%, 73%) !important;
-}
-
-.input-wrapper {
-  display: grid;
-  column-gap: 20px;
-  grid-template-columns: repeat(2, 1fr);
-}
-
 .input-field {
   background-color: #1b1c1d;
   color: #fff;
@@ -2628,15 +2633,32 @@ textarea.input-field:focus {
   margin-block-end: 20px;
   outline: none;
   transition: border-color 500ms ease;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  appearance: none;
+  cursor: pointer;
 }
 
-input.input-field:focus {
+textarea.input-field {
+  height: 160px;
+  resize: none;
+  padding-top: 20px;
+}
+
+.input-field:focus,
+.input-field.custom-focus,
+.icon-wrapper .input-field.select-focused {
   border-color: hsl(38, 61%, 73%);
 }
 
-input.input-field::placeholder {
-  color: inherit;
-  font-family: 'DM Sans', sans-serif;
+.input-field::placeholder {
+  color: #fff;
+}
+
+.input-wrapper {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .three-column-input-wrapper {
@@ -2650,47 +2672,87 @@ input.input-field::placeholder {
   align-items: center;
 }
 
-.icon-wrapper select.input-field,
-.icon-wrapper input.input-field {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  appearance: none; /* to remove default select arrow */
-  transition: border-color 500ms ease;
+.icon-wrapper .input-field {
+  margin-block-end: 0;
+  padding-left: 40px;
+  padding-right: 30px;
 }
 
-.icon-wrapper .input-field.select-focused {
-  outline: none;
-  border-color: hsl(38, 61%, 73%);
+.icon-wrapper ion-icon {
+  position: absolute;
+  font-size: 1rem;
 }
 
 .icon-wrapper ion-icon:first-child {
-  position: absolute;
   left: 10px;
-  padding-right: 10px;
-  padding-left: 5px;
-  font-size: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .icon-wrapper ion-icon:last-child {
+  right: 10px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.icon-wrapper input[type='date']::-webkit-calendar-picker-indicator,
+.icon-wrapper select::-ms-expand {
+  opacity: 0;
+}
+
+.icon-wrapper select,
+.icon-wrapper input[type='date'] {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+}
+
+/* Hide the default calendar icon for date inputs */
+.icon-wrapper input[type='date']::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
+  opacity: 0;
+}
+
+/* For Firefox */
+.icon-wrapper input[type='date'] {
+  -moz-appearance: textfield;
+}
+
+/* For Edge */
+.icon-wrapper input[type='date']::-ms-clear,
+.icon-wrapper input[type='date']::-ms-reveal {
+  display: none;
+}
+
+/* Ensure the custom arrow is visible and clickable */
+.icon-wrapper input[type='date'] {
+  position: relative;
+  z-index: 1;
+}
+
+.date-arrow {
+  z-index: 2;
+}
+
+.date-arrow {
   position: absolute;
   right: 10px;
-  padding-right: 10px;
-  padding-left: 5px;
-  font-size: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
-  /*Prevents the icon from blocking clicks on the input - so a click allows the dropdown to  */
-  pointer-events: none;
+  pointer-events: auto;
 }
 
-/* hide the input type data default icon */
-.icon-wrapper input[type='date']::-webkit-calendar-picker-indicator {
-  opacity: 0; /* Hides the default calendar icon */
-}
-
-.icon-wrapper .input-field {
-  margin-block-end: 0px;
-  cursor: pointer;
-  padding-inline-start: 40px;
+.form-left,
+.form-right {
+  padding: 80px 40px;
 }
 
 .form-left {
@@ -2698,17 +2760,17 @@ input.input-field::placeholder {
   height: 100%;
   flex-direction: column;
   background-color: #0e0d0c;
-  padding: 80px 40px;
-}
-.form-left h2 {
-  font-size: 3rem;
-  padding-bottom: 20px;
 }
 
 .form-left h2,
 .form-left p {
   color: #fff;
   text-align: center;
+}
+
+.form-left h2 {
+  font-size: 3rem;
+  padding-bottom: 20px;
 }
 
 .form-left p {
@@ -2726,7 +2788,6 @@ input.input-field::placeholder {
   flex-direction: column;
   gap: 22px;
   align-items: center;
-  padding: 80px 40px;
   height: 100%;
 }
 
@@ -2740,6 +2801,7 @@ input.input-field::placeholder {
   padding-bottom: 15px;
   font-family: 'Playfair Display', serif;
 }
+
 .form-right .contact-number {
   font-size: 1.5rem;
   color: hsl(38, 61%, 73%);
@@ -2756,6 +2818,7 @@ input.input-field::placeholder {
   font-size: 1rem;
   padding-top: 14px;
 }
+
 .location-label {
   margin-top: 30px;
 }
@@ -2766,11 +2829,9 @@ address {
 }
 
 .btn-submit {
-  margin-top: 0px;
   width: 100%;
   background-color: hsl(38, 61%, 73%);
-
-  padding: 20px 20px;
+  padding: 20px;
   border: none;
   cursor: pointer;
   font-size: 16px;
@@ -2798,9 +2859,9 @@ address {
     align-items: center;
     justify-content: center;
   }
+
   .form-left,
   .form-right {
-    display: block;
     width: 100%;
     padding: 60px 40px;
   }
@@ -2811,6 +2872,7 @@ address {
     display: flex;
     gap: 20px;
   }
+
   .form-right h2 {
     padding-bottom: 20px;
   }
@@ -2820,8 +2882,8 @@ address {
   .input-wrapper.two-columns {
     grid-template-columns: 1fr;
   }
+
   .input-wrapper.three-column-input-wrapper {
-    flex-direction: column;
     display: block;
   }
 }
