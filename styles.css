@@ -2477,20 +2477,24 @@ input[type='checkbox'] {
 .slider-images {
   overflow: hidden;
   display: flex;
-  /* grid-auto-flow: column; */
-  /* shrinks the grid columns and maintains the number of columns */
-  /* grid-auto-columns: calc(33.333% - 10px); */
   gap: 10px;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  overflow-x: auto;
   scroll-snap-type: x mandatory;
-  transition: all 0.3s ease;
-  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: none; /* Remove the transition here */
 }
 
 .slider-images::-webkit-scrollbar {
   display: none;
+}
+
+.slider-images:active {
+  cursor: grabbing;
 }
 
 .slider-images :where(.image-container, img) {
@@ -2501,24 +2505,50 @@ input[type='checkbox'] {
 
 .slider-images.dragging .image-container {
   cursor: grab;
+
   /* user-select: none; */
 }
 
 .slider-images .image-container {
-  flex: 0 0 33.333%;
+  flex: 0 0 calc(100% / var(--slides-to-show, 3));
   max-width: 100%;
-  /* width: 560px; */
-  /* Full width for responsive grid */
-  /* max-width: 100%;  */
-  /* Ensure it doesn't exceed container width */
-  height: 450px;
-  /* Maintain aspect ratio */
+  height: auto;
+  aspect-ratio: 16/9;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.6s ease-in-out;
   scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+  transition: flex-basis 0.3s ease;
+}
+
+.slider-images .image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 0;
+  width: 90%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  opacity: 0.4;
+  transition: opacity 0.5s ease;
+  z-index: 10;
+}
+
+.slider-images .image-container:hover::before {
+  opacity: 1;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
 }
 
 .slider-images .image-container img {
@@ -2529,11 +2559,14 @@ input[type='checkbox'] {
   cursor: pointer;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  transition: all 0.5s ease;
+  position: relative;
 }
 
 .slider-images .image-container img:hover {
   filter: brightness(70%);
-  transition: 0.6s ease-in !important;
+  transform: scale(1.01);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-carousel-buttons {
