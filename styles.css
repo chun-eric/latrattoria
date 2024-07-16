@@ -2460,7 +2460,7 @@ input[type='checkbox'] {
 .gallery-carousel-container .slider-container {
   padding: 0 20px;
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   gap: 20px;
   align-items: center;
@@ -2471,19 +2471,22 @@ input[type='checkbox'] {
   object-fit: cover;
   /* width: calc(570px * 6); */
   /* Total width for all images */
+  -webkit-overflow-scrolling: touch;
 }
 
 .slider-images {
   overflow: hidden;
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
+  /* grid-auto-flow: column; */
   /* shrinks the grid columns and maintains the number of columns */
-  grid-auto-columns: calc(33.333% - 10px);
+  /* grid-auto-columns: calc(33.333% - 10px); */
   gap: 10px;
   scroll-behavior: smooth;
   scrollbar-width: none;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  transition: all 0.3s ease;
+  scroll-behavior: smooth;
 }
 
 .slider-images::-webkit-scrollbar {
@@ -2502,17 +2505,24 @@ input[type='checkbox'] {
 }
 
 .slider-images .image-container {
-  width: 560px; /* Full width for responsive grid */
-  max-width: 100%; /* Ensure it doesn't exceed container width */
-  height: 400px;
+  flex: 0 0 33.333%;
+  max-width: 100%;
+  /* width: 560px; */
+  /* Full width for responsive grid */
+  /* max-width: 100%;  */
+  /* Ensure it doesn't exceed container width */
+  height: 450px;
   /* Maintain aspect ratio */
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  transition: all 0.6s ease-in-out;
+  scroll-snap-align: start;
 }
 
 .slider-images .image-container img {
-  width: 100%; /* Width of each image */
+  width: 90%; /* Width of each image */
   height: 100%; /* Maintain aspect ratio */
   z-index: 5;
   object-fit: cover;
@@ -2523,7 +2533,7 @@ input[type='checkbox'] {
 
 .slider-images .image-container img:hover {
   filter: brightness(70%);
-  transition: all 0.5s ease-in-out !important;
+  transition: 0.6s ease-in !important;
 }
 
 .gallery-carousel-buttons {
@@ -2566,9 +2576,16 @@ input[type='checkbox'] {
   box-sizing: border-box;
 }
 
+@media (max-width: 1000px) {
+  .slider-images .image-container {
+    flex: 0 0 50%;
+    width: 100%;
+  }
+}
+
 @media (max-width: 899px) {
   .slider-images {
-    grid-auto-columns: calc(50% - 10px);
+    /* grid-auto-columns: calc(50% - 10px); */
   }
   .gallery-carousel-container h2 {
     font-size: 2.8rem;

@@ -796,8 +796,8 @@
           </p>
 
           <div class="input-wrapper two-columns">
-            <input id="name" type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
-            <input id="phone" type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
+            <input id="name" type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field" required>
+            <input id="phone" type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field" required>
           </div>
           
           <!-- Middle Input wrapper -->
@@ -805,7 +805,7 @@
           <div class="input-wrapper three-column-input-wrapper">
             <div class="icon-wrapper">
               <ion-icon name="person-outline" aria-hidden="true"></ion-icon> 
-              <select name="person" id="person-select" class="input-field">
+              <select name="person" id="person-select" class="input-field" required>
                 <option value="1-person">1 Person</option>
                 <option value="1-person">2 People</option>
                 <option value="1-person">3 People</option>
@@ -823,7 +823,7 @@
       
             <div class="icon-wrapper">
               <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon> 
-              <input type="date" type="date" name="reservation-date" id="date-input" class="input-field">
+              <input type="date" type="date" name="reservation-date" id="date-input" class="input-field" required>
             </div>
         
 
@@ -832,7 +832,7 @@
   
           <div class="icon-wrapper">
             <ion-icon name="time-outline" aria-hidden="true"></ion-icon> 
-            <select name="person" id="time-select" class="input-field">
+            <select name="person" id="time-select" class="input-field" required>
               <option value="011:00am">11 : 00 am</option>
               <option value="012:00am">12 : 00 am</option>
               <option value="01:00pm">01 : 00 pm</option>
@@ -842,15 +842,12 @@
               <option value="08:00pm">08 : 00 pm</option>
               <option value="09:00pm">09 : 00 pm</option>
               <option value="10:00pm">10 : 00 pm<option>
-           
             </select>
-      
-         
           </div>
         </div>
 
           <!-- Message Area -->
-            <textarea name="message" id="message" placeholder="Message" autocomplete="off" class="input-field" ></textarea>
+          <textarea name="message" id="message" placeholder="Message" autocomplete="off" class="input-field" ></textarea>
 
           <!-- Submit Button -->
             <button type="submit" class="btn-submit">
@@ -935,7 +932,10 @@
               <img src="/images/pasta3.jpg" alt="image" draggable="false"onclick="currentSlide(6)" />
             </div>
             <div class="image-container">
-              <img src="/images/pasta2.jpg" alt="image" draggable="false" onclick="currentSlide(1)" />
+              <img src="/images/pasta3.jpg" alt="image" draggable="false"onclick="currentSlide(7)" />
+            </div>
+            <div class="image-container">
+              <img src="/images/pasta3.jpg" alt="image" draggable="false"onclick="currentSlide(7)" />
             </div>
           </div>
         </div>
@@ -1105,6 +1105,7 @@
 
 
     <script src="script.js"></script>
+    <script src="carousel.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
