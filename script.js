@@ -1,4 +1,5 @@
 'use strict';
+import { menuData } from './constants';
 
 document.addEventListener('DOMContentLoaded', function () {
   // Start
@@ -184,6 +185,39 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+  // End
+  /* ---------------------------------- */
+
+  /* ---------------------------------- */
+  // Start
+  // Function to render  all the menu Items from constants.js
+  function renderMenuItems(items) {
+    const menuBoardContainer = document.querySelector('.menu-board-container');
+    menuBoardContainer.innerHTML = '';
+
+    items.forEach(item => {
+      const menuBoard = document.createElement('div');
+      menuBoard.className = 'menu-board';
+      menuBoard.setAttribute('data-category', item.category);
+
+      menuBoard.innerHTML = `
+            <img src="${item.image}" alt="${item.name}"loading="lazy" />
+            <div class="description-container">
+              <div class="menu-description">
+                <p class="item-name">${item.name}</p>
+                <p class="item-price">${item.price}</p>
+              </div>
+              <p>${item.description}</p>
+            </div>
+      `;
+
+      menuBoardContainer.appendChild(menuBoard);
+    });
+  }
+
+  //Initial Render
+  renderMenuItems(menuData.menuItems);
+
   // End
   /* ---------------------------------- */
 
@@ -605,6 +639,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* End;*/
   /* ---------------------------------- */
-
-  
 });
