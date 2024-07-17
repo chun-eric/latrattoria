@@ -2569,6 +2569,58 @@ input[type='checkbox'] {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
+.image-overlay {
+  position: absolute;
+  left: 5%;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(236, 236, 236);
+  font-size: 1rem;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  z-index: 35;
+  justify-content: space-between;
+  padding: 30px;
+  height: 10%;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.instagram-info,
+.likes-info {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  min-width: 0; /* allow flex items to shrink below content size */
+}
+
+.instagram-info {
+  flex: 1 1 70%; /* takes up 70% of space */
+  justify-content: flex-start;
+}
+
+.likes-info {
+  flex: 0 1 30%; /* takes up 30% of space */
+  justify-content: flex-end;
+}
+
+.instagram-info i,
+.likes-info i {
+  margin-right: 10px;
+  font-size: 1.3rem;
+  flex-shrink: 0; /* prevents icon from shrinking */
+}
+
+.instagram-info span,
+.likes-info span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0; /* Allow text to shrink */
+}
+
 .gallery-carousel-buttons {
   align-items: center;
   justify-content: center;
@@ -2617,22 +2669,33 @@ input[type='checkbox'] {
 }
 
 @media (max-width: 899px) {
-  .slider-images {
-    /* grid-auto-columns: calc(50% - 10px); */
-  }
   .gallery-carousel-container h2 {
     font-size: 2.8rem;
+  }
+  .image-overlay {
+    font-size: 12px;
   }
 }
 
 @media (max-width: 599px) {
-  .slider-images {
-    grid-auto-columns: calc(100%);
-    /* 1 image per row */
-  }
-
   .gallery-carousel-container h2 {
     font-size: 2.2rem; /* Adjust heading size for smaller screens */
+  }
+  .image-overlay {
+    font-size: 0.7rem;
+    /* flex-wrap: wrap;  */
+    /* allow wrapping on very small screens */
+  }
+
+  .instagram-info,
+  .likes-info {
+    flex-basis: 100%; /* take full width on very small screens */
+  }
+
+  .instagram-info i,
+  .likes-info i {
+    margin-right: 2px;
+    font-size: 0.8rem;
   }
 }
 
@@ -3587,7 +3650,7 @@ footer .columns {
   align-items: flex-start;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin-top: 20px;
 }
 
@@ -3602,7 +3665,7 @@ footer .columns div.a {
 }
 
 .left-column {
-  width: 90%;
+  width: 50%;
   text-align: left;
   align-items: left;
 }
@@ -3623,7 +3686,7 @@ footer .columns div.a {
   align-items: center;
 }
 
-.middle-column {
+/* .middle-column {
   width: 100%;
 }
 .middle-column h4 {
@@ -3633,7 +3696,7 @@ footer .columns div.a {
   width: 100%;
   max-width: 100%;
   padding-top: 10px;
-}
+} */
 
 .middle-column img {
   margin: 0 auto;
@@ -3644,6 +3707,7 @@ footer .columns div.a {
   background-position: center;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
+
 .right-column {
   width: 100%;
   text-align: right;
@@ -3665,11 +3729,14 @@ footer .columns div.a {
 
 .right-column p:first-of-type {
   color: #dbd4b7 !important;
-  width: 70%;
+  width: 50%;
   text-align: right !important;
   margin-right: 0px !important;
 }
 
+.right-column p:nth-child(2) {
+  padding-top: 20px;
+}
 .right-column .footer-icons {
   display: flex;
   text-align: right;
@@ -3700,7 +3767,7 @@ footer svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 80px 0 20px;
 }
 .copyright p {
   text-align: center;
@@ -3718,12 +3785,12 @@ footer svg {
     flex-direction: column;
     align-items: flex-start !important;
     text-align: left !important;
-    gap: 60px;
+    gap: 80px;
   }
 
   .left-column p {
     text-align: left;
-    width: 60%;
+    width: 90%;
   }
   .middle-column h4 {
     text-align: left;
@@ -3741,12 +3808,16 @@ footer svg {
     align-items: left !important;
   }
 
+  .right-column h4 {
+    padding-bottom: 5px;
+  }
+
   .right-column p:first-of-type {
     text-align: left !important;
     align-items: left !important;
-
     width: 100%;
   }
+
   .footer-icons {
     text-align: left !important;
     align-items: left !important;
@@ -3755,6 +3826,7 @@ footer svg {
     margin-top: 30px;
     align-items: flex-start;
     padding-left: 20px;
+    padding-top: 40px;
   }
   .footer-container .copyright p {
     text-align: left;
