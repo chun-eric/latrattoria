@@ -83,24 +83,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Touch events
-  slider.addEventListener('touchstart', e => {
-    isDragging = true;
-    startX = e.touches[0].pageX - slider.offsetLeft;
-  });
+  slider.addEventListener(
+    'touchstart',
+    e => {
+      isDragging = true;
+      startX = e.touches[0].pageX - slider.offsetLeft;
+    },
+    { passive: true }
+  );
 
-  slider.addEventListener('touchmove', e => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5;
+  slider.addEventListener(
+    'touchmove',
+    e => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5;
 
-    if (walk > 50) {
-      isDragging = false;
-      scrollToSlide(activeSlideIndex - 1);
-    } else if (walk < -50) {
-      isDragging = false;
-      scrollToSlide(activeSlideIndex + 1);
-    }
-  });
+      if (walk > 50) {
+        isDragging = false;
+        scrollToSlide(activeSlideIndex - 1);
+      } else if (walk < -50) {
+        isDragging = false;
+        scrollToSlide(activeSlideIndex + 1);
+      }
+    },
+    { passive: true }
+  );
 
   slider.addEventListener('touchend', endDrag);
 
