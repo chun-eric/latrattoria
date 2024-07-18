@@ -1,7 +1,8 @@
 'use strict';
-import { menuData } from './constants';
+import { menuData } from './constants.js';
 
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOM Fully loaded');
   // Start
   // function to handle hero overlay image transitions
   // select all hero images
@@ -192,7 +193,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // Start
   // Function to render  all the menu Items from constants.js
   function renderMenuItems(items) {
+    console.log('renderMenuItems called with:', items);
     const menuBoardContainer = document.querySelector('.menu-board-container');
+    console.log('menuBoardContainer:', menuBoardContainer);
+
+    if (!menuBoardContainer) {
+      console.error('Menu board container not found');
+      return;
+    }
+
     menuBoardContainer.innerHTML = '';
 
     items.forEach(item => {
@@ -201,14 +210,17 @@ document.addEventListener('DOMContentLoaded', function () {
       menuBoard.setAttribute('data-category', item.category);
 
       menuBoard.innerHTML = `
+        
             <img src="${item.image}" alt="${item.name}"loading="lazy" />
             <div class="description-container">
               <div class="menu-description">
                 <p class="item-name">${item.name}</p>
                 <p class="item-price">${item.price}</p>
               </div>
-              <p>${item.description}</p>
+              <p class="item-description">${item.description}</p>
             </div>
+          
+           
       `;
 
       menuBoardContainer.appendChild(menuBoard);

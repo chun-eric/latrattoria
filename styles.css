@@ -1328,7 +1328,7 @@ header .columns nav a.active {
   width: calc(45% - 10px); /* Two items per row with gap */
   /* max-width: 100%; */
 
-  gap: 80px;
+  gap: 40px;
   transition: opacity 0.5s ease, transform 0.5s ease width, 0.5s ease,
     height 0.5s ease;
   transform: scale(1);
@@ -1423,7 +1423,7 @@ header .columns nav a.active {
 .menu-board img {
   width: 200px; /* Placeholder size, adjust as needed */
   height: 100%;
-  border-radius: 2px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
@@ -1434,7 +1434,7 @@ header .columns nav a.active {
   gap: 10px;
   width: 400px;
   max-width: 100%;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
 }
 
@@ -1449,7 +1449,7 @@ header .columns nav a.active {
 .menu-description {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* align items from the top */
   justify-content: space-between;
   color: #1a1c1b;
 }
@@ -1483,6 +1483,10 @@ header .columns nav a.active {
   font-size: 24px;
   font-family: 'Cormorant', serif;
   font-weight: bold;
+}
+
+.menu-description .item-description {
+  font-size: 16px;
 }
 
 .menu-items h4 {
