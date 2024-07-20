@@ -2472,24 +2472,26 @@ input[type='checkbox'] {
 }
 
 .gallery-carousel-container .slider-container {
-  padding: 0 20px;
   width: 100%;
+  overflow: hidden;
   /* border: 1px solid red; */
+  /* padding: 0 20px;
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
   z-index: 44;
-  /* transition: transform 0.5s ease-in-out; */
-  overflow: hidden;
   object-fit: cover;
+  -webkit-overflow-scrolling: touch; */
+  /* transition: transform 0.5s ease-in-out; */
   /* width: calc(570px * 6); */
   /* Total width for all images */
-  -webkit-overflow-scrolling: touch;
 }
 
 .slider-images {
   overflow: hidden;
+  width: 100%;
+  transition: transform 0.5s ease;
   display: flex;
   gap: 10px;
   scroll-snap-type: x mandatory;
@@ -2500,7 +2502,6 @@ input[type='checkbox'] {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  transition: none; /* Remove the transition here */
 }
 
 .slider-images::-webkit-scrollbar {
@@ -2523,7 +2524,11 @@ input[type='checkbox'] {
 
 .slider-images .image-container {
   flex: 0 0 calc(100% / var(--slides-to-show, 3));
+  max-width: calc(100% / var(--slides-to-show, 3));
+
+  box-sizing: border-box;
   max-width: 100%;
+  width: 100%;
   height: auto;
   aspect-ratio: 16/9;
   display: flex;
@@ -2564,15 +2569,21 @@ input[type='checkbox'] {
 }
 
 .slider-images .image-container img {
-  width: 90%; /* Width of each image */
-  height: 100%; /* Maintain aspect ratio */
-  z-index: 5;
+  width: 90%;
+  height: auto;
+  object-fit: cover;
+
+  /* width: 90%;  */
+  /* Width of each image */
+  /* height: 100%;  */
+  /* Maintain aspect ratio */
+  /* z-index: 5;
   object-fit: cover;
   cursor: pointer;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
   transition: all 0.5s ease;
-  position: relative;
+  position: relative; */
 }
 
 .slider-images .image-container img:hover {
@@ -2638,11 +2649,11 @@ input[type='checkbox'] {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100px;
+  height: 50px;
   display: flex;
   gap: 25px;
-  z-index: 20;
-  margin: auto;
+  margin-top: 20px;
+  z-index: 30;
 }
 
 .gallery-button {
@@ -2652,6 +2663,7 @@ input[type='checkbox'] {
   border-radius: 50%;
   cursor: pointer;
   position: relative;
+  transition: background-color 0.3s ease;
 }
 
 .gallery-button:hover,
@@ -2664,8 +2676,8 @@ input[type='checkbox'] {
 .gallery-button.active::after {
   content: '';
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 35px;
   height: 35px;
