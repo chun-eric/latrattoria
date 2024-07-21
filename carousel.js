@@ -1,4 +1,6 @@
 'use strict';
+import { imageData } from './constants.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const sliderContainer = document.querySelector('.slider-container');
   const galleryCarouselButtons = document.querySelector(
@@ -8,48 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let slidesToShow = 3;
 
   // Image data (you can replace this with your actual data)
-  const imageData = [
-    {
-      src: './images/gallery/insta-1.jpg',
-      username: '@wanderlust_diaries',
-      likes: '22.5k',
-    },
-    {
-      src: './images/gallery/insta-2.jpg',
-      username: '@artsy_visions',
-      likes: '12.0k',
-    },
-    {
-      src: './images/gallery/insta-3.jpg',
-      username: '@foodie_journey',
-      likes: '23.9k',
-    },
-    {
-      src: './images/gallery/insta-4.jpg',
-      username: '@style_maven',
-      likes: '42.1k',
-    },
-    {
-      src: './images/gallery/insta-5.jpg',
-      username: '@food_geek',
-      likes: '2.1k',
-    },
-    {
-      src: './images/gallery/insta-6.jpg',
-      username: '@foodie_bun',
-      likes: '6.5k',
-    },
-    {
-      src: './images/gallery/insta-7.jpg',
-      username: '@jane_paradise',
-      likes: '4.5k',
-    },
-    {
-      src: './images/gallery/insta-8.jpg',
-      username: '@crazy_88',
-      likes: '32.7k',
-    },
-  ];
 
   function createImageElement(imageInfo) {
     const imageContainer = document.createElement('div');
@@ -93,10 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
     sliderContainer.appendChild(sliderImages);
 
     // Create and add buttons
-    for (let i = 0; i < imageData.length - slidesToShow + 1; i++) {
+    const totalButtons = Math.max(1, imageData.length - slidesToShow + 1);
+    for (let i = 0; i < totalButtons; i++) {
       const button = document.createElement('div');
       button.className = 'gallery-button';
-      button.addEventListener('click', () => slideToIndex(i));
+      button.addEventListener('click', () => {
+        console.log(`Button ${i} clicked`);
+        slideToIndex(i);
+      });
       galleryCarouselButtons.appendChild(button);
     }
 
@@ -111,28 +75,47 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCarousel();
   }
 
+  // function to Update carousel based on currentIndex
   function updateCarousel() {
     const sliderImages = document.querySelector('.slider-images');
     const buttons = document.querySelectorAll('.gallery-button');
-    const slideWidth = 100 / slidesToShow;
 
-    sliderImages.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+    // Calculate the width of a single slide as a percentage
+    const slideWidthPercent = 100 / slidesToShow;
 
+    // Calculate the maxiumum translation
+    const maxTranslation =
+      -(imageData.length - slidesToShow) * slideWidthPercent;
+
+    // Calculate the new translation, ensuring it doesnt go beyond the maximum
+    let translateX = -currentIndex * slideWidthPercent;
+    translateX = Math.max(maxTranslation, Math.min(0, translateX));
+
+    // Update the transform property of the slider images container
+    sliderImages.style.transform = `translateX(${translateX}%)`;
+    console.log(`Translating by: ${translateX}%`);
+
+    // Update the active state of the gallery buttons
     buttons.forEach((button, index) => {
       button.classList.toggle('active', index === currentIndex);
     });
 
-    console.log('Current index:', currentIndex);
-    console.log('Transform applied:', sliderImages.style.transform);
+    console.log(
+      `Current index: ${currentIndex}, Slides to show: ${slidesToShow}`
+    );
   }
 
+  // function to slide to a specific index
   function slideToIndex(index) {
-    currentIndex = Math.max(
-      0,
-      Math.min(index, imageData.length - slidesToShow)
-    );
+    const totalSlides = imageData.length;
+    const maxIndex = totalSlides - slidesToShow;
+
+    // Ensure the index is within the bounds
+    currentIndex = Math.max(0, Math.min(index, totalSlides - slidesToShow));
+    console.log(`Sliding to index: ${currentIndex}`);
     updateCarousel();
   }
+  
 
   function adjustForScreenSize() {
     const viewportWidth = window.innerWidth;

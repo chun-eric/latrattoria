@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // function for the autoslide
   function startAutoSlide() {
-    intervalId = setInterval(nextReview, 7000);
+    intervalId = setInterval(nextReview, 6000);
   }
 
   // function to stop the autoslide

@@ -159,3 +159,48 @@ export const menuData = {
     },
   ],
 };
+
+
+
+export const imageData = [
+  {
+    src: './images/gallery/insta-1.jpg',
+    username: '@wanderlust_diaries',
+    likes: '22.5k',
+  },
+  {
+    src: './images/gallery/insta-2.jpg',
+    username: '@artsy_visions',
+    likes: '12.0k',
+  },
+  {
+    src: './images/gallery/insta-3.jpg',
+    username: '@foodie_journey',
+    likes: '23.9k',
+  },
+  {
+    src: './images/gallery/insta-4.jpg',
+    username: '@style_maven',
+    likes: '42.1k',
+  },
+  {
+    src: './images/gallery/insta-5.jpg',
+    username: '@food_geek',
+    likes: '2.1k',
+  },
+  {
+    src: './images/gallery/insta-6.jpg',
+    username: '@foodie_bun',
+    likes: '6.5k',
+  },
+  {
+    src: './images/gallery/insta-7.jpg',
+    username: '@jane_paradise',
+    likes: '4.5k',
+  },
+  {
+    src: './images/gallery/insta-8.jpg',
+    username: '@crazy_88',
+    likes: '32.7k',
+  },
+];
