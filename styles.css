@@ -2426,6 +2426,7 @@ input[type='checkbox'] {
   width: 95%;
   position: relative;
   padding: 60px 40px;
+  overflow: hidden !important;
 }
 
 .gallery-carousel-container p {
@@ -2480,16 +2481,21 @@ input[type='checkbox'] {
   width: 100%;
   transition: transform 0.5s ease;
   display: flex;
-
+  position: relative;
   gap: 10px;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
   cursor: grab;
   user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  /* This got rid of the really annoying previous image container that was showing on the left side of the container. */
+  gap: 0;
+}
+
+.slider-images.dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
 }
 
 .slider-images::-webkit-scrollbar {
@@ -2514,7 +2520,6 @@ input[type='checkbox'] {
   flex: 0 0 calc(100% / var(--slides-to-show, 3));
   max-width: calc(100% / var(--slides-to-show, 3));
   box-sizing: border-box;
-  max-width: 100%;
   width: 100%;
   height: auto;
   aspect-ratio: 16/9;
@@ -2523,7 +2528,6 @@ input[type='checkbox'] {
   justify-content: center;
   gap: 10px;
   scroll-snap-align: start;
-  overflow: hidden;
   position: relative;
   transition: flex-basis 0.3s ease;
 }
@@ -2542,7 +2546,7 @@ input[type='checkbox'] {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  opacity: 0.4;
+  opacity: 0.1;
   transition: opacity 0.5s ease;
   z-index: 10;
 }
@@ -2698,7 +2702,6 @@ input[type='checkbox'] {
   }
 }
 
-/* Contact Online Reservation */
 /* Contact Online Reservation */
 .contact-container {
   width: 100%;

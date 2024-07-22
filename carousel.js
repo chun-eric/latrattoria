@@ -2,16 +2,25 @@
 import { imageData } from './constants.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const sliderContainer = document.querySelector('.slider-container');
-  const galleryCarouselButtons = document.querySelector(
-    '.gallery-carousel-buttons'
-  );
-  let currentIndex = 0;
-  let slidesToShow = 3;
+  // State
+  let state = {
+    currentIndex: 0,
+    slidesToShow: 3,
+    isDragging: false,
+    startPosition: 0,
+    currentTranslate: 0,
+    prevTranslate: 0,
+  };
 
-  // Image data (you can replace this with your actual data)
+  // Elements
+  const elements = {
+    sliderContainer: document.querySelector('.slider-container'),
+    galleryCarouselButtons: document.querySelector('.gallery-carousel-buttons'),
+    sliderImages: null, // Will be set in renderCarousel
+  };
 
-  function createImageElement(imageInfo) {
+  // Functions
+  const createImageElement = imageInfo => {
     const imageContainer = document.createElement('div');
     imageContainer.className = 'image-container';
     imageContainer.innerHTML = `
@@ -27,119 +36,120 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     `;
-
-    imageContainer.addEventListener('click', () => {
-      console.log('Image clicked:', imageInfo.src);
-    });
-
+    imageContainer.addEventListener('click', () =>
+      console.log('Image clicked:', imageInfo.src)
+    );
     return imageContainer;
-  }
+  };
 
-  function renderCarousel() {
-    // Clear existing content
-    sliderContainer.innerHTML = '';
-    galleryCarouselButtons.innerHTML = '';
+  const renderCarousel = () => {
+    elements.sliderContainer.innerHTML = '';
+    elements.galleryCarouselButtons.innerHTML = '';
 
-    // Create slider-images container
-    const sliderImages = document.createElement('div');
-    sliderImages.className = 'slider-images';
+    elements.sliderImages = document.createElement('div');
+    elements.sliderImages.className = 'slider-images';
 
-    // Add images to slider
-    imageData.forEach((imageInfo, index) => {
-      const imageElement = createImageElement(imageInfo);
-      sliderImages.appendChild(imageElement);
-    });
+    imageData.forEach(imageInfo =>
+      elements.sliderImages.appendChild(createImageElement(imageInfo))
+    );
+    elements.sliderContainer.appendChild(elements.sliderImages);
 
-    sliderContainer.appendChild(sliderImages);
-
-    // Create and add buttons
-    const totalButtons = Math.max(1, imageData.length - slidesToShow + 1);
+    const totalButtons = Math.max(1, imageData.length - state.slidesToShow + 1);
     for (let i = 0; i < totalButtons; i++) {
       const button = document.createElement('div');
       button.className = 'gallery-button';
-      button.addEventListener('click', () => {
-        console.log(`Button ${i} clicked`);
-        slideToIndex(i);
-      });
-      galleryCarouselButtons.appendChild(button);
+      button.addEventListener('click', () => slideToIndex(i));
+      elements.galleryCarouselButtons.appendChild(button);
     }
 
-    console.log(
-      'Number of buttons created:',
-      galleryCarouselButtons.children.length
-    );
-    console.log('Total images rendered:', sliderImages.children.length);
-    console.log('Slider container width:', sliderContainer.offsetWidth);
-    console.log('Slider images width:', sliderImages.offsetWidth);
-
     updateCarousel();
-  }
+    addDragListeners();
+  };
 
-  // function to Update carousel based on currentIndex
-  function updateCarousel() {
-    const sliderImages = document.querySelector('.slider-images');
-    const buttons = document.querySelectorAll('.gallery-button');
+  const updateCarousel = () => {
+    const slideWidthPercent = 100 / state.slidesToShow;
+    const maxIndex = imageData.length - state.slidesToShow;
+    state.currentIndex = Math.min(Math.max(0, state.currentIndex), maxIndex);
+    const translateX = -state.currentIndex * slideWidthPercent;
 
-    // Calculate the width of a single slide as a percentage
-    const slideWidthPercent = 100 / slidesToShow;
+    elements.sliderImages.style.transform = `translateX(${translateX}%)`;
 
-    // Calculate the maxiumum translation
-    const maxTranslation =
-      -(imageData.length - slidesToShow) * slideWidthPercent;
-
-    // Calculate the new translation, ensuring it doesnt go beyond the maximum
-    let translateX = -currentIndex * slideWidthPercent;
-    translateX = Math.max(maxTranslation, Math.min(0, translateX));
-
-    // Update the transform property of the slider images container
-    sliderImages.style.transform = `translateX(${translateX}%)`;
-    console.log(`Translating by: ${translateX}%`);
-
-    // Update the active state of the gallery buttons
-    buttons.forEach((button, index) => {
-      button.classList.toggle('active', index === currentIndex);
+    document.querySelectorAll('.gallery-button').forEach((button, index) => {
+      button.classList.toggle('active', index === state.currentIndex);
     });
+  };
 
-    console.log(
-      `Current index: ${currentIndex}, Slides to show: ${slidesToShow}`
+  const slideToIndex = index => {
+    state.currentIndex = Math.max(
+      0,
+      Math.min(index, imageData.length - state.slidesToShow)
     );
-  }
-
-  // function to slide to a specific index
-  function slideToIndex(index) {
-    const totalSlides = imageData.length;
-    const maxIndex = totalSlides - slidesToShow;
-
-    // Ensure the index is within the bounds
-    currentIndex = Math.max(0, Math.min(index, totalSlides - slidesToShow));
-    console.log(`Sliding to index: ${currentIndex}`);
     updateCarousel();
-  }
-  
+  };
 
-  function adjustForScreenSize() {
+  const adjustForScreenSize = () => {
     const viewportWidth = window.innerWidth;
-
-    if (viewportWidth < 600) {
-      slidesToShow = 1;
-    } else if (viewportWidth < 900) {
-      slidesToShow = 2;
-    } else {
-      slidesToShow = 3;
-    }
-
+    state.slidesToShow = viewportWidth < 600 ? 1 : viewportWidth < 900 ? 2 : 3;
     document.documentElement.style.setProperty(
       '--slides-to-show',
-      slidesToShow
+      state.slidesToShow
     );
-
-    console.log('Slides to show:', slidesToShow);
     renderCarousel();
-  }
+  };
+
+  // Drag functions
+  const dragStart = event => {
+    state.isDragging = true;
+    state.startPosition = getPositionX(event);
+    elements.sliderImages.classList.add('dragging');
+  };
+
+  const drag = event => {
+    if (state.isDragging) {
+      const currentPosition = getPositionX(event);
+      state.currentTranslate =
+        state.prevTranslate + currentPosition - state.startPosition;
+    }
+  };
+
+  const dragEnd = () => {
+    state.isDragging = false;
+    const movedBy = state.currentTranslate - state.prevTranslate;
+
+    if (
+      movedBy < -100 &&
+      state.currentIndex < imageData.length - state.slidesToShow
+    ) {
+      state.currentIndex += 1;
+    }
+    if (movedBy > 100 && state.currentIndex > 0) {
+      state.currentIndex -= 1;
+    }
+
+    setPositionByIndex();
+    elements.sliderImages.classList.remove('dragging');
+  };
+
+  const getPositionX = event =>
+    event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+
+  const setPositionByIndex = () => {
+    state.currentTranslate = (state.currentIndex * -100) / state.slidesToShow;
+    state.prevTranslate = state.currentTranslate;
+    updateCarousel();
+  };
+
+  const addDragListeners = () => {
+    elements.sliderImages.addEventListener('mousedown', dragStart);
+    elements.sliderImages.addEventListener('touchstart', dragStart);
+    elements.sliderImages.addEventListener('mouseup', dragEnd);
+    elements.sliderImages.addEventListener('touchend', dragEnd);
+    elements.sliderImages.addEventListener('mousemove', drag);
+    elements.sliderImages.addEventListener('touchmove', drag);
+    elements.sliderImages.addEventListener('mouseleave', dragEnd);
+  };
 
   // Initialize
   adjustForScreenSize();
-
-  // Handle window resize
   window.addEventListener('resize', adjustForScreenSize);
 });

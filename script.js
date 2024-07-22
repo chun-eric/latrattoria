@@ -306,11 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
     showReview(currentIndex);
   }
 
-  // function to show the previous review
-  // function prevReview() {
-  //   currentIndex = currentIndex - 1 < 0 ? reviews.length - 1 : currentIndex - 1;
-  //   showReview(currentIndex);
-  // }
+
 
   // function for the autoslide
   function startAutoSlide() {
