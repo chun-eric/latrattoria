@@ -84,24 +84,18 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', handleResize);
   // End
 
-  // Start
-  // Function to animate Hamburger on open
+  // function to animate Hamburger on open
   function animateHambuger() {
     hamburger.classList.add('active');
     hamburger.style.transform = 'rotate(90deg)';
   }
 
-  // Start
-  // Function to animate Hamburger on close
+  // function to animate Hamburger on close
   function animateClose() {
     hamburger.classList.remove('active');
     hamburger.style.transform = 'rotate(0deg)';
   }
-  // End
-  /* ---------------------------------- */
 
-  /* ---------------------------------- */
-  // Start
   // function to add staggered animation to the hero intro content
   const content = document.querySelector('.fade-in-content');
 
@@ -121,46 +115,36 @@ document.addEventListener('DOMContentLoaded', function () {
   // Run the function and start the animation when the page loads
   showElement(0);
 
-  // Add an Intersection Observer to the content element when in view. Maybe not necessary here.
-  // const observer = new IntersectionObserver((entires) => {
-  //   entires.forEach((entry) => {
-  //     if (entry.isIntersecting) {
-  //       showElement(0);
-  //       observer.unobserve(entry.target);
-  //     }
-  //   });
-  // }, { threshold: 0.1});
-  /* the threshold means trigger when 10% of the element is visible */
-  // observer.observe(content);
-  // End
-  /* ---------------------------------- */
-
-  /* ---------------------------------- */
-  // Start
   // function to handle scroll down and show the header
-  const header = document.querySelector('header');
-  // A number value to store to determine when the header should changed to scrolled state
-  const scrollThreshold = 60;
+  const isHomePage =
+    window.location.pathname === '/' ||
+    window.location.pathname.endsWith('/index.html');
 
+  if (isHomePage) {
+    document.body.classList.add('home-page');
+  }
   function handleScroll() {
+    const header = document.querySelector('header');
+    // A number value to store to determine when the header should changed to scrolled state
+    const scrollThreshold = 60;
     // check if the window has scrolled past the threshold
-    if (window.pageYOffset > scrollThreshold) {
-      header.classList.add('scrolled');
+    if (isHomePage) {
+      if (window.pageYOffset > scrollThreshold) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     } else {
-      header.classList.remove('scrolled');
+      header.classList.add('scrolled');
     }
   }
+
+  // Call handleScroll on window scroll
+  window.addEventListener('scroll', handleScroll);
 
   // Call the handleScroll function to check the initial scroll position
   handleScroll();
 
-  // Call handleScroll on window scroll
-  window.addEventListener('scroll', handleScroll);
-  // End
-  /* ---------------------------------- */
-
-  /* ---------------------------------- */
-  // Start
   // function to handle smooth scrolling to the reservation form when clicking the book button
   const bookButtons = document.querySelectorAll('.book-btn a');
 
@@ -186,12 +170,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  // End
-  /* ---------------------------------- */
 
-  /* ---------------------------------- */
-  // Start
-  // Function to render  all the menu Items from constants.js
+  // function to render  all the menu Items from constants.js
   function renderMenuItems(items) {
     console.log('renderMenuItems called with:', items);
     const menuBoardContainer = document.querySelector('.menu-board-container');
@@ -230,11 +210,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //Initial Render
   renderMenuItems(menuData.menuItems);
 
-  // End
-  /* ---------------------------------- */
-
-  /* ---------------------------------- */
-  // Start
   // function to handle Filtering the menu items
   const filterButtons = document.querySelectorAll('.filter-btn');
   const menuItems = document.querySelectorAll('.menu-board');
@@ -259,25 +234,10 @@ document.addEventListener('DOMContentLoaded', function () {
           item.classList.add('hide');
           setTimeout(() => (item.style.display = 'none'), 10);
         }
-
-        // dynamically adjust the container height
-        // setTimeout(() => {
-        //   const visibleItems = document.querySelectorAll(
-        //     '.menu-board:not(.hide)'
-        //   );
-        //   const rows = Math.ceil(visibleItems.length / 2);
-        //   const itemHeight = visibleItems[0].offsetHeight;
-        //   const containerHeight = rows * itemHeight + (rows - 1) * 20;
-        //   menuContainer.style.height = `${containerHeight}px`;
-        // }, 50);
       });
     });
   });
-  // End
-  /* ---------------------------------- */
 
-  /* ---------------------------------- */
-  // Start
   // function to handle Testimonial Review Slider
   const reviewsGrid = document.querySelector('.reviews-grid');
   const reviewButtons = document.querySelectorAll('.review-button');
@@ -305,8 +265,6 @@ document.addEventListener('DOMContentLoaded', function () {
     currentIndex = currentIndex + 1 >= reviews.length ? 0 : currentIndex + 1;
     showReview(currentIndex);
   }
-
-
 
   // function for the autoslide
   function startAutoSlide() {
@@ -336,11 +294,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Pause autoslide on hover
   reviewsGrid.addEventListener('mouseover', stopAutoSlide);
   reviewsGrid.addEventListener('mouseout', startAutoSlide);
-  // End
-  /* ---------------------------------- */
 
-  /* ---------------------------------- */
-  // Start
   // function to handle Photo Carousel Slider
   const images = document.querySelectorAll(
     '.photo-carousel-container .images img'
@@ -407,11 +361,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Pause autoslide on hover
   carousel.addEventListener('mouseover', carouselStopAutoSlide);
   carousel.addEventListener('mouseout', carouselStartAutoSlide);
-  // End
-  /* ---------------------------------- */
 
-  /* ---------------------------------- */
-  // Start
   // function to handle Email Validation
   const emailForm = document.getElementById('email-form');
   const emailInput = document.getElementById('email');
@@ -419,82 +369,90 @@ document.addEventListener('DOMContentLoaded', function () {
   const preloader = document.getElementById('preloader');
   const successMessage = document.getElementById('successMessage');
   const overlayEmailBg = document.getElementById('overlay-email-bg');
+  const errorMessage = document.getElementById('errorMessage');
 
-  // add submit event listener to the emailForm
+  // Submit event listener
   emailForm.addEventListener('submit', function (e) {
-    // prevent the default form submission
     e.preventDefault();
+    console.log('Form submitted');
 
-    // conditional check for a valid email input and terms checkbox checked
     if (validateEmail(emailInput.value) && termsCheckbox.checked) {
-      // show overlay
-      showOverlay();
-      // show the preloader
+      // show preloader
       showPreloader();
 
-      // simulate a form submission
+      // Simulate form submission (replace with actual submission logic)
       setTimeout(() => {
-        // hide the preloader after 2 seconds
         hidePreloader();
+        showSuccessMessage();
+
+        // Reset form and URL after a delay
+        setTimeout(() => {
+          hideOverlay();
+          emailForm.reset();
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+          );
+        }, 3000);
       }, 2000);
     } else {
-      alert('Please enter a valid email and accept the terms');
+      showErrorMessage('Please enter a valid email and accept the terms');
     }
   });
 
-  // function to validate email
   function validateEmail(email) {
-    // regex for email validation.
-    const emailRegex =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    // converts email string to lowercase to ensure case insensitivity
-    return emailRegex.test(String(email).toLowerCase());
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 
-  // function to show the overlay
-  function showOverlay() {
-    overlayEmailBg.classList.add('show');
-  }
-
-  // function to hide the overlay
   function hideOverlay() {
     overlayEmailBg.classList.remove('show');
   }
 
-  // function to show the preloader
   function showPreloader() {
     preloader.style.display = 'flex';
+    overlayEmailBg.style.display = 'flex';
     setTimeout(() => {
       preloader.classList.add('show');
-    }, 10); // wait for 10ms before adding preloader show class
+      overlayEmailBg.classList.add('show');
+    }, 50);
   }
 
-  // function to hide the preloader
   function hidePreloader() {
     preloader.classList.remove('show');
     setTimeout(() => {
-      // preloader is hidden after 1 second
       preloader.style.display = 'none';
-      // show success message
-      showSuccessMessage();
-    }, 1000); // wait for preloader to slide up before showing success message
+    }, 700);
+  }
+
+  function hideOverlay() {
+    overlayEmailBg.classList.remove('show');
+    setTimeout(() => {
+      overlayEmailBg.style.display = 'none';
+    }, 700);
   }
 
   function showSuccessMessage() {
-    // displays a success message for 3 seconds
     successMessage.style.display = 'block';
-    // hides the success message and resets the form
+    successMessage.classList.add('show');
+  }
+
+  function hideSuccessMessage() {
+    successMessage.classList.remove('show');
     setTimeout(() => {
       successMessage.style.display = 'none';
-      hideOverlay();
-      emailForm.reset(); // rest form
-    }, 3000); // success message stays for 3 seconds
+    }, 500);
   }
-  // End
-  /* ---------------------------------- */
 
-  /* ---------------------------------- */
-  /* Start */
+  function showErrorMessage(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+    setTimeout(() => {
+      errorMessage.style.display = 'none';
+    }, 3000);
+  }
+
   // function for chevron down click for contact reservation on the date picker
   const iconWrappers = document.querySelectorAll('.icon-wrapper');
   let currentlyActive = null;
@@ -542,11 +500,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  /* End;*/
-  /* ---------------------------------- */
-
-  /* ---------------------------------- */
-  // Start
   // function to handle form validation for reservation form
   document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('reservationForm');
@@ -644,7 +597,4 @@ document.addEventListener('DOMContentLoaded', function () {
       input.classList.remove('error');
     }
   });
-
-  /* End;*/
-  /* ---------------------------------- */
 });

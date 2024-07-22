@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>La Trattoria</title>
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon-->
+    <link rel="stylesheet" href="" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+    <!-- Remix Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+  </head>
+  <body>
+
+ 
+
+  <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="spinner"></div>
+      <div class="preloader-logo">La Trattoria</div>
+    </div>
+
+    <!-- Success Message -->
+     <div class="success-message" id="successMessage" >
+      Thank you for subscribing!
+     </div>
+
+    <!-- Header-->
+    <div id="header-placeholder"></div>
+
+      <!-- Side Menu -->
+      <div class="side-menu">
+        <div class="close-btn">
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="logo">
+          <a href="#" class="logo">
+            La Trattoria <br/>
+            <div class="logo-div">Restaurant and Bar</div>
+          </a>
+        </div>
+        <nav>
+          <a href="#">Home</a>
+          <div class="separator"></div>
+          <a href="#">Menu</a>
+          <div class="separator"></div>
+          <a href="#">Wine List</a>
+          <div class="separator"></div>
+          <a href="#">About Us</a>
+          <div class="separator"></div>
+          <a href="#">Events</a>
+          <div class="separator"></div>
+          <a href="#">Book a Table</a>
+          <div class="separator"></div>
+        </nav>
+        <div class="contact-info">
+          <h2>Visit Us</h2>
+          <p>Address: 1-4-21 Osaka, Kita Ward Umeda, 1st Floor, Osaka, Japan</p>
+          <h3>Contact Us</h3>
+          <p class="contact-number">+81 (987) 456 321</p>
+        </div>
+       </div>
+
+      <!-- Overlay -->
+      <div class="overlay" id="overlay"></div>
+
+
+      <!-- Our Team-->
+      <div class="team">
+        <div class="team-container">
+          <div class="team-left">
+            <div class="team-left-content"></div>
+            <p class="team-heading">Our Team</p>
+            <div class="team-left-content">
+              <h2>Meet our Celebrated Head Chefs</h2>
+              <p class="content-text">
+                With a passion for authentic Italian cuisine, La Trattoria was founded by celebrated chefs Enrico Santini and Sofia Bartolini in 2002. Located in the heart of Osaka, we blend fine dining elegance with the warmth of home-cooked meals, using only the freshest, natural ingredients.
+              </p>
+              <p class="view-all-team">View the Team</p>
+            </div>
+          </div>
+          <div class="team-right">
+            <div class="team-member">
+              <img src="./images/chef-1.jpg" alt="" />
+              <div class="team-member-details">
+                <h3>Enrico Santini</h3>
+                <p class="job-title">Co-founder, Head Chef</p>
+                <p class="content-text">
+                  Chef and owner Antonio graduated as valedictorian of The
+                  Restaurant School of Italian Food Collage, Napoli, Italy
+                </p>
+                <div class="team-icons">
+                  <a href="">
+                    <svg
+                      class="calendar"
+                      width="10px"
+                      height="10px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                      />
+                    </svg>
+                  </a>
+  
+                  <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <path
+                        d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="team-member">
+              <img src="./images/chef-2.jpg" alt="" />
+              <div class="team-member-details">
+                <h3>Sofia Bartolini</h3>
+                <p class="job-title">Co-founder, Head Chef</p>
+                <p class="content-text">
+                  Chef and co-owner of La Trattoria graduated from Apicius Hospitality
+                  focusing on Italian cuisine.
+                </p>
+                <div class="team-icons">
+                  <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                      <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                      />
+                    </svg>
+                  </a>
+  
+                  <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <path
+                        d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+  
+
+    <!-- Contact Section  -->
+    <div id="contact-section" class="contact-container">
+      <div class="form-container">
+      <div class="form contact-form contact-form-background">
+        <!-- form on the left -->
+        <form action="" class="form-left" id="reservationForm">
+          <h2 class="headline-1 text-center">Online Reservation</h2>
+          <p class="form-text text-center">
+            Make a booking by calling
+            <a href="tel:+81987456321" class="link">+81-987-456321</a> or fill out the order form below
+          </p>
+
+          <div class="input-wrapper two-columns">
+            <input id="name" type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field" required>
+            <input id="phone" type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field" required>
+          </div>
+          
+          <!-- Middle Input wrapper -->
+          <!-- Number of People-->
+          <div class="input-wrapper three-column-input-wrapper">
+            <div class="icon-wrapper">
+              <ion-icon name="person-outline" aria-hidden="true"></ion-icon> 
+              <select name="person" id="person-select" class="input-field" required>
+                <option value="1-person">1 Person</option>
+                <option value="1-person">2 People</option>
+                <option value="1-person">3 People</option>
+                <option value="1-person">4 People</option>
+                <option value="1-person">5 People</option>
+                <option value="1-person">6 People</option>
+                <option value="1-person">7 People</option>
+                <option value="1-person">8 People</option>
+              </select>
+            
+            </div>
+        
+
+          <!-- Date Selection -->
+      
+            <div class="icon-wrapper">
+              <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon> 
+              <input type="date" type="date" name="reservation-date" id="date-input" class="input-field" required>
+            </div>
+        
+
+
+          <!-- Time Selection -->
+  
+          <div class="icon-wrapper">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon> 
+            <select name="person" id="time-select" class="input-field" required>
+              <option value="011:00am">11 : 00 am</option>
+              <option value="012:00am">12 : 00 am</option>
+              <option value="01:00pm">01 : 00 pm</option>
+              <option value="02:00pm">02 : 00 pm</option>
+              <option value="06:00pm">06 : 00 pm</option>
+              <option value="07:00pm">07 : 00 pm</option>
+              <option value="08:00pm">08 : 00 pm</option>
+              <option value="09:00pm">09 : 00 pm</option>
+              <option value="10:00pm">10 : 00 pm<option>
+            </select>
+          </div>
+        </div>
+
+          <!-- Message Area -->
+          <textarea name="message" id="message" placeholder="Message" autocomplete="off" class="input-field" ></textarea>
+
+          <!-- Submit Button -->
+            <button type="submit" class="btn-submit">
+            <a class="text text-1">Book A Table</a>
+            </button>
+
+          </form>
+
+
+        <!-- form contact details right -->
+        <div
+          class="form-right text-center"
+          style="background-image: url('./images/form-pattern.png')"
+        >
+          <h2>Contact Us</h2>
+          <p class="contact-label">Reservation Request</p>
+          <a
+            href="tel:+81987456321"
+            class="contact-number hover-underline"
+            >+81 (987) 456 321</a
+          >
+    
+          <p class="contact-label location-label">Location</p>
+          <address class="body-4" >
+            1-4-21 Osaka, Kita Ward Umeda, <br/>1st Floor, Osaka, Japan
+          </address>
+          <p class="contact-label">Lunch Time</p>
+          <p class="body-4">Monday to Sunday 
+            <br/>11:00 AM - 2:00 PM</p>
+          </p>
+
+          <p class="contact-label">Dinner Time</p>
+          <p class="body-4">
+            Monday to Sunday
+            <br/>6:00 PM - 10:30 PM
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+
+
+ 
+
+  
+
+
+
+
+     <!-- Location and Directions -->
+    <div class="directions-container">
+      <div class="directions">
+        <div class="directions-left">
+          <a href="">
+            <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="directionsRightIconTitle" stroke="#000000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" color="#000000"> <title id="directionsRightIconTitle">Turn Right</title> <path d="M15 11H12C12 11 10 11 10 13.2C10 14 10 15 10 15"/> <path d="M13 13L15 11L13 9"/> <rect width="14.1422" height="14.1422" transform="matrix(-0.707107 0.707107 0.707107 0.707107 12 2)"/> </svg>
+          </a>
+          <h2>Directions</h2>
+          <hr class="separator">
+          <p>A 3 minute walk from <br/>JR Osaka Station Central Gate Exit</p>
+          <br/>
+          <p class="direction-heading">Contact Number:</p>
+       
+          <a
+            href="tel:+81987456321"
+            class="directions-contact-number "
+            >+81 (987) 456 321</a
+          >
+    
+          <hr class="separator">
+          <p class="direction-heading">Address</p>
+          <p class="direction-address" >
+            3-1-3 Umeda, Kita Ward Umeda, <br/>1st Floor, Lucua, Osaka, Japan
+          </p>
+          <hr class="separator">
+          <p class="direction-heading">Lunch Time</p>
+          <p class="">Monday to Sunday 
+            <br/>11:00 AM - 2:00 PM</p>
+          </p>
+          <p class="direction-heading">Dinner Time</p>
+          <p class="">
+            Monday to Sunday
+            <br/>6:00 PM - 11:00 PM
+          </p>
+        </div>
+
+        <div class="directions-right">
+          <a href="">
+          <svg width="40px" height="40px" viewBox="0 0 28 28" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M14 6C11.7909 6 10 7.79086 10 10C10 12.2091 11.7909 14 14 14C16.2091 14 18 12.2091 18 10C18 7.79086 16.2091 6 14 6ZM12 10C12 8.89543 12.8954 8 14 8C15.1046 8 16 8.89543 16 10C16 11.1046 15.1046 12 14 12C12.8954 12 12 11.1046 12 10Z" fill="#ffffff" fill-rule="evenodd"/><path clip-rule="evenodd" d="M23 10.1438C23 14.8819 20.359 22.3559 15.0771 26.6174C14.4449 27.1275 13.5551 27.1275 12.9229 26.6174C7.64096 22.3559 5 14.8819 5 10.1438C5 5.0938 9.02944 1 14 1C18.9706 1 23 5.0938 23 10.1438ZM21 10.1438C21 12.1757 20.4217 14.9456 19.1942 17.7283C18.0897 20.2321 16.5107 22.6301 14.4974 24.4574C14.2134 24.7152 13.7866 24.7152 13.5026 24.4574C11.4893 22.6301 9.91031 20.2321 8.80581 17.7283C7.57831 14.9456 7 12.1757 7 10.1438C7 6.21602 10.134 3.03195 14 3.03195C17.866 3.03195 21 6.21602 21 10.1438Z" fill="#ffffff" fill-rule="evenodd"/></svg>
+          </a>
+          <h2>Map</h2>
+          <hr class="separator">
+          <div class="google-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.0907757112295!2d135.49315835618262!3d34.70289028935102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e68dc5aa6efd%3A0x6312408264b55d49!2sLUCUA%20Osaka!5e0!3m2!1sen!2sjp!4v1720488251605!5m2!1sen!2sjp" width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="carousel.js"></script>
+    <script type="module" src="script.js"></script>
+    <script src="load-common-elements.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  </body>
+</html>

@@ -79,19 +79,16 @@ img {
   width: 100%;
   height: 100%;
   background-color: #e4c590;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 9999;
-  display: none;
   transition: top 0.5s ease-in-out;
 }
 
 .preloader.show {
-  top: 0;
-  /* transform: translateY(100%);
-  transition-delay: 250ms; */
+  display: flex;
 }
 
 .spinner {
@@ -120,30 +117,19 @@ img {
 
 /* success message */
 .success-message {
-  display: none !important;
-  position: fixed;
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f1eee8;
-  color: #343332;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-  z-index: 10000 !important;
-  font-size: 20px;
-  transition: 0.4s ease-in;
-  width: 400px;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cormorant', serif;
-  font-weight: bold;
-  font-size: 26px;
-  border: 1px solid #292723;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+.success-message.show {
+  display: block;
 }
 
 /* header */
@@ -178,6 +164,19 @@ header {
   /* height: 100%; */
 }
 
+body:not(.home-page) header {
+  background-color: var(--primary-bg-color);
+}
+
+body:not(.home-page) main {
+  padding-top: 100px;
+}
+
+body:not(.home-page) .full-width-section {
+  margin-top: -100px; /* Negative value of the main padding-top */
+  padding-top: 100px; /* Same as the main padding-top */
+}
+
 header .columns {
   /* padding: 10px 20px; */
   display: flex;
@@ -190,7 +189,6 @@ header .columns {
 /* new class for scrolled state */
 header.scrolled {
   background-color: var(--primary-bg-color);
-
   z-index: 1000;
 }
 
@@ -1946,11 +1944,13 @@ header .columns nav a.active {
   transition: opacity 0.3s ease, visibility 0.3s ease;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  display: none;
 }
 
 .overlay-email-bg.show {
-  opacity: 1;
-  visibility: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .email-section h2 {
@@ -2013,14 +2013,14 @@ input[type='email']:focus {
   color: #2b2c2c;
 }
 
-.subscribe-btn a {
+.subscribe-btn {
   color: #1a1c1c;
   font-size: 14px;
   font-weight: bold;
 }
 
 .terms-conditions {
-  width: 80%; /* this keeps it aligned with the other children */
+  width: 100%; /* this keeps it aligned with the other children */
   align-items: left;
   margin-top: 14px;
   text-align: left;
@@ -2494,7 +2494,7 @@ input[type='checkbox'] {
 .slider-images.dragging {
   cursor: grabbing;
   cursor: -webkit-grabbing;
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
   transition: transform 0.3s ease-in-out;
 }
 
@@ -2970,6 +2970,7 @@ address {
   color: #ff6b6b;
   font-size: 12px;
   margin-top: 5px;
+  display: none;
 }
 
 .input-field.error {
