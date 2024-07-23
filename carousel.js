@@ -2,6 +2,7 @@
 import { imageData } from './constants.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('Carousel DOM loaded');
   // State
   let state = {
     currentIndex: 0,

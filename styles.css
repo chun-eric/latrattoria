@@ -72,10 +72,9 @@ img {
 /* preloader */
 .preloader {
   position: fixed;
-  top: -100%;
+  top: 0%;
   left: 0;
-  right: 0;
-  bottom: 0;
+
   width: 100%;
   height: 100%;
   background-color: #e4c590;
@@ -92,8 +91,8 @@ img {
 }
 
 .spinner {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border: 5px solid #fff;
   border-radius: 50%;
   border-top-color: var(--primary-bg-color);
@@ -164,9 +163,29 @@ header {
   /* height: 100%; */
 }
 
-body:not(.home-page) header {
+.site-header {
+  position: fixed;
+  width: 100%;
+  padding: 20px;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  transition: background-color 0.3s ease;
+}
+
+body.home-page header {
+  background-color: transparent;
+}
+
+.site-header.scrolled,
+body:not(.home-page) .site-header,
+header.scrolled {
   background-color: var(--primary-bg-color);
 }
+
+/* body:not(.home-page) header {
+  background-color: var(--primary-bg-color);
+} */
 
 body:not(.home-page) main {
   padding-top: 100px;
@@ -272,7 +291,6 @@ header .columns nav a.active {
 }
 
 /* Side Menu including hamburger menu */
-
 .side-menu {
   display: none;
   z-index: 1004 !important;
@@ -501,6 +519,8 @@ header .columns nav a.active {
 .intro {
   position: relative;
   overflow: hidden;
+  z-index: 5;
+  width: 100vw;
 }
 
 .intro .background {
@@ -509,6 +529,8 @@ header .columns nav a.active {
   left: 0;
   width: 100%;
   height: 800px;
+  max-height: 100%;
+  z-index: 1;
 }
 
 .intro .background img {
@@ -548,24 +570,28 @@ header .columns nav a.active {
   background: #000;
   opacity: 0.4;
   width: 100%;
-  height: 800px;
-  z-index: 1;
+  height: 100%;
+  z-index: 2;
 }
 
 .intro .content {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  height: 650px;
-  width: 100%;
-  position: relative;
-  max-height: 100%;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
-  z-index: 10;
-  padding-top: 200px;
-  transition: all 0.3s ease;
+  z-index: 3;
+  padding-top: 150px;
+  color: #fff; /* Ensure text color contrasts with background */
+}
+
+.intro .content > * {
+  opacity: 0;
+  animation: fadeIn 3.8s ease-out forwards;
 }
 
 /* all children of has opacity 0 */
@@ -591,6 +617,17 @@ header .columns nav a.active {
   }
 }
 
+.intr .content h1 {
+  animation-delay: 0.2s;
+}
+.intr .content h2 {
+  animation-delay: 0.4s;
+}
+
+.intr .content > *:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
 .intro .content h1 {
   font-size: 9rem;
   letter-spacing: 2px;
@@ -606,6 +643,7 @@ header .columns nav a.active {
   padding-bottom: 35px;
   font-weight: 500;
   transition: all 0.3s ease;
+  margin-top: 30px;
 }
 
 .content .book-btn {
@@ -618,6 +656,7 @@ header .columns nav a.active {
   padding: 16px 40px;
   margin: 0 auto;
   display: inline-block;
+  margin-top: 20px;
 }
 
 .content .book-btn.reserve-button a {

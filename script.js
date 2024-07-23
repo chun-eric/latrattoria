@@ -1,9 +1,71 @@
 'use strict';
 import { menuData } from './constants.js';
 
+// Show preloader immediately
+document.getElementById('preloader').style.display = 'flex';
+
+// window loading the preloader
+window.addEventListener('load', function () {
+  const preloader = document.getElementById('preloader');
+  preloader.style.display = 'flex';
+  preloader.style.opacity = 0;
+  preloader.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+  this.setTimeout(() => {
+    preloader.style.transform = 'translateY(-100%)';
+
+    this.setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 1000);
+  }, 3000);
+});
+
+// dom to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM Fully loaded');
-  // Start
+
+  // function to initialize the header
+  function initializeHeader() {
+    const header = document.querySelector('header');
+    if (!header) {
+      console.error('Header element not found');
+      return;
+    }
+
+    const body = document.body;
+    const isHomePage =
+      window.location.pathname === '/' ||
+      window.location.pathname.endsWith('index.html');
+
+    if (isHomePage) {
+      body.classList.add('home-page');
+    }
+
+    function handleScroll() {
+      // A value to determine when header should change to scrolled state
+      const scrollThreshold = 60;
+      console.log('Scrolled: ', window.pageYOffset);
+      console.log('Is home page: ', isHomePage);
+      // function to handle scroll down and show the header
+      // check if the window has scrolled past the threshold
+      if (isHomePage && window.pageYOffset > scrollThreshold) {
+        console.log('adding scrolled class');
+        header.classList.add('scrolled');
+      } else if (isHomePage) {
+        console.log('removing scrolled class');
+        header.classList.remove('scrolled');
+      }
+    }
+
+    // Call handleScroll on window scroll
+    window.addEventListener('scroll', handleScroll);
+    // Call the handleScroll function to check the initial scroll position
+    handleScroll();
+  }
+  // Make initializeHeader available Globally
+  window.initializeHeader = initializeHeader;
+
+  /* ------------------------------------------------- */
   // function to handle hero overlay image transitions
   // select all hero images
   const heroImages = document.querySelectorAll('.intro .background img');
@@ -24,9 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize the changeHeroImage function
   setInterval(changeHeroImage, 10000);
-  // End
 
-  // Start
+  /* ------------------------------------------------- */
   // Function to handle header navigation and side menu on mobile and tablet
 
   // select elements
@@ -43,9 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.classList.toggle('active');
     document.body.classList.toggle('menu-open');
   }
-  // End
 
-  /* ---------------------------------- */
+  /* ------------------------------------------------- */
   // Event listeners
   hamburger.addEventListener('click', function (e) {
     e.stopPropagation();
@@ -69,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //   e.stopPropagation();
   // });
 
+  /* ------------------------------------------------- */
   // Function to handle resize and close side menu on desktop
   function handleResize() {
     if (window.innerWidth > 1200) {
@@ -115,36 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Run the function and start the animation when the page loads
   showElement(0);
 
-  // function to handle scroll down and show the header
-  const isHomePage =
-    window.location.pathname === '/' ||
-    window.location.pathname.endsWith('/index.html');
-
-  if (isHomePage) {
-    document.body.classList.add('home-page');
-  }
-  function handleScroll() {
-    const header = document.querySelector('header');
-    // A number value to store to determine when the header should changed to scrolled state
-    const scrollThreshold = 60;
-    // check if the window has scrolled past the threshold
-    if (isHomePage) {
-      if (window.pageYOffset > scrollThreshold) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    } else {
-      header.classList.add('scrolled');
-    }
-  }
-
-  // Call handleScroll on window scroll
-  window.addEventListener('scroll', handleScroll);
-
-  // Call the handleScroll function to check the initial scroll position
-  handleScroll();
-
+  /* ------------------------------------------------- */
   // function to handle smooth scrolling to the reservation form when clicking the book button
   const bookButtons = document.querySelectorAll('.book-btn a');
 
@@ -171,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* ------------------------------------------------- */
   // function to render  all the menu Items from constants.js
   function renderMenuItems(items) {
     console.log('renderMenuItems called with:', items);
@@ -453,6 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 3000);
   }
 
+  /* ------------------------------------------------- */
   // function for chevron down click for contact reservation on the date picker
   const iconWrappers = document.querySelectorAll('.icon-wrapper');
   let currentlyActive = null;
@@ -501,15 +535,16 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // function to handle form validation for reservation form
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('reservationForm');
-    const nameInput = document.getElementById('name');
-    const phoneInput = document.getElementById('phone');
-    const personSelect = document.getElementById('person-select');
-    const dateInput = document.getElementById('date-input');
-    const timeSelect = document.getElementById('time-select');
-    const messageTextarea = document.getElementById('message');
 
+  const form = document.getElementById('reservationForm');
+  const nameInput = document.getElementById('name');
+  const phoneInput = document.getElementById('phone');
+  const personSelect = document.getElementById('person-select');
+  const dateInput = document.getElementById('date-input');
+  const timeSelect = document.getElementById('time-select');
+  const messageTextarea = document.getElementById('message');
+
+  if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (validateForm()) {
@@ -519,82 +554,82 @@ document.addEventListener('DOMContentLoaded', function () {
         form.submit();
       }
     });
+  }
 
-    function validateForm() {
-      let isValid = true;
+  function validateForm() {
+    let isValid = true;
 
-      // Name validation
-      if (nameInput.value.trim() === '') {
-        showError(nameInput, 'Name is required');
-        isValid = false;
-      } else {
-        clearError(nameInput);
-      }
-
-      // Phone validation (simple format check)
-      const phoneRegex = /^\+?\d{10,14}$/;
-      if (!phoneRegex.test(phoneInput.value.trim())) {
-        showError(phoneInput, 'Please enter a valid phone number');
-        isValid = false;
-      } else {
-        clearError(phoneInput);
-      }
-
-      // Person select validation
-      if (personSelect.value === '') {
-        showError(personSelect, 'Please select the number of people');
-        isValid = false;
-      } else {
-        clearError(personSelect);
-      }
-
-      // Date validation
-      if (dateInput.value === '') {
-        showError(dateInput, 'Please select a date');
-        isValid = false;
-      } else {
-        const selectedDate = new Date(dateInput.value);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        if (selectedDate < today) {
-          showError(dateInput, 'Please select a future date');
-          isValid = false;
-        } else {
-          clearError(dateInput);
-        }
-      }
-
-      // Time validation
-      if (timeSelect.value === '') {
-        showError(timeSelect, 'Please select a time');
-        isValid = false;
-      } else {
-        clearError(timeSelect);
-      }
-
-      return isValid;
+    // Name validation
+    if (nameInput.value.trim() === '') {
+      showError(nameInput, 'Name is required');
+      isValid = false;
+    } else {
+      clearError(nameInput);
     }
 
-    function showError(input, message) {
-      const formControl = input.parentElement;
-      const errorElement =
-        formControl.querySelector('.error-message') ||
-        document.createElement('div');
-      errorElement.className = 'error-message';
-      errorElement.textContent = message;
-      if (!formControl.querySelector('.error-message')) {
-        formControl.appendChild(errorElement);
-      }
-      input.classList.add('error');
+    // Phone validation (simple format check)
+    const phoneRegex = /^\+?\d{10,14}$/;
+    if (!phoneRegex.test(phoneInput.value.trim())) {
+      showError(phoneInput, 'Please enter a valid phone number');
+      isValid = false;
+    } else {
+      clearError(phoneInput);
     }
 
-    function clearError(input) {
-      const formControl = input.parentElement;
-      const errorElement = formControl.querySelector('.error-message');
-      if (errorElement) {
-        formControl.removeChild(errorElement);
-      }
-      input.classList.remove('error');
+    // Person select validation
+    if (personSelect.value === '') {
+      showError(personSelect, 'Please select the number of people');
+      isValid = false;
+    } else {
+      clearError(personSelect);
     }
-  });
+
+    // Date validation
+    if (dateInput.value === '') {
+      showError(dateInput, 'Please select a date');
+      isValid = false;
+    } else {
+      const selectedDate = new Date(dateInput.value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (selectedDate < today) {
+        showError(dateInput, 'Please select a future date');
+        isValid = false;
+      } else {
+        clearError(dateInput);
+      }
+    }
+
+    // Time validation
+    if (timeSelect.value === '') {
+      showError(timeSelect, 'Please select a time');
+      isValid = false;
+    } else {
+      clearError(timeSelect);
+    }
+
+    return isValid;
+  }
+
+  function showError(input, message) {
+    const formControl = input.parentElement;
+    const errorElement =
+      formControl.querySelector('.error-message') ||
+      document.createElement('div');
+    errorElement.className = 'error-message';
+    errorElement.textContent = message;
+    if (!formControl.querySelector('.error-message')) {
+      formControl.appendChild(errorElement);
+    }
+    input.classList.add('error');
+  }
+
+  function clearError(input) {
+    const formControl = input.parentElement;
+    const errorElement = formControl.querySelector('.error-message');
+    if (errorElement) {
+      formControl.removeChild(errorElement);
+    }
+    input.classList.remove('error');
+  }
 });

@@ -49,11 +49,9 @@
     />
 
   </head>
+
   <body>
-
- 
-
-  <!-- Preloader -->
+    <!-- Preloader -->
     <div class="preloader" id="preloader">
       <div class="spinner"></div>
       <div class="preloader-logo">La Trattoria</div>
@@ -66,6 +64,24 @@
 
     <!-- Header-->
     <div id="header-placeholder"></div>
+
+     <!-- Hero/Intro Overlay-->
+     <div class="intro">
+      <!-- <div class="overlay"></div> -->
+      <div class="background">
+        <img loading="eager" src="./images/pasta.jpg" alt="" class="active"/>
+        <img loading="eager" src="./images/pasta2.jpg" alt="" />
+        <img loading="lazy" src="./images/pasta3.jpg" alt="" />
+        <img loading="lazy" src="./images/pasta4.jpg" alt="" />
+        <img loading="lazy" src="./images/pasta5.jpg" alt="" />
+      </div>
+      <div class="overlay-intro"></div>
+      <div class="content fade-in-content">
+        <h1>La Trattoria</h1>
+        <h2>Authentic Fine Dining Italian Cuisine since 1979.</h2>
+        <button class="book-btn reserve-button"><a href="#contact-section">Book Now</a></button>
+      </div>
+    </div>
 
       <!-- Side Menu -->
       <div class="side-menu">
@@ -86,7 +102,7 @@
           <div class="separator"></div>
           <a href="#">Wine List</a>
           <div class="separator"></div>
-          <a href="#">About Us</a>
+          <a href="#">Blog</a>
           <div class="separator"></div>
           <a href="#">Events</a>
           <div class="separator"></div>
@@ -104,22 +120,7 @@
       <!-- Overlay -->
       <div class="overlay" id="overlay"></div>
 
-    <!-- Hero/Intro Overlay-->
-    <div class="intro">
-      <!-- <div class="overlay"></div> -->
-      <div class="background">
-        <img loading="lazy" src="./images/pasta.jpg" alt="" class="active"/>
-        <img loading="lazy" src="./images/pasta2.jpg" alt="" />
-        <img loading="lazy" src="./images/pasta3.jpg" alt="" />
-        <img loading="lazy" src="./images/pasta4.jpg" alt="" />
-        <img loading="lazy" src="./images/pasta5.jpg" alt="" />
-      </div>
-      <div class="content fade-in-content">
-        <h1>La Trattoria</h1>
-        <h2>Authentic Fine Dining Italian Cuisine since 1979.</h2>
-        <button class="book-btn reserve-button"><a href="#contact-section">Book Now</a></button>
-      </div>
-    </div>
+   
 
     <!-- About Section-->
     <div class="about-section">
@@ -904,9 +905,10 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
-    <script type="module" src="carousel.js"></script>
-    <script type="module" src="script.js"></script>
+ 
     <script src="load-common-elements.js"></script>
+    <script type="module" src="script.js" ></script>
+    <script type="module" src="carousel.js" ></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
