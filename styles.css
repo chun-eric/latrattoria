@@ -3134,26 +3134,60 @@ address {
   width: 15%; /* Width of the second underline */
 }
 
-@media (max-width: 799px) {
-  .big-banner {
-    height: 600px;
-  }
-
-  .big-banner-container {
-    width: 100%;
-    height: auto;
-  }
-
+@media (max-width: 1000px) {
   .banner-text {
-    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .banner-text p {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 10px;
   }
 
+  .banner-text p::before,
+  .banner-text p::after {
+    content: '';
+    left: 30%;
+    position: absolute;
+    height: 2px;
+    background-color: var(--primary-color);
+  }
+
+  .banner-text p::before {
+    bottom: -14px; /* Position of the first underline */
+    width: 20%; /* Width of the first underline */
+  }
+
+  .banner-text p::after {
+    bottom: -24px; /* Position of the second underline */
+    width: 15%; /* Width of the second underline */
+  }
+}
+
+@media (max-width: 799px) {
   .banner-text h2 {
-    text-align: left;
+    font-size: 3.2rem; /* Adjusted for mid-range */
   }
 
   .banner-text p {
-    text-align: left;
+    font-size: 2.3rem; /* Adjusted for mid-range */
+    padding-bottom: 25px; /* Slightly reduced padding */
+  }
+
+  .banner-text p::before,
+  .banner-text p::after {
+    left: 25%; /* Adjusted for better alignment in this range */
+  }
+
+  .banner-text p::before {
+    bottom: 8px;
+    width: 30%;
+  }
+
+  .banner-text p::after {
+    bottom: 3px;
+    width: 25%;
   }
 }
 
