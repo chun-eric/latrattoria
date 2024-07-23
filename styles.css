@@ -520,7 +520,6 @@ header .columns nav a.active {
   position: relative;
   overflow: hidden;
   z-index: 5;
-  width: 100vw;
 }
 
 .intro .background {
@@ -528,7 +527,7 @@ header .columns nav a.active {
   top: 0;
   left: 0;
   width: 100%;
-  height: 800px;
+  height: 700px;
   max-height: 100%;
   z-index: 1;
 }
@@ -585,7 +584,7 @@ header .columns nav a.active {
   align-items: center;
   text-align: center;
   z-index: 3;
-  padding-top: 150px;
+  padding-top: 100px;
   color: #fff; /* Ensure text color contrasts with background */
 }
 

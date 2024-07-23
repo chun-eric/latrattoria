@@ -1,5 +1,8 @@
 'use strict';
+console.log('Script file loaded');
+
 import { menuData } from './constants.js';
+console.log(menuData);
 
 // Show preloader immediately
 document.getElementById('preloader').style.display = 'flex';
@@ -20,12 +23,17 @@ window.addEventListener('load', function () {
   }, 3000);
 });
 
+
+
+
 // dom to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('DOM Fully loaded');
+  console.log('DOM Fully loaded in script.js');
 
   // function to initialize the header
   function initializeHeader() {
+    console.log('Initializing header');
+
     const header = document.querySelector('header');
     if (!header) {
       console.error('Header element not found');
@@ -69,11 +77,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // function to handle hero overlay image transitions
   // select all hero images
   const heroImages = document.querySelectorAll('.intro .background img');
-
   // set the current image index to 0
   let currentImageIndex = 0;
 
   function changeHeroImage() {
+    console.log('Changing hero image');
+
     // remove active class from current image
     heroImages[currentImageIndex].classList.remove('active');
 
@@ -83,55 +92,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // add active class to the new image
     heroImages[currentImageIndex].classList.add('active');
   }
-
   // Initialize the changeHeroImage function
   setInterval(changeHeroImage, 10000);
 
-  /* ------------------------------------------------- */
-  // Function to handle header navigation and side menu on mobile and tablet
 
-  // select elements
-  const hamburger = document.querySelector('.hamburger-menu');
-  const closeBtn = document.querySelector('.close-btn');
-  const sideMenu = document.querySelector('.side-menu');
-  const overlay = document.querySelector('.overlay');
-  const headerNav = document.querySelector('header .columns nav');
-  const bookBtn = document.querySelector('.book-btn');
-
-  // function to toggle Menu
-  function toggleMenu() {
-    sideMenu.classList.toggle('active');
-    overlay.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-  }
-
-  /* ------------------------------------------------- */
-  // Event listeners
-  hamburger.addEventListener('click', function (e) {
-    e.stopPropagation();
-    toggleMenu();
-    animateHambuger();
-  });
-
-  closeBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    toggleMenu();
-    animateClose();
-  });
-
-  overlay.addEventListener('click', function (e) {
-    toggleMenu();
-    animateClose();
-  });
-
-  // Prevent clicks on the side menu from closing it
-  // sideMenu.addEventListener('click', function(e) {
-  //   e.stopPropagation();
-  // });
 
   /* ------------------------------------------------- */
   // Function to handle resize and close side menu on desktop
   function handleResize() {
+    // not working
+    console.log('Handling resize');
+
     if (window.innerWidth > 1200) {
       // remove active class from side menu
       sideMenu.classList.remove('active');
@@ -140,39 +111,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Call handleResize on window resize and initial load
+  // Call handleResize function on window resize and initial load
   handleResize();
   window.addEventListener('resize', handleResize);
-  // End
 
-  // function to animate Hamburger on open
-  function animateHambuger() {
-    hamburger.classList.add('active');
-    hamburger.style.transform = 'rotate(90deg)';
-  }
-
-  // function to animate Hamburger on close
-  function animateClose() {
-    hamburger.classList.remove('active');
-    hamburger.style.transform = 'rotate(0deg)';
-  }
+  
 
   // function to add staggered animation to the hero intro content
   const content = document.querySelector('.fade-in-content');
-
   // returns the html collection of all the children of the content element
   const elements = content.children;
   console.log(elements);
 
   // function to show each element with a delay
   function showElement(index) {
+    console.log('showElement called with index:', index);
     if (index < elements.length) {
       elements[index].classList.add('show');
       // call the showElement function recursively with a delay
       setTimeout(() => showElement(index + 1), 1000);
     }
   }
-
   // Run the function and start the animation when the page loads
   showElement(0);
 
@@ -206,7 +165,9 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ------------------------------------------------- */
   // function to render  all the menu Items from constants.js
   function renderMenuItems(items) {
+    // not working
     console.log('renderMenuItems called with:', items);
+
     const menuBoardContainer = document.querySelector('.menu-board-container');
     console.log('menuBoardContainer:', menuBoardContainer);
 
@@ -240,9 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  //Initial Render
-  renderMenuItems(menuData.menuItems);
-
   // function to handle Filtering the menu items
   const filterButtons = document.querySelectorAll('.filter-btn');
   const menuItems = document.querySelectorAll('.menu-board');
@@ -271,6 +229,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  //Initial Render
+  renderMenuItems(menuData.menuItems);
+
   // function to handle Testimonial Review Slider
   const reviewsGrid = document.querySelector('.reviews-grid');
   const reviewButtons = document.querySelectorAll('.review-button');
@@ -280,6 +241,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // function to show the review at given index
   function showReview(index) {
+    // not working
+    console.log('showReview called with index:', index);
     // move the reviewsGrid to show the review at the given index on the x axis
     reviewsGrid.style.transform = `translateX(-${index * 100}%)`;
 
@@ -295,17 +258,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // function to show the next review
   function nextReview() {
+    // not working
+    console.log('nextReview called');
+
     currentIndex = currentIndex + 1 >= reviews.length ? 0 : currentIndex + 1;
     showReview(currentIndex);
   }
 
   // function for the autoslide
   function startAutoSlide() {
+    // not working
+    console.log('startAutoSlide called');
     intervalId = setInterval(nextReview, 6000);
   }
 
   // function to stop the autoslide
   function stopAutoSlide() {
+    // not working
+    console.log('stopAutoSlide called');
     clearInterval(intervalId);
   }
 
@@ -339,6 +309,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // function to show the photo at given index
   function showPhoto(index) {
+    // not working
+    console.log('showPhoto called with index:', index);
+
     // loop through the images and set the opacity of the image at the given index to 1
     images.forEach((image, i) => {
       image.style.opacity = i === index ? '1' : '0';
@@ -354,6 +327,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // function to show the next photo
   function nextPhoto() {
+    // not working
+    console.log('nextPhoto called');
+
     currentPhotoCarouselIndex =
       currentPhotoCarouselIndex + 1 >= images.length
         ? 0
