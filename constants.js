@@ -160,8 +160,6 @@ export const menuData = {
   ],
 };
 
-
-
 export const imageData = [
   {
     src: './images/gallery/insta-1.jpg',
@@ -205,3 +203,81 @@ export const imageData = [
   },
 ];
 
+export const wineList = {
+  sparklingWines: [
+    {
+      name: 'Valdo Prosecco DOC Extra Dry',
+      price: '$36.00',
+      description:
+        'A light, refreshing sparkling wine with notes of green apple, white peach, and citrus.',
+    },
+    {
+      name: 'Bellavista Alma Gran Cuvée Brut',
+      price: '$75.00',
+      description:
+        'A sophisticated Italian sparkling wine with aromas of ripe fruits and flowers, and a creamy texture.',
+    },
+  ],
+  whiteWines: [
+    {
+      name: 'Santa Margherita Pinot Grigio DOC Alto Adige',
+      price: '$45.00',
+      description:
+        'Crisp and dry with flavors of golden apple and citrus, perfect for pairing with light appetizers and seafood dishes like the Insalata Caprese and Linguine alle Vongole.',
+    },
+    {
+      name: 'Planeta Chardonnay Sicilia Menfi DOC',
+      price: '$50.00',
+      description:
+        'Full-bodied with notes of tropical fruits and vanilla, ideal for richer dishes such as Pollo al Limone and Branzino al Forno.',
+    },
+    {
+      name: 'Argiolas Costamolino Vermentino di Sardegna DOC',
+      price: '$38.00',
+      description:
+        'Light and aromatic with hints of citrus and almond, pairs well with Calamari Fritti and Risotto ai Funghi Porcini.',
+    },
+  ],
+  redWines: [
+    {
+      name: 'Antinori Pèppoli Chianti Classico DOCG',
+      price: '$42.00',
+      description:
+        'Medium-bodied with flavors of red cherry, plum, and a touch of spice, excellent with Tagliatelle al Tartufo and Ossobuco alla Milanese.',
+    },
+    {
+      name: 'Marchesi di Barolo Barolo DOCG',
+      price: '$85.00',
+      description:
+        'Full-bodied with complex flavors of dark fruit, licorice, and earth, a perfect match for Filetto di Manzo and Assorted Italian Cheeses.',
+    },
+    {
+      name: 'Tommasi Ripasso Valpolicella Classico Superiore DOC',
+      price: '$50.00',
+      description:
+        'Rich and smooth with notes of dried cherry, plum, and spice, pairs well with Gnocchi alla Sorrentina and Carpaccio di Manzo.',
+    },
+  ],
+  roséWines: [
+    {
+      name: 'Castello di Ama Rosato Toscana IGT',
+      price: '$40.00',
+      description:
+        'Fresh and vibrant with flavors of wild strawberries and rose petals, ideal for lighter dishes like Bruschetta al Pomodoro and Insalata Mista.',
+    },
+  ],
+  dessertWines: [
+    {
+      name: 'Avignonesi Vin Santo di Montepulciano DOC',
+      price: '$70.00',
+      description:
+        'Sweet and rich with notes of dried apricot, honey, and nuts, perfect for pairing with Tiramisu and Cannoli Siciliani.',
+    },
+    {
+      name: "Michele Chiarlo Nivole Moscato d'Asti DOCG",
+      price: '$30.00',
+      description:
+        'Lightly sparkling and sweet with flavors of peach and apricot, a delightful accompaniment to Panna Cotta and Torta al Limone.',
+    },
+  ],
+};

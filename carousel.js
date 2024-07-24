@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const adjustForScreenSize = () => {
     const viewportWidth = window.innerWidth;
-    state.slidesToShow = viewportWidth < 600 ? 1 : viewportWidth < 900 ? 2 : 3;
+    state.slidesToShow = viewportWidth < 650 ? 1 : viewportWidth < 1100 ? 2 : 3;
     document.documentElement.style.setProperty(
       '--slides-to-show',
       state.slidesToShow
