@@ -204,3 +204,4 @@ export const imageData = [
     likes: '32.7k',
   },
 ];
+

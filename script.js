@@ -97,24 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  /* ------------------------------------------------- */
-  // Function to handle resize and close side menu on desktop
-  function handleResize() {
-    // not working
-    console.log('Handling resize');
-
-    if (window.innerWidth > 1200) {
-      // remove active class from side menu
-      sideMenu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    }
-  }
-
-  // Call handleResize function on window resize and initial load
-  handleResize();
-  window.addEventListener('resize', handleResize);
-
   
 
   // function to add staggered animation to the hero intro content
