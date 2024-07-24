@@ -686,7 +686,7 @@ header .columns nav a.active {
 
 @media (max-width: 1200px) {
   .intro .content {
-    padding-top: 40px;
+    padding-top: 20px;
     justify-content: center;
     align-items: center;
   }
@@ -1747,6 +1747,68 @@ header .columns nav a.active {
   .review .right,
   .review .left {
     width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .reviews-container {
+    padding: 60px 20px;
+  }
+  .review-heading {
+    font-size: 36px;
+    text-align: center;
+  }
+  .review {
+    padding: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .review .left {
+    font-size: 28px;
+    width: 90%;
+  }
+
+  .review .right {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .review .right img {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 10px;
+  }
+
+  .review .right h3 {
+    font-size: 18px;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .review-buttons {
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .review-buttons .review-button {
+    width: 8px;
+    height: 8px;
+    position: relative;
+  }
+
+  .review-buttons .review-button.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    border: 1px solid #b7b095;
+    border-radius: 50%;
+    box-sizing: border-box;
   }
 }
 
@@ -3234,7 +3296,7 @@ address {
   width: 15%; /* Width of the second underline */
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .banner-text {
     margin: 0 auto;
     text-align: center;
@@ -3248,7 +3310,7 @@ address {
   .banner-text p::before,
   .banner-text p::after {
     content: '';
-    left: 30%;
+    left: 35%;
     position: absolute;
     height: 2px;
     background-color: var(--primary-color);
@@ -3277,7 +3339,7 @@ address {
 
   .banner-text p::before,
   .banner-text p::after {
-    left: 25%; /* Adjusted for better alignment in this range */
+    left: 30%; /* Adjusted for better alignment in this range */
   }
 
   .banner-text p::before {
