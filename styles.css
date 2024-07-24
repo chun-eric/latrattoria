@@ -3745,6 +3745,55 @@ address {
   }
 }
 
+@media (max-width: 400px) {
+  .directions-container {
+    padding: 0 !important;
+  }
+
+  .directions-left,
+  .directions-right {
+    padding: 40px 10px;
+  }
+
+  .directions-left > *,
+  .directions-right > * {
+    font-size: 1.2rem;
+  }
+
+  .directions-left h2,
+  .directions-right h2 {
+    font-size: 2rem;
+  }
+
+  .separator {
+    width: 50%;
+    margin: 15px 0;
+  }
+
+  .google-map {
+    height: 300px;
+    width: 100%;
+  }
+
+  .directions-left svg,
+  .directions-right svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .directions-contact-number {
+    font-size: 1.1rem;
+  }
+
+  .direction-heading {
+    font-size: 1.3rem;
+  }
+
+  .direction-address {
+    font-size: 1.1rem;
+  }
+}
+
 /* footer */
 footer {
   width: 100%;
