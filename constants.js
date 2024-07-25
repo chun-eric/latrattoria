@@ -331,14 +331,14 @@ export const fullMenuData = {
       price: '$14.00',
       description: 'Fried rice balls stuffed with cheese and peas',
       category: 'appetizer',
-      image: './images/menuImages/Arancini di Riso.webp',
+      image: './images/menuImages/Arancini-di-Riso.webp',
     },
     {
       name: 'Pasta e Fagioli',
       price: '$14.00',
       description: 'Traditional pasta and bean soup',
       category: 'soup',
-      image: './images/menuImages/Pasta e Fagioli.webp',
+      image: './images/menuImages/Pasta-e-Fagioli.webp',
     },
     {
       name: 'Minestrone',
@@ -352,14 +352,14 @@ export const fullMenuData = {
       price: '$20.00',
       description: 'Seafood soup with a tomato base',
       category: 'soup',
-      image: './images/menuImages/Zuppa di Pesce.webp',
+      image: './images/menuImages/Zuppa-di-Pesce.webp',
     },
     {
       name: 'Ravioli al Burro e Salvia',
       price: '$18.00',
       description: 'Ravioli with butter and sage sauce',
       category: 'main',
-      image: './images/menuImages/Ravioli al Burro e Salvia.webp',
+      image: './images/menuImages/Ravioli-al-Burro-e-Salvia.webp',
     },
     {
       name: 'Fettuccine Alfredo',
