@@ -4,6 +4,7 @@ console.log('Script file loaded');
 import { menuData } from './constants.js';
 console.log(menuData);
 
+
 // Show preloader immediately
 document.getElementById('preloader').style.display = 'flex';
 
@@ -22,9 +23,6 @@ window.addEventListener('load', function () {
     }, 1000);
   }, 3000);
 });
-
-
-
 
 // dom to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
@@ -74,6 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
   window.initializeHeader = initializeHeader;
 
   /* ------------------------------------------------- */
+  // function to handle the active state of the navigation links
+
+  /* ------------------------------------------------- */
   // function to handle hero overlay image transitions
   // select all hero images
   const heroImages = document.querySelectorAll('.intro .background img');
@@ -94,10 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   // Initialize the changeHeroImage function
   setInterval(changeHeroImage, 10000);
-
-
-
-  
 
   // function to add staggered animation to the hero intro content
   const content = document.querySelector('.fade-in-content');

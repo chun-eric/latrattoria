@@ -26,6 +26,15 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
     <!-- Remix Icons -->
     <link
@@ -39,259 +48,279 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- SwiperJS CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
   </head>
-  <body>
-    <!-- Header-->
-    <header>
-      <div class="columns">
-        <a href="" class="logo">
-          La Trattoria <br />
-          <div class="logo-div" style="">Restuarant & Bar</div>
-        </a>
-        <nav>
-          <a href="" class="active">Home</a>
-          <a href="">Menu</a>
-          <a href="">Wine Lists</a>
-          <a href="">About us</a>
-          <a href="">Events</a>
-          <a href="">Contact Us</a>
-        </nav>
-        <a href="" class="phone">+81 (987) 456 321</a>
-      </div>
-    </header>
 
-    <!-- Hero/Intro Overlay-->
-    <div class="intro">
-      <!-- <div class="overlay"></div> -->
-      <div class="background">
-        <img src="./images/pasta.jpg" alt="" />
-      </div>
-      <div class="content">
-        <h1>La Trattoria</h1>
-        <h2>Authentic Fine Dining Italian Cuisine since 1979.</h2>
-        <button class="btn main-btn"><a href=""></a>Book a table</button>
-      </div>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="spinner"></div>
+      <div class="preloader-logo">La Trattoria</div>
     </div>
 
-    <!-- About Section-->
-    <div class="about-section">
-      <div class="background">
-        <img src="./images/background-pattern4.jpg" alt="" />
-      </div>
+    <!-- Success Message -->
+     <div class="success-message" id="successMessage" >
+      Thank you for subscribing!
+     </div>
 
-      <div class="about-contents">
-        <div class="about-text">
-          <p class="about-welcome-text">Welcome to La Trattoria.</p>
-          <div class="about-welcome-content">
-            <h2>
-              A Modern yet Freshly Made Italian Restaurant in the heart of Osaka
-              City
-            </h2>
-            <p>
-              We guarantee you the freshest Italian pastas and pizzas, prepared
-              by our chefs with the best ingredients. Our menu is a specific
-              meal by request. All our locations provide a wonderful open-air
-              venue to enjoy the meal all year round, we offer both indoor and
-              alfresco dining and our focus is on serving.
-            </p>
+    <!-- Header-->
+    <div id="header-placeholder"></div>
+
+   
+     
+  <!-- Side Menu -->
+  <div class="side-menu">
+    <div class="close-btn">
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="logo">
+      <a href="#" class="logo">
+        La Trattoria <br/>
+        <div class="logo-div">Restaurant and Bar</div>
+      </a>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <div class="separator"></div>
+      <a href="#">Menu</a>
+      <div class="separator"></div>
+      <a href="#">Wine List</a>
+      <div class="separator"></div>
+      <a href="#">Blog</a>
+      <div class="separator"></div>
+      <a href="#">Events</a>
+      <div class="separator"></div>
+      <a href="#">Book a Table</a>
+      <div class="separator"></div>
+    </nav>
+    <div class="contact-info">
+      <h2>Visit Us</h2>
+      <p>Address: 1-4-21 Osaka, Kita Ward Umeda, 1st Floor, Osaka, Japan</p>
+      <h3>Contact Us</h3>
+      <p class="contact-number">+81 (987) 456 321</p>
+    </div>
+  </div>
+      <!-- Overlay -->
+      <div class="overlay" id="overlay"></div>
+      
+  
+    
+
+    <!-- Menu -->
+    <div class="menu-container">
+      <div class="menu">
+        <div class="menu-header">
+          <h2>Our Menu</h2>
+        </div>
+        <div class="menu-items">
+          <h2>Menu Items</h2>
+          <div class="menu-category">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="appetizer">Appetizers</button>
+            <button class="filter-btn" data-filter="main">Mains</button>
+            <button class="filter-btn" data-filter="side">Sides</button>
+            <button class="filter-btn" data-filter="dessert">Desserts</button>
           </div>
         </div>
-        <div class="about-img">
-          <img src="./images/pizza.jpg" alt="" />
+        <div class="menu-board-container">
+        <!-- Contents here will be dynamically rendered by Javascript -->
         </div>
       </div>
     </div>
 
-    <!-- Content Blocks-->
-    <div class="content-blocks">
-      <div class="content-block">
-        <div class="side-img">
-          <img src="./images/restaurant.jpg" alt="" />
-        </div>
-        <div class="texts">
-          <h2>Restuarant</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <a href="" class="btn outline">Read More</a>
-        </div>
+
+
+ 
+
+    <!-- email background overlay -->
+    <div id="overlay-email-bg" class="overlay-email-bg">
+      <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+        <div class="preloader-logo">Your Logo</div>
       </div>
-      <div class="content-block">
-        <div class="side-img">
-          <img src="./images/pasta4.jpg" alt="" />
-        </div>
-        <div class="texts">
-          <h2>Menu</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <a href="" class="btn outline">Read More</a>
-        </div>
-      </div>
-      <div class="content-block">
-        <div class="side-img">
-          <img src="./images/wine2.jpg" alt="" />
-        </div>
-        <div class="texts">
-          <h2>Wine List</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <a href="" class="btn outline">Read More</a>
-        </div>
+      <div id="successMessage" class="success-message">Thank you for subscribing!
       </div>
     </div>
+    
+   
+    
 
-    <!-- Reviews -->
-    <div class="reviews">
-      <div class="columns">
-        <h2>What our Clients say</h2>
-        <a href="">Read more &rarr;</a>
-      </div>
-      <div class="reviews-grid">
-        <div class="review">
-          <h3>Nicole</h3>
-          <time>10.01.2022</time>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat et
-            quos ab mollitia sit architecto magni, nobis, fuga quo pariatur aut
-            ut ullam omnis dignissimos exercitationem. Rem aspernatur hic ipsum.
+    <!-- Contact Section  -->
+    <div id="contact-section" class="contact-container">
+      <div class="form-container">
+      <div class="form contact-form contact-form-background">
+        <!-- form on the left -->
+        <form action="" class="form-left" id="reservationForm">
+          <h2 class="headline-1 text-center">Online Reservation</h2>
+          <p class="form-text text-center">
+            Make a booking by calling
+            <a href="tel:+81987456321" class="link">+81-987-456321</a> or fill out the order form below
           </p>
+
+          <div class="input-wrapper two-columns">
+            <input id="name" type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field" required>
+            <input id="phone" type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field" required>
+          </div>
+          
+          <!-- Middle Input wrapper -->
+          <!-- Number of People-->
+          <div class="input-wrapper three-column-input-wrapper">
+            <div class="icon-wrapper">
+              <ion-icon name="person-outline" aria-hidden="true"></ion-icon> 
+              <select name="person" id="person-select" class="input-field" required>
+                <option value="1-person">1 Person</option>
+                <option value="1-person">2 People</option>
+                <option value="1-person">3 People</option>
+                <option value="1-person">4 People</option>
+                <option value="1-person">5 People</option>
+                <option value="1-person">6 People</option>
+                <option value="1-person">7 People</option>
+                <option value="1-person">8 People</option>
+              </select>
+            
+            </div>
+        
+
+          <!-- Date Selection -->
+      
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="calendar-icon">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <input type="date" type="date" name="reservation-date" id="date-input" class="input-field" required>
+            </div>
+        
+
+
+          <!-- Time Selection -->
+  
+          <div class="icon-wrapper">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon> 
+            <select name="person" id="time-select" class="input-field" required>
+              <option value="011:00am">11 : 00 am</option>
+              <option value="012:00am">12 : 00 am</option>
+              <option value="01:00pm">01 : 00 pm</option>
+              <option value="02:00pm">02 : 00 pm</option>
+              <option value="06:00pm">06 : 00 pm</option>
+              <option value="07:00pm">07 : 00 pm</option>
+              <option value="08:00pm">08 : 00 pm</option>
+              <option value="09:00pm">09 : 00 pm</option>
+              <option value="10:00pm">10 : 00 pm<option>
+            </select>
+          </div>
         </div>
-        <div class="review">
-          <h3>Loranne</h3>
-          <time>10.01.2022</time>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat et
-            quos ab mollitia sit architecto magni, nobis, fuga quo pariatur aut
-            ut ullam omnis dignissimos exercitationem. Rem aspernatur hic ipsum.
-          </p>
-        </div>
-        <div class="review">
-          <h3>Taro</h3>
-          <time>10.01.2022</time>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat et
-            quos ab mollitia sit architecto magni, nobis, fuga quo pariatur aut
-            ut ullam omnis dignissimos exercitationem. Rem aspernatur hic ipsum.
-          </p>
-        </div>
-      </div>
-    </div>
 
-    <!-- Instagram -->
-    <div class="instagram">
-      <div class="columns">
-        <h2>Instagram</h2>
-        <a href="http://instagram.com" class="instagram-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-            <path
-              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-            />
-          </svg>
+          <!-- Message Area -->
+          <textarea name="message" id="message" placeholder="Message" autocomplete="off" class="input-field" ></textarea>
 
-          <span>La_Trattoria</span>
-        </a>
-      </div>
-      <div class="photos">
-        <a href=""><img src="./images/pasta3.jpg" alt="" /></a>
-        <a href=""><img src="./images/cheers4.jpg" alt="" /></a>
-        <a href=""><img src="./images/pizza2.jpg" alt="" /></a>
-      </div>
-      <div class="slider-arrows">
-        <div id="left-arrow" class="arrow">&larr;</div>
-        <div id="right-arrow" class="arrow">&rarr;</div>
-      </div>
-    </div>
+          <!-- Submit Button -->
+            <button type="submit" class="btn-submit">
+            <a class="text text-1">Book A Table</a>
+            </button>
 
-    <!-- Bookings -->
-    <div class="booking">
-      <div>
-        <h2>Reserve a table</h2>
-        <form>
-          <label for="nameIn">Name</label>
-          <input type="text" placeholder="Your Name" id="nameIn" />
-          <label for="phoneIn">Phone Number</label>
-          <input type="text" placeholder="+81 978 4564" id="phoneIn" />
-          <label for="dateIn">Date</label>
-          <input type="text" placeholder="10.01.15" id="dateIn" />
-          <label for="timeIn">Time</label>
-          <input type="text" placeholder="19:30" id="timeIn" />
+          </form>
 
-          <input type="checkbox" id="termsCb" />
-          <label class="cb" for="termCb"
-            >I agree with the <a href="">Terms and Conditions</a></label
+
+        <!-- form contact details right -->
+        <div
+          class="form-right text-center"
+          style="background-image: url('./images/form-pattern.png')"
+        >
+          <h2>Contact Us</h2>
+          <p class="contact-label">Reservation Request</p>
+          <a
+            href="tel:+81987456321"
+            class="contact-number hover-underline"
+            >+81 (987) 456 321</a
           >
-          <button class="btn">Book a table</button>
-        </form>
+    
+          <p class="contact-label location-label">Location</p>
+          <address class="body-4" >
+            1-4-21 Osaka, Kita Ward Umeda, <br/>1st Floor, Osaka, Japan
+          </address>
+          <p class="contact-label">Lunch Time</p>
+          <p class="body-4">Monday to Sunday 
+            <br/>11:00 AM - 2:00 PM</p>
+          </p>
+
+          <p class="contact-label">Dinner Time</p>
+          <p class="body-4">
+            Monday to Sunday
+            <br/>6:00 PM - 10:30 PM
+          </p>
+        </div>
       </div>
-      <div>
-        <div class="side-img right">
-          <img src="./images/cheers3.jpg" alt="" />
+    </div>
+    </div>
+  
+
+ 
+  
+
+
+
+     <!-- Location and Directions -->
+    <div class="directions-container">
+      <div class="directions">
+        <div class="directions-left">
+          <a href="">
+            <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="directionsRightIconTitle" stroke="#000000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" color="#000000"> <title id="directionsRightIconTitle">Turn Right</title> <path d="M15 11H12C12 11 10 11 10 13.2C10 14 10 15 10 15"/> <path d="M13 13L15 11L13 9"/> <rect width="14.1422" height="14.1422" transform="matrix(-0.707107 0.707107 0.707107 0.707107 12 2)"/> </svg>
+          </a>
+          <h2>Directions</h2>
+          <hr class="separator">
+          <p>A 3 minute walk from <br/>JR Osaka Station Central Gate Exit</p>
+          <br/>
+          <p class="direction-heading">Contact Number:</p>
+       
+          <a
+            href="tel:+81987456321"
+            class="directions-contact-number "
+            >+81 (987) 456 321</a
+          >
+    
+          <hr class="separator">
+          <p class="direction-heading">Address</p>
+          <p class="direction-address" >
+            3-1-3 Umeda, Kita Ward Umeda, <br/>1st Floor, Lucua, Osaka, Japan
+          </p>
+          <hr class="separator">
+          <p class="direction-heading">Lunch Time</p>
+          <p class="">Monday to Sunday 
+            <br/>11:00 AM - 2:00 PM</p>
+          </p>
+          <p class="direction-heading">Dinner Time</p>
+          <p class="">
+            Monday to Sunday
+            <br/>6:00 PM - 11:00 PM
+          </p>
+        </div>
+
+        <div class="directions-right">
+          <a href="">
+          <svg width="40px" height="40px" viewBox="0 0 28 28" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M14 6C11.7909 6 10 7.79086 10 10C10 12.2091 11.7909 14 14 14C16.2091 14 18 12.2091 18 10C18 7.79086 16.2091 6 14 6ZM12 10C12 8.89543 12.8954 8 14 8C15.1046 8 16 8.89543 16 10C16 11.1046 15.1046 12 14 12C12.8954 12 12 11.1046 12 10Z" fill="#ffffff" fill-rule="evenodd"/><path clip-rule="evenodd" d="M23 10.1438C23 14.8819 20.359 22.3559 15.0771 26.6174C14.4449 27.1275 13.5551 27.1275 12.9229 26.6174C7.64096 22.3559 5 14.8819 5 10.1438C5 5.0938 9.02944 1 14 1C18.9706 1 23 5.0938 23 10.1438ZM21 10.1438C21 12.1757 20.4217 14.9456 19.1942 17.7283C18.0897 20.2321 16.5107 22.6301 14.4974 24.4574C14.2134 24.7152 13.7866 24.7152 13.5026 24.4574C11.4893 22.6301 9.91031 20.2321 8.80581 17.7283C7.57831 14.9456 7 12.1757 7 10.1438C7 6.21602 10.134 3.03195 14 3.03195C17.866 3.03195 21 6.21602 21 10.1438Z" fill="#ffffff" fill-rule="evenodd"/></svg>
+          </a>
+          <h2>Map</h2>
+          <hr class="separator">
+          <div class="google-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.0907757112295!2d135.49315835618262!3d34.70289028935102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e68dc5aa6efd%3A0x6312408264b55d49!2sLUCUA%20Osaka!5e0!3m2!1sen!2sjp!4v1720488251605!5m2!1sen!2sjp" width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer>
-      <a href="" class="logo">
-        La Trattoria <br />
-        <div class="logo-div" style="">Restuarant & Bar</div>
-      </a>
-      <div class="columns">
-        <div class="email">
-          <p>
-            Email: <br />
-            latrattoria@gmail.com
-          </p>
-        </div>
-        <div class="address">
-          <p>
-            Address: <br />
-            1-4-21 Osaka, Kita Ward Umeda, 1st Floor
-          </p>
-        </div>
-        <div class="terms">
-          <p>
-            <a href="" class="privacy"
-              >Terms and Privacy <br />
-              &copy; All rights reserved 2023
-            </a>
-          </p>
-        </div>
-        <div class="social">
-          <p>Follow us:</p>
-          <br />
-          <div class="icons">
-            <a href="">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                <path
-                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                />
-              </svg>
-            </a>
-            <a href="">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                <path
-                  d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"
-                />
-              </svg>
-            </a>
-            <a href="">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                <path
-                  d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <script src="script.js"></script>
+ 
+    <script src="load-common-elements.js"></script>
+    <script type="module" src="script.js" ></script>
+    <script type="module" src="hamburger.js"></script>
+    <script type="module" src="carousel.js" ></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
   </body>
 </html>

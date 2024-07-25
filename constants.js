@@ -281,3 +281,50 @@ export const wineList = {
     },
   ],
 };
+
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    image: './images/blogImages/blog1.jpg',
+    commentCount: 3,
+    likeCount: 18,
+    title: 'Celebrating 25 Years of Culinary Excellence',
+    date: 'July 12th, 2024',
+    excerpt:
+      'This year marks a significant milestone for La Trattoria as we celebrate 25 years of serving authentic Italian cuisine. In this commemorative blog post, we reflect on our journey from a small family-owned restaurant to a beloved dining destination.',
+    link: '',
+  },
+  {
+    id: 2,
+    image: './images/blogImages/blog2.jpg',
+    commentCount: 8,
+    likeCount: 33,
+    title: 'Tradition and Taste',
+    date: 'July 7th, 2024',
+    excerpt:
+      'Explore the timeless recipes and cherished flavors that have made La Trattoria a beloved destination. In this blog post, we delve into the culinary traditions that continue to inspire our dishes and delight our guests.',
+    link: '',
+  },
+  {
+    id: 3,
+    image: './images/blogImages/blog3.jpg',
+    commentCount: 8,
+    likeCount: 53,
+    title: 'Honoring Our Culinary Heritage: 25 Years Strong',
+    date: 'June 28th, 2024',
+    excerpt:
+      'This year, we pay tribute to our culinary roots and the journey that has shaped La Trattoria. In this special blog post, we celebrate our heritage and the authentic Italian cuisine that has delighted our guests for 25 years.',
+    link: '',
+  },
+  {
+    id: 4,
+    image: './images/blogImages/blog4.jpg',
+    commentCount: 28,
+    likeCount: 68,
+    title: 'From Family Roots to Culinary Heights',
+    date: 'June 20th, 2024',
+    excerpt:
+      'Discover the story of La Trattoria’s growth from a humble family restaurant to a culinary landmark. This post delves into our rich history and the passion behind every dish we serve.',
+    link: '',
+  },
+];

@@ -1848,7 +1848,7 @@ header .columns nav a.active {
   font-family: 'Cormorant', serif;
   color: var(--primary-heading-color);
   display: block;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .blog-header p {
@@ -1859,32 +1859,38 @@ header .columns nav a.active {
 
 /* container for all the blog cards */
 .blog-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  color: var(--primary-heading-color);
+}
+
+.blog-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  color: var(--primary-heading-color);
-  gap: 60px;
-}
-
-.blog-card {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 80%;
-  height: 370px;
-  gap: 30px;
-
+  max-width: 450px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 2px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   background-color: #f0ede7;
   border-radius: 2px;
 }
 
-.blog-image,
 .blog-content {
-  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  padding: 30px 25px;
 }
 
 /* image container */
@@ -1897,7 +1903,7 @@ header .columns nav a.active {
 .blog-image img {
   width: 100%;
   max-width: 100%;
-  height: 100%;
+  height: 300px;
   max-height: 100%;
   object-fit: cover;
   align-items: flex-start;
@@ -1942,16 +1948,6 @@ header .columns nav a.active {
 .blog-icons p {
   font-family: 'Cormorant', serif;
   font-size: 1.2rem;
-}
-
-.blog-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 10px;
-  padding: 30px 0px;
-  padding-right: 20px;
 }
 
 .blog-title {
@@ -2051,6 +2047,15 @@ header .columns nav a.active {
 }
 
 @media (max-width: 399px) {
+  .blog-feed {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .blog-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
   .blog-icons {
     width: 50%;
   }
@@ -2059,17 +2064,74 @@ header .columns nav a.active {
     height: 2rem;
     padding: 5px;
   }
+  .blog-image img {
+    height: 200px;
+  }
+  .blog-title {
+    font-size: 1.4rem;
+  }
+
+  .blog-text {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .blog-content {
+    padding: 20px 15px;
+  }
+  /* Adjust blog icons */
+  .blog-icons {
+    width: 100%;
+    bottom: 10px;
+    right: 0;
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+
+  .blog-icons svg {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+  }
+
+  .blog-icons p {
+    font-size: 1rem;
+  }
+  /* Adjust calendar icon and date */
+  .blog-meta {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .calendar {
+    width: 16px;
+    height: 16px;
+  }
+
+  .blog-date {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust read more link */
+  .read-more {
+    font-size: 1rem;
+  }
 }
 
 /* Email Subscribe */
 .email-container {
   width: 100%;
-  height: 100%;
+  min-height: 500px; /* Ensure a minimum height */
   padding: 80px;
-  background-color: #1a1c1c;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  --curve-height1: 800px;
+  --curve-height2: 600px;
+  --curve-height3: 400px;
 }
 
 .email-section {
@@ -2079,6 +2141,18 @@ header .columns nav a.active {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  z-index: 2; /* Higher z-index to ensure it's above the curve */
+  position: relative; /* Add this to create a new stacking context */
+}
+
+.curve {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #f0ede7;
+  z-index: 1; /* Lower z-index to ensure it's behind the content */
 }
 
 .overlay-email-bg {
@@ -2107,10 +2181,11 @@ header .columns nav a.active {
   font-size: 30px;
   text-align: center;
   padding-bottom: 10px;
+  color: var(--primary-bg-color);
 }
 
 .email-section p {
-  color: #b7b095;
+  color: var(--primary-heading-color);
   font-family: 'Cormorant', serif;
   font-weight: bold;
   font-size: 35px;
@@ -2139,10 +2214,12 @@ header .columns nav a.active {
   padding: 18px;
   height: auto;
   border-radius: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   flex-grow: 1;
   box-sizing: border-box;
   border: none;
+  background-color: #ffffff;
 }
 
 input[type='email']:focus {
@@ -2180,6 +2257,7 @@ input[type='email']:focus {
   font-size: 15px;
   margin-left: 5px;
   font-family: 'Cormorant', serif;
+  color: var(--secondary-bg-color);
 }
 
 input[type='checkbox'] {
@@ -2190,9 +2268,26 @@ input[type='checkbox'] {
   margin: 0;
 }
 
+.terms-conditions label a {
+  color: var(--secondary-bg-color);
+}
+@media (max-width: 1200px) {
+  .email-container {
+    --curve-height1: 700px;
+    --curve-height2: 500px;
+    --curve-height3: 300px;
+  }
+}
+
 @media (max-width: 768px) {
   .email-container {
     padding: 80px 0;
+  }
+
+  .email-container {
+    --curve-height1: 600px;
+    --curve-height2: 400px;
+    --curve-height3: 200px;
   }
 
   .email-section h2 {
@@ -2218,6 +2313,12 @@ input[type='checkbox'] {
 }
 
 @media (max-width: 480px) {
+  .email-container {
+    --curve-height1: 500px;
+    --curve-height2: 300px;
+    --curve-height3: 100px;
+  }
+
   .email-section h2 {
     font-size: 20px;
   }
@@ -2546,354 +2647,6 @@ input[type='checkbox'] {
   .content-text,
   .view-all-team {
     font-size: 14px;
-  }
-}
-
-/* Image Gallery */
-.gallery-carousel {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  position: relative;
-}
-
-.gallery-background-image {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-image: url('./images/background-altered.png');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
-  transform: rotate(180deg);
-}
-
-.gallery-carousel-container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 30px;
-  height: 100%;
-  align-items: center;
-  z-index: 3;
-  width: 95%;
-  position: relative;
-  padding: 60px 40px;
-  overflow: hidden !important;
-}
-
-.gallery-carousel-container p {
-  display: inline-block;
-  height: auto;
-  max-width: 100%;
-  font-size: 45px;
-  font-family: 'Sacramento', cursive;
-  color: #b7b095;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-}
-
-.gallery-carousel-container p::before,
-.gallery-carousel-container p::after {
-  content: '';
-  left: 0;
-  display: block;
-  position: absolute;
-  height: 2px;
-  background-color: #b7b095;
-}
-
-.gallery-carousel-container p::before {
-  bottom: -14px;
-  width: 80%;
-}
-
-.gallery-carousel-container p::after {
-  bottom: -24px;
-  width: 60%;
-}
-
-.gallery-carousel-container h2 {
-  width: 100%;
-  font-size: 3.5rem;
-  color: var(--primary-heading-color);
-  font-weight: bold;
-  font-family: 'Cormorant', serif;
-  text-align: center;
-  padding: 30px 0;
-}
-
-.gallery-carousel-container .slider-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.slider-images {
-  width: 100%;
-  transition: transform 0.5s ease;
-  display: flex;
-  position: relative;
-  gap: 10px;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  cursor: grab;
-  user-select: none;
-  /* This got rid of the really annoying previous image container that was showing on the left side of the container. */
-  gap: 0;
-}
-
-.slider-images.dragging {
-  cursor: grabbing;
-  cursor: -webkit-grabbing;
-  /* transform: scale(1.02); */
-  transition: transform 0.3s ease-in-out;
-}
-
-.slider-images::-webkit-scrollbar {
-  display: none;
-}
-
-.slider-images:active {
-  cursor: grabbing;
-}
-
-.slider-images :where(.image-container, img) {
-  align-items: center;
-  justify-content: center;
-  filter: saturate(85%);
-}
-
-.slider-images.dragging .image-container {
-  cursor: grab;
-}
-
-.slider-images .image-container {
-  flex: 0 0 calc(100% / var(--slides-to-show, 3));
-  max-width: calc(100% / var(--slides-to-show, 3));
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  scroll-snap-align: start;
-  position: relative;
-  transition: flex-basis 0.3s ease;
-}
-
-.slider-images .image-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 5%;
-  right: 0;
-  width: 90%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  opacity: 0.1;
-  transition: opacity 0.5s ease;
-  z-index: 10;
-}
-
-.slider-images .image-container:hover::before {
-  opacity: 1;
-}
-
-.smooth-scroll {
-  scroll-behavior: smooth;
-}
-
-.slider-images .image-container img {
-  width: 90%;
-  height: auto;
-  object-fit: cover;
-}
-
-.slider-images .image-container img:hover {
-  filter: brightness(70%);
-  transform: scale(1.01);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-.image-overlay {
-  position: absolute;
-  left: 5%;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(236, 236, 236);
-  font-size: 1rem;
-  /* background-color: rgba(0, 0, 0, 0.5); */
-  z-index: 35;
-  justify-content: space-between;
-  padding: 30px;
-  height: 10%;
-  width: 90%;
-  box-sizing: border-box;
-}
-
-.instagram-info,
-.likes-info {
-  display: flex;
-  align-items: center;
-  font-size: 0.9rem;
-  min-width: 0; /* allow flex items to shrink below content size */
-}
-
-.instagram-info {
-  flex: 1 1 70%; /* takes up 70% of space */
-  justify-content: flex-start;
-}
-
-.likes-info {
-  flex: 0 1 30%; /* takes up 30% of space */
-  justify-content: flex-end;
-}
-
-.instagram-info i,
-.likes-info i {
-  margin-right: 10px;
-  font-size: 1.3rem;
-  flex-shrink: 0; /* prevents icon from shrinking */
-}
-
-.instagram-info span,
-.likes-info span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0; /* Allow text to shrink */
-}
-
-.gallery-carousel-buttons {
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  gap: 25px;
-  margin-top: 20px;
-  z-index: 30;
-}
-
-.gallery-button {
-  width: 10px;
-  height: 10px;
-  background-color: var(--primary-text-color);
-  border-radius: 50%;
-  cursor: pointer;
-  position: relative;
-  transition: background-color 0.3s ease;
-}
-
-.gallery-button:hover,
-.gallery-button.active {
-  background-color: #b7b095;
-  border-color: #b7b095;
-  transition: 0.5s ease;
-}
-
-.gallery-button.active::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 35px;
-  height: 35px;
-  border: 1px solid #b7b095;
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
-@media (max-width: 1100px) {
-  .slider-images .image-container {
-    flex: 0 0 50%;
-    width: 50%;
-  }
-}
-
-@media (max-width: 899px) {
-  .gallery-carousel-container h2 {
-    font-size: 2.8rem;
-  }
-  .image-overlay {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 650px) {
-  .gallery-carousel-container h2 {
-    font-size: 2.2rem; /* Adjust heading size for smaller screens */
-  }
-
-  .slider-images .image-container {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-
-  .slider-images .image-container img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .image-overlay {
-    font-size: 0.7rem;
-    /* flex-wrap: wrap;  */
-    /* allow wrapping on very small screens */
-  }
-
-  .instagram-info,
-  .likes-info {
-    flex-basis: 100%; /* take full width on very small screens */
-  }
-
-  .instagram-info i,
-  .likes-info i {
-    margin-right: 2px;
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 350px) {
-  .gallery-carousel-buttons {
-    gap: 15px; /* Reduce the gap between buttons */
-  }
-
-  .gallery-button {
-    width: 8px; /* Reduce the width of the button */
-    height: 8px; /* Reduce the height of the button */
-  }
-
-  .gallery-button.active::after {
-    width: 25px; /* Reduce the size of the active button's outer circle */
-    height: 25px;
-  }
-
-  .gallery-carousel-container h2 {
-    font-size: 1.8rem; /* Reduce the heading size if needed */
-  }
-
-  .gallery-carousel-container p {
-    font-size: 35px; /* Reduce the "gallery" text size if needed */
   }
 }
 
