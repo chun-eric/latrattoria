@@ -299,7 +299,7 @@ export const BLOG_POSTS = [
     image: './images/blogImages/blog2.jpg',
     commentCount: 8,
     likeCount: 33,
-    title: 'Tradition and Taste',
+    title: 'Tradition and Taste of La Trattroia',
     date: 'July 7th, 2024',
     excerpt:
       'Explore the timeless recipes and cherished flavors that have made La Trattoria a beloved destination. In this blog post, we delve into the culinary traditions that continue to inspire our dishes and delight our guests.',

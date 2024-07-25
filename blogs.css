@@ -1875,35 +1875,35 @@ header .columns nav a.active {
   justify-content: center;
   width: 100%;
   max-width: 450px;
-  height: auto;
+  height: 600px;
   margin: 0 auto;
   border-radius: 2px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  background-color: #f0ede7;
+  background-color: #fdfcf9;
   border-radius: 2px;
+  overflow: hidden;
 }
 
 .blog-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
   gap: 10px;
   padding: 30px 25px;
+  flex-grow: 1;
 }
 
 /* image container */
 .blog-image {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 220px;
 }
 
 .blog-image img {
   width: 100%;
   max-width: 100%;
-  height: 300px;
+  height: 100%;
   max-height: 100%;
   object-fit: cover;
   align-items: flex-start;
@@ -1954,6 +1954,7 @@ header .columns nav a.active {
   font-size: 1.6rem;
   font-weight: 600;
   width: 100%;
+  margin-top: 0;
 }
 
 .blog-meta {
@@ -1980,6 +1981,12 @@ header .columns nav a.active {
   font-weight: 500;
   padding-top: 10px;
   color: var(--primary-text-color);
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .read-more {
@@ -1991,6 +1998,7 @@ header .columns nav a.active {
   cursor: pointer;
   font-weight: bold;
   position: relative;
+  margin-top: auto;
 }
 
 .read-more::before,
@@ -2004,12 +2012,12 @@ header .columns nav a.active {
 
 .read-more::before {
   bottom: -4px;
-  width: 80%;
+  width: 23%;
 }
 
 .read-more::after {
   bottom: -8px;
-  width: 60%;
+  width: 18%;
 }
 
 .read-more a:hover {
@@ -2657,7 +2665,8 @@ input[type='checkbox'] {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #161718;
+
+  background-color: #f0ede7;
   padding: 100px 0;
 }
 
@@ -2665,7 +2674,9 @@ input[type='checkbox'] {
   width: 1200px;
   max-width: 100%;
   height: 100%;
-  padding-inline: 16px;
+
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .form {
@@ -2859,6 +2870,7 @@ textarea.input-field {
   gap: 22px;
   align-items: center;
   height: 100%;
+  background-color: #161718;
 }
 
 .form-right h2,
@@ -3496,14 +3508,15 @@ address {
   align-items: flex-start;
   justify-content: center;
   padding: 80px 0px 80px;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to left,
     #fefefe,
     #fefefe 50%,
     #1a1c1b 50%,
     #1a1c1b 100%
-  );
+  ); */
   flex-direction: row-reverse;
+  background-color: #ffffff;
 }
 
 .separator {
@@ -3538,12 +3551,12 @@ address {
 .directions-left h2,
 .directions-right h2 {
   font-size: 2.4rem;
-  color: var(--primary-heading-color);
+  color: #343332 !important;
   font-weight: bold;
 }
 
-.directions-right h2 {
-  color: #fff;
+.directions-right svg {
+  color: #343332 !important;
 }
 
 .directions-left .direction-heading {
