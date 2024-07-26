@@ -610,3 +610,80 @@ export const wineList = {
     },
   ],
 };
+
+export const calendarEvents = [
+  {
+    date: new Date(2024, 5, 15),
+    title: 'Summer Festival',
+    description: 'Annual summer celebration with live music and local cuisine.',
+    startTime: '14:00',
+    endTime: '22:00',
+  },
+  {
+    date: new Date(2024, 5, 22),
+    title: 'Wine Tasting',
+    description: 'Exclusive wine tasting event featuring regional vintages.',
+    startTime: '18:00',
+    endTime: '20:00',
+  },
+  {
+    date: new Date(2024, 6, 20),
+    title: 'How to Make Restaurant Quality Pasta',
+    description:
+      'Teaching you how to make professional grade pasta and Italian cuisine from our reknown chefs.',
+    startTime: '10:00',
+    endTime: '18:00',
+  },
+
+  {
+    date: new Date(2024, 7, 15),
+    title: 'How to Cook like a Pro in 60 minutes',
+    description: 'This is a crash course in cooking like a pro for beginners.',
+    startTime: '15:00',
+    endTime: '16:00',
+  },
+  {
+    date: new Date(2024, 8, 10),
+    title: 'Oktoberfest',
+    description:
+      'Traditional Bavarian-style celebration with Italian beer and pretzels.',
+    startTime: '16:00',
+    endTime: '22:00',
+  },
+  {
+    date: new Date(2024, 8, 31),
+    title: 'Halloween Party',
+    description: 'Spooky-themed event with costume contest and themed menu.',
+    startTime: '19:00',
+    endTime: '23:00',
+  },
+  {
+    date: new Date(2024, 9, 15),
+    title: 'Truffle Dinner',
+    description: 'Special menu featuring local truffles in every course.',
+    startTime: '19:00',
+    endTime: '22:00',
+  },
+  {
+    date: new Date(2024, 9, 26),
+    title: 'Thanksgiving Feast',
+    description: 'Traditional Thanksgiving dinner with all the trimmings.',
+    startTime: '16:00',
+    endTime: '20:00',
+  },
+  {
+    date: new Date(2024, 10, 12),
+    title: 'Holiday Cookie Workshop',
+    description: 'Learn to bake and decorate festive cookies.',
+    startTime: '14:00',
+    endTime: '17:00',
+  },
+  {
+    date: new Date(2024, 11, 31),
+    title: "New Year's Eve Gala",
+    description:
+      'Elegant celebration to ring in the new year with live music and champagne toast.',
+    startTime: '20:00',
+    endTime: '01:00',
+  },
+];

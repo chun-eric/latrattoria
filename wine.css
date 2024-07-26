@@ -679,7 +679,8 @@ p.wine-description {
 
   .wine-menu-board img {
     width: 100%;
-    max-height: 200px;
+    max-height: 500px;
+    object-fit: cover;
   }
 }
 
