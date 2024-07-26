@@ -1267,20 +1267,13 @@ header .columns nav a.active {
 
 .calendar-container {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fdfdfd;
-  padding: 60px 0px 140px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .calendar {
-  width: 1200px;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 80px 20px 40px;
+  width: 100%;
 }
 
 .calendar-header {
@@ -1368,7 +1361,8 @@ header .columns nav a.active {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 220px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -1392,7 +1386,25 @@ header .columns nav a.active {
   color: var(--primary-text-color);
 }
 
+@media (max-width: 1024px) {
+  .calendar-day {
+    padding: 5px;
+  }
+
+  .calendar-day .date {
+    font-size: 1rem;
+  }
+
+  .calendar-day .event {
+    font-size: 0.7rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .calendar-grid {
+    gap: 5px;
+  }
+
   .calendar-day:hover {
     transform: none;
   }
@@ -1403,8 +1415,32 @@ header .columns nav a.active {
 }
 
 @media (max-width: 480px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .calendar-day {
+    aspect-ratio: auto;
+    height: 40px;
+    padding: 2px;
+    justify-content: center;
+  }
+
+  .calendar-day .date {
+    font-size: 0.8rem;
+  }
+
+  .calendar-day .event {
+    display: none;
+  }
+
   .calendar-day .event-details {
     display: none !important;
+  }
+
+  .calendar-day.has-event {
+    background-color: var(--primary-color);
+    color: #fff;
   }
 }
 /* Email Subscribe */
