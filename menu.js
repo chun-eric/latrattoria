@@ -5,11 +5,10 @@ import { fullMenuData } from './constants.js';
 // dom to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
   const menuBoardContainer = document.querySelector('.menu-board-container');
-  /* ------------------------------------------------- */
+
   // function to render  all the menu Items from constants.js
   function renderMenuItems(items) {
     menuBoardContainer.innerHTML = '';
-    console.log('menuBoardContainer:', menuBoardContainer);
 
     if (!menuBoardContainer) {
       console.error('Menu board container not found');

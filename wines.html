@@ -8,7 +8,7 @@
     <title>La Trattoria</title>
 
     <!-- Main CSS file -->
-    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="wine.css" />
     
 
     <!-- Favicon-->
@@ -107,28 +107,29 @@
   <div class="overlay" id="overlay"></div>
       
   
-  <!-- Menu Items -->
-  <div class="menu-container">
-    <div class="menu">
-      <div class="menu-header">
-        <h2>Our Menu</h2>
-      </div>
-      <div class="menu-items">
-        <h2>Menu Items</h2>
-        <div class="menu-category">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="appetizer">Appetizers</button>
-          <button class="filter-btn" data-filter="main">Mains</button>
-          <button class="filter-btn" data-filter="side">Sides</button>
-          <button class="filter-btn" data-filter="dessert">Desserts</button>
-        </div>
-      </div>
-      <div class="menu-board-container">
-      <!-- Contents here will be dynamically rendered by Javascript -->
+ 
+<!-- Wine Menu -->
+<div class="wine-menu-container">
+  <div class="wine-menu">
+    <div class="wine-menu-header">
+      <h2>Our Wine Selection</h2>
+    </div>
+    <div class="wine-menu-items">
+      <h2>Wine List</h2>
+      <div class="wine-menu-category">
+        <button class="wine-filter-btn active" data-filter="all">All</button>
+        <button class="wine-filter-btn" data-filter="sparklingWines">Sparkling</button>
+        <button class="wine-filter-btn" data-filter="whiteWines">White</button>
+        <button class="wine-filter-btn" data-filter="redWines">Red</button>
+        <button class="wine-filter-btn" data-filter="roséWines">Rosé</button>
+        <button class="wine-filter-btn" data-filter="dessertWines">Dessert</button>
       </div>
     </div>
+    <div class="wine-menu-board-container">
+      <!-- Wine items will be dynamically rendered here -->
+    </div>
   </div>
-
+</div>
    
 
     
@@ -345,7 +346,9 @@
  
     <script src="load-common-elements.js"></script>
     <script type="module" src="blog.js"></script>
+    <script type="module" src="menu.js"></script>
     <script type="module" src="script.js" ></script>
+    <script type="module" src="wines.js" ></script>
     <script type="module" src="hamburger.js"></script>
     <script type="module" src="curves.js" ></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
