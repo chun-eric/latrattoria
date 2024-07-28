@@ -48,8 +48,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const eventDetailsElement = document.createElement('div');
         eventDetailsElement.classList.add('event-details');
-        eventDetailsElement.textContent = eventForDay.description;
+
+        // Format the time
+        const startTime = eventForDay.startTime.toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+        const endTime = eventForDay.endTime.toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+
+        eventDetailsElement.innerHTML = `
+          <div class="event-time">${startTime} - ${endTime}</div>
+          <div class="event-description">${eventForDay.description}</div>
+        `;
         dayElement.appendChild(eventDetailsElement);
+
+        // Add a class to the calendar day to indicate it has an event
+        dayElement.classList.add('has-event');
       }
 
       calendarGrid.appendChild(dayElement);

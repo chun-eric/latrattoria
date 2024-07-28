@@ -24,8 +24,6 @@ html {
 }
 
 body {
-  background-color: var(--primary-bg-color);
-
   color: #fff;
   font-family: 'Montserrat', serif;
   margin: 0 auto;
@@ -1003,273 +1001,13 @@ header .columns nav a.active {
   }
 }
 
-/* photo carousel */
-.photo-carousel {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 120px 20px;
-}
-
-.background-carousel-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('./images/carousel-background.jpeg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.2;
-  z-index: 1;
-}
-
-.photo-carousel-container {
-  width: 1200px;
-  max-width: 100%;
-  height: 800px; /* allows container to adjust to content */
-  /* max-height: 80vh;  */
-  /* Limit maximum height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  z-index: 2;
-  flex-shrink: 1;
-  margin: 0 auto;
-  margin-top: 20px;
-}
-
-.photo-carousel-container .images {
-  width: 100%;
-  height: 800px;
-  max-height: 100%;
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.photo-carousel-container .images img {
-  width: 90%;
-  max-width: 100%;
-  height: 100%; /* Make images fill the container height */
-  object-fit: cover;
-  z-index: 5;
-  display: block; /* all images are block elements*/
-  transition: opacity 0.7s ease-in; /* smooth transition for opacity */
-  opacity: 0; /* all images are hidden initially*/
-  position: absolute;
-  /* images are absolute for overlapping images*/
-
-  border-radius: 2px;
-}
-
-.photo-carousel-container .images img:first-child {
-  opacity: 1;
-}
-
-.carousel-buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  z-index: 7;
-  padding-top: 40px;
-  padding-bottom: 30px;
-  margin: 0 auto;
-}
-
-.carousel-buttons .carousel-button {
-  background-color: #ffffff;
-  filter: brightness(1);
-  color: #ffffff;
-  margin-right: 12px;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  border: 1px solid transparent;
-  transition: backgound-color 0.3s ease;
-  position: relative;
-}
-
-.carousel-buttons .carousel-button::after {
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: 1px solid #b7b095;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.carousel-buttons .carousel-button.active {
-  background-color: #b7b095;
-  border-color: #b7b095;
-}
-
-.carousel-buttons .carousel-button.active::after {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-}
-
-.photo-carousel-footer {
-  width: 85%;
-  max-width: 1200px;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  font-family: 'Cormorant', serif;
-  z-index: 11;
-  position: relative;
-  padding: 30px 20px;
-  box-sizing: border-box;
-}
-
-.photo-carousel-footer .book {
-  position: relative;
-}
-
-.book p {
-  font-family: 'Cormorant', serif;
-  font-size: 1.6rem;
-  color: #fff;
-  z-index: 10;
-  cursor: pointer;
-  display: inline-block;
-  /* text-decoration: underline;
-  text-underline-offset: 20px;
-  text-decoration-line: 1px;
-  transition: all 0.3s ease; */
-}
-
-.book p::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -15px; /* Adjust this value to position the underline */
-  width: 95%;
-  height: 1px; /* Thickness of the underline */
-  background-color: #fff;
-  transform: translateX(-50%) scaleX(1); /* Center the underline and set initial scale */
-  transform-origin: center; /* Set the transform origin to the center */
-  transition: transform 0.3s ease;
-}
-
-.book p:hover::after {
-  transform: translateX(-50%) scaleX(0); /* Scale the underline to 0 on hover */
-}
-
-.photo-carousel-footer .social {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  text-align: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-.social p {
-  font-size: 1.6rem;
-  color: #fff;
-  z-index: 10;
-  font-family: 'Cormorant', serif;
-}
-
-.photo-carousel-footer .social .icons {
-  display: flex;
-  gap: 10px;
-}
-
-.icons svg {
-  fill: #fff;
-  width: 30px;
-  height: 30px;
-  opacity: 0.8;
-}
-.icons svg:hover {
-  fill: var(--primary-color);
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 599px) {
-  .photo-carousel {
-    justify-content: space-between;
-    padding: 100px 0px;
-    height: 100vh; /* takes up the full view port and fixes images height*/
-    padding-bottom: 140px !important;
-  }
-
-  .photo-carousel-container .carousel-buttons {
-    padding-top: 20px !important;
-
-    /* Adjust as needed for smaller screens */
-  }
-
-  .photo-carousel-container .images img {
-    object-fit: cover;
-  }
-  .photo-carousel-footer {
-    width: 90%;
-    height: 20%; /* adjusts how much height needed for the carousel footer */
-    flex-direction: column;
-    padding: 10px;
-    padding-top: 10px;
-    gap: 40px;
-    text-align: center;
-    padding-bottom: 20px;
-  }
-
-  .photo-carousel-footer .book {
-    padding: 20px 0px;
-  }
-
-  .photo-carousel-footer .book p::after {
-    bottom: -3px; /* Adjust this value to position the underline */
-  }
-  .photo-carousel-footer .social {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .photo-carousel-footer .icons svg {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    display: flex;
-    flex-direction: row;
-  }
-  .photo-carousel-footer .social .icons {
-    padding-top: 10px;
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
+/* calendar container */
 .calendar-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  margin-top: 160px;
 }
 
 .calendar {
@@ -1319,8 +1057,8 @@ header .columns nav a.active {
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
   width: 100%;
 }
 
@@ -1340,17 +1078,17 @@ header .columns nav a.active {
 }
 
 .calendar-day:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   z-index: 10;
 }
 
 .calendar-day .date {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
 .calendar-day .event {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-top: 5px;
   text-align: center;
   color: var(--primary-text-color);
@@ -1363,7 +1101,7 @@ header .columns nav a.active {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
+  width: 100%;
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 10px;
@@ -1375,10 +1113,26 @@ header .columns nav a.active {
   display: block;
 }
 
+.calendar-day.has-event {
+  background-color: #c2bb9f;
+  color: #fff;
+}
+
+.calendar-day.has-event span.event {
+  color: #fff;
+  font-size: 1.2rem;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.calendar-day.has-event span.time {
+  color: var(--primary-heading-color);
+}
+
 .event-details .event-time {
-  font-size: 0.9rem;
-  color: var(--secondary-text-color);
+  font-size: 1rem;
   margin-bottom: 5px;
+  color: var(--primary-text-color);
 }
 
 .event-details .event-description {
@@ -1387,62 +1141,89 @@ header .columns nav a.active {
 }
 
 @media (max-width: 1024px) {
+  .calendar-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
   .calendar-day {
     padding: 5px;
   }
 
   .calendar-day .date {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .calendar-day .event {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 768px) {
   .calendar-grid {
     gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .calendar-day:hover {
     transform: none;
   }
 
-  .calendar-day .event-details {
-    width: 180px;
+  .calendar-day .date {
+    font-size: 1.2rem;
+  }
+
+  .calendar-day .event {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar-day {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 140px;
+    padding: 5px;
+  }
+
+  .calendar-day .date {
+    font-size: 1.2rem;
+  }
+
+  .calendar-day .event {
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
+  .calendar-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .calendar-header p {
+    font-size: 2rem;
+  }
+
+  .calendar-navigation h3 {
+    font-size: 1.5rem;
+  }
+
   .calendar-grid {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .calendar-day {
-    aspect-ratio: auto;
-    height: 40px;
+    min-height: 140px;
     padding: 2px;
-    justify-content: center;
   }
 
   .calendar-day .date {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 
   .calendar-day .event {
-    display: none;
-  }
-
-  .calendar-day .event-details {
-    display: none !important;
-  }
-
-  .calendar-day.has-event {
-    background-color: var(--primary-color);
-    color: #fff;
+    font-size: 0.65rem;
   }
 }
+
 /* Email Subscribe */
 .email-container {
   width: 100%;
@@ -2191,6 +1972,7 @@ address {
   align-items: center;
   justify-content: center;
   padding: 80px 20px 40px;
+  font-size: 1.6rem;
 }
 
 .events-header {
@@ -2237,6 +2019,10 @@ address {
   justify-content: center;
   background-color: #f1eee8;
   font-weight: 500;
+}
+
+span.event {
+  font-size: 1.4rem;
 }
 
 .events-table .date {

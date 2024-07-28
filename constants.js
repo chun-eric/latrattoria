@@ -16,14 +16,7 @@ export const menuData = {
       category: 'appetizer',
       image: './images/menuImages/Carpaccio di Manzo.webp',
     },
-    {
-      name: 'Insalata Caprese',
-      price: '$14.00',
-      description:
-        'Slices of fresh mozzarella and tomatoes, garnished with basil leaves and a balsamic drizzle',
-      category: 'appetizer',
-      image: './images/menuImages/Insalata Caprese.webp',
-    },
+
     {
       name: 'Calamari Fritti',
       price: '$15.00',
@@ -69,28 +62,7 @@ export const menuData = {
       category: 'main',
       image: './images/menuImages/Filetto di Manzo.webp',
     },
-    {
-      name: 'Pollo al Limone',
-      price: '$20.00',
-      description:
-        'Chicken breast with a lemon caper sauce, accompanied by sautéed spinach and potatoes',
-      category: 'main',
-      image: './images/menuImages/Pollo al Limone.webp',
-    },
-    {
-      name: 'Branzino al Forno',
-      price: '$28.00',
-      description: 'Oven-baked sea bass garnished with herbs and lemon slices',
-      category: 'main',
-      image: './images/menuImages/Branzino al Forno.webp',
-    },
-    {
-      name: 'Ossobuco alla Milanese',
-      price: '$30.00',
-      description: 'Braised veal shank in a rich sauce, served with risotto',
-      category: 'main',
-      image: './images/menuImages/Ossobuco alla Milanese.webp',
-    },
+
     {
       name: 'Patate al Rosmarino',
       price: '$8.00',
@@ -104,13 +76,6 @@ export const menuData = {
       description: 'Sautéed spinach with garlic',
       category: 'side',
       image: './images/menuImages/Spinaci Saltati.webp',
-    },
-    {
-      name: 'Verdure Grigliate',
-      price: '$9.00',
-      description: 'Grilled seasonal vegetables',
-      category: 'side',
-      image: './images/menuImages/Verdure Grigliate.webp',
     },
     {
       name: 'Insalata Mista',
@@ -148,14 +113,6 @@ export const menuData = {
       description: 'Lemon tart with a golden crust and lemon filling',
       category: 'dessert',
       image: './images/menuImages/Torta al Limone.webp',
-    },
-    {
-      name: 'Assorted Italian Cheeses',
-      price: '$18.00',
-      description:
-        'Selection of Italian cheeses, possibly with some honey and nuts on the side',
-      category: 'dessert',
-      image: './images/menuImages/Assorted Italian Cheeses.webp',
     },
   ],
 };
@@ -616,74 +573,73 @@ export const calendarEvents = [
     date: new Date(2024, 5, 15),
     title: 'Summer Festival',
     description: 'Annual summer celebration with live music and local cuisine.',
-    startTime: '14:00',
-    endTime: '22:00',
+    startTime: new Date(2024, 5, 15, 14, 0),
+    endTime: new Date(2024, 5, 15, 22, 0),
   },
   {
     date: new Date(2024, 5, 22),
     title: 'Wine Tasting',
     description: 'Exclusive wine tasting event featuring regional vintages.',
-    startTime: '18:00',
-    endTime: '20:00',
+    startTime: new Date(2024, 5, 22, 18, 0),
+    endTime: new Date(2024, 5, 22, 20, 0),
   },
   {
     date: new Date(2024, 6, 20),
     title: 'How to Make Restaurant Quality Pasta',
     description:
       'Teaching you how to make professional grade pasta and Italian cuisine from our reknown chefs.',
-    startTime: '10:00',
-    endTime: '18:00',
+    startTime: new Date(2024, 6, 20, 10, 0),
+    endTime: new Date(2024, 6, 20, 18, 0),
   },
-
   {
     date: new Date(2024, 7, 15),
     title: 'How to Cook like a Pro in 60 minutes',
     description: 'This is a crash course in cooking like a pro for beginners.',
-    startTime: '15:00',
-    endTime: '16:00',
+    startTime: new Date(2024, 7, 15, 15, 0),
+    endTime: new Date(2024, 7, 15, 16, 0),
   },
   {
     date: new Date(2024, 8, 10),
     title: 'Oktoberfest',
     description:
       'Traditional Bavarian-style celebration with Italian beer and pretzels.',
-    startTime: '16:00',
-    endTime: '22:00',
+    startTime: new Date(2024, 8, 10, 16, 0),
+    endTime: new Date(2024, 8, 10, 22, 0),
   },
   {
     date: new Date(2024, 8, 31),
     title: 'Halloween Party',
     description: 'Spooky-themed event with costume contest and themed menu.',
-    startTime: '19:00',
-    endTime: '23:00',
+    startTime: new Date(2024, 8, 31, 19, 0),
+    endTime: new Date(2024, 8, 31, 23, 0),
   },
   {
     date: new Date(2024, 9, 15),
     title: 'Truffle Dinner',
     description: 'Special menu featuring local truffles in every course.',
-    startTime: '19:00',
-    endTime: '22:00',
+    startTime: new Date(2024, 9, 15, 19, 0),
+    endTime: new Date(2024, 9, 15, 22, 0),
   },
   {
     date: new Date(2024, 9, 26),
     title: 'Thanksgiving Feast',
     description: 'Traditional Thanksgiving dinner with all the trimmings.',
-    startTime: '16:00',
-    endTime: '20:00',
+    startTime: new Date(2024, 9, 26, 16, 0),
+    endTime: new Date(2024, 9, 26, 20, 0),
   },
   {
     date: new Date(2024, 10, 12),
     title: 'Holiday Cookie Workshop',
     description: 'Learn to bake and decorate festive cookies.',
-    startTime: '14:00',
-    endTime: '17:00',
+    startTime: new Date(2024, 10, 12, 14, 0),
+    endTime: new Date(2024, 10, 12, 17, 0),
   },
   {
     date: new Date(2024, 11, 31),
     title: "New Year's Eve Gala",
     description:
       'Elegant celebration to ring in the new year with live music and champagne toast.',
-    startTime: '20:00',
-    endTime: '01:00',
+    startTime: new Date(2024, 11, 31, 20, 0),
+    endTime: new Date(2025, 0, 1, 1, 0), // Note: This ends on Jan 1, 2025
   },
 ];
