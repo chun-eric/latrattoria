@@ -32,21 +32,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
       wineMenuBoardContainer.appendChild(wineBoard);
     });
+    lazyLoadImages();
   }
 
+  function lazyLoadImages() {
+    const images = document.querySelectorAll('.lazy-image');
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove('lazy-image');
+          img.addEventListener('error', handleImageError);
+          imageObserver.unobserve(img);
+        }
+      });
+    }, options);
+
+    images.forEach(img => imageObserver.observe(img));
+  }
+
+  function handleImageError(event) {
+    const img = event.target;
+    img.src = 'path/to/fallback-image.jpg'; // Replace with your fallback image path
+    img.alt = 'Image not available';
+  }
+
+  // Filter Wine Items
   function filterWineItems(filter) {
-    const wineItems = document.querySelectorAll('.wine-menu-board');
-    wineItems.forEach(item => {
-      if (filter === 'all' || item.getAttribute('data-category') === filter) {
-        item.classList.remove('hide');
-        item.style.display = 'flex';
-      } else {
-        item.classList.add('hide');
-        item.style.display = 'none';
-      }
-    });
+    let filteredWines;
+    if (filter === 'all') {
+      filteredWines = wineList.wines;
+    } else {
+      filteredWines = wineList.wines.filter(wine => wine.category === filter);
+    }
+    renderWineItems(filteredWines);
   }
 
+  //
   const wineFilterButtons = document.querySelectorAll('.wine-filter-btn');
   wineFilterButtons.forEach(button => {
     button.addEventListener('click', () => {

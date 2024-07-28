@@ -483,7 +483,7 @@ export const wineList = {
       description:
         'A light, refreshing sparkling wine with notes of green apple, white peach, and citrus.',
       category: 'sparkling',
-      image: './images/wineImages/10.svg',
+      image: './images/wineImages/10.webp',
     },
     {
       name: 'Bellavista Alma Gran Cuvée Brut',
@@ -491,7 +491,7 @@ export const wineList = {
       description:
         'A sophisticated Italian sparkling wine with aromas of ripe fruits and flowers, and a creamy texture.',
       category: 'sparkling',
-      image: './images/wineImages/11.svg',
+      image: './images/wineImages/11.webp',
     },
     {
       name: 'Santa Margherita Pinot Grigio DOC Alto Adige',
@@ -499,7 +499,7 @@ export const wineList = {
       description:
         'Crisp and dry with flavors of golden apple and citrus, perfect for pairing with light appetizers and seafood dishes like the Insalata Caprese and Linguine alle Vongole.',
       category: 'white',
-      image: './images/wineImages/12.svg',
+      image: './images/wineImages/12.webp',
     },
     {
       name: 'Planeta Chardonnay Sicilia Menfi DOC',
@@ -507,7 +507,7 @@ export const wineList = {
       description:
         'Full-bodied with notes of tropical fruits and vanilla, ideal for richer dishes such as Pollo al Limone and Branzino al Forno.',
       category: 'white',
-      image: './images/wineImages/13.svg',
+      image: './images/wineImages/13.webp',
     },
     {
       name: 'Argiolas Costamolino Vermentino di Sardegna DOC',
@@ -515,7 +515,7 @@ export const wineList = {
       description:
         'Light and aromatic with hints of citrus and almond, pairs well with Calamari Fritti and Risotto ai Funghi Porcini.',
       category: 'white',
-      image: './images/wineImages/14.svg',
+      image: './images/wineImages/14.webp',
     },
     {
       name: 'Antinori Pèppoli Chianti Classico DOCG',
@@ -523,7 +523,7 @@ export const wineList = {
       description:
         'Medium-bodied with flavors of red cherry, plum, and a touch of spice, excellent with Tagliatelle al Tartufo and Ossobuco alla Milanese.',
       category: 'red',
-      image: './images/wineImages/15.svg',
+      image: './images/wineImages/15.webp',
     },
     {
       name: 'Marchesi di Barolo Barolo DOCG',
@@ -531,7 +531,7 @@ export const wineList = {
       description:
         'Full-bodied with complex flavors of dark fruit, licorice, and earth, a perfect match for Filetto di Manzo and Assorted Italian Cheeses.',
       category: 'red',
-      image: './images/wineImages/16.svg',
+      image: './images/wineImages/16.webp',
     },
     {
       name: 'Tommasi Ripasso Valpolicella Classico Superiore DOC',
@@ -539,7 +539,7 @@ export const wineList = {
       description:
         'Rich and smooth with notes of dried cherry, plum, and spice, pairs well with Gnocchi alla Sorrentina and Carpaccio di Manzo.',
       category: 'red',
-      image: './images/wineImages/17.svg',
+      image: './images/wineImages/17.webp',
     },
     {
       name: 'Castello di Ama Rosato Toscana IGT',
@@ -547,7 +547,7 @@ export const wineList = {
       description:
         'Fresh and vibrant with flavors of wild strawberries and rose petals, ideal for lighter dishes like Bruschetta al Pomodoro and Insalata Mista.',
       category: 'rosé',
-      image: './images/wineImages/18.svg',
+      image: './images/wineImages/18.webp',
     },
     {
       name: 'Avignonesi Vin Santo di Montepulciano DOC',
@@ -555,7 +555,7 @@ export const wineList = {
       description:
         'Sweet and rich with notes of dried apricot, honey, and nuts, perfect for pairing with Tiramisu and Cannoli Siciliani.',
       category: 'dessert',
-      image: './images/wineImages/19.svg',
+      image: './images/wineImages/19.webp',
     },
     {
       name: "Michele Chiarlo Nivole Moscato d'Asti DOCG",
@@ -563,7 +563,7 @@ export const wineList = {
       description:
         'Lightly sparkling and sweet with flavors of peach and apricot, a delightful accompaniment to Panna Cotta and Torta al Limone.',
       category: 'dessert',
-      image: './images/wineImages/20.svg',
+      image: './images/wineImages/20.webp',
     },
   ],
 };

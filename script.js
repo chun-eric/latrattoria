@@ -4,7 +4,6 @@ console.log('Script file loaded');
 import { menuData } from './constants.js';
 console.log(menuData);
 
-
 // Show preloader immediately
 document.getElementById('preloader').style.display = 'flex';
 
@@ -318,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // function to start carousel autoslide
   function carouselStartAutoSlide() {
-    carouselIntervalId = setInterval(nextPhoto, 9000);
+    carouselIntervalId = setInterval(nextPhoto, 7000);
   }
 
   // function to stop carousel autoslide
