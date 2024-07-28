@@ -84,4 +84,30 @@ document.addEventListener('DOMContentLoaded', function () {
     currentDate.setMonth(currentDate.getMonth() + 1);
     renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
   });
+
+  /*-------------------------------*/
+  // function to handle the selecte date from the index.html
+  const selectedEventDate = localStorage.getItem('selectedEventDate');
+  if (selectedEventDate) {
+    highlightCalendarDate(selectedEventDate);
+    localStorage.removeItem('selectedEventDate'); // Clear the stored date
+  }
 });
+
+function highlightCalendarDate(dateString) {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = date.getMonth();
+
+  // Assuming you have a function to render the calendar for a specific month/year
+  renderCalendar(year, month);
+
+  // Find the calendar day element for the specific date and highlight it
+  const dayElement = document.querySelector(
+    `.calendar-day[data-date="${dateString}"]`
+  );
+  if (dayElement) {
+    dayElement.classList.add('highlighted');
+    dayElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}

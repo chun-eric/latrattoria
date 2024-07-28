@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //Initial Render
   renderMenuItems(menuData.menuItems);
 
+  /* ------------------------------------------------- */
   // function to handle Testimonial Review Slider
   const reviewsGrid = document.querySelector('.reviews-grid');
   const reviewButtons = document.querySelectorAll('.review-button');
@@ -579,5 +580,50 @@ document.addEventListener('DOMContentLoaded', function () {
       formControl.removeChild(errorElement);
     }
     input.classList.remove('error');
+  }
+
+  /* ------------------------------------------------- */
+  // function to handle the click for event details
+  const eventDetails = document.querySelectorAll('.event-item.details a');
+
+  eventLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const eventDate = this.getAttribute('data-event-date');
+      localStorage.setItem('eventDate', eventDate);
+      window.location.href = this.href;
+    });
+  });
+
+  /* --------------------------------------------------- */
+  // function to handle active state Nav links
+  const currentPage = window.location.pathname.split('/').pop();
+
+  // set active class
+  const setActiveClass = nav => {
+    const links = nav.getElementByTagName('a');
+    for (let link of links) {
+      const linkPage = link.getAttribute('href');
+      if (
+        linkPage === currentPage ||
+        (currentPage === '' && linkPage === 'index.html')
+      ) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    }
+  };
+
+  // set active class for the header navigation
+  const headerNav = document.querySelector('header nav');
+  if (headerNav) {
+    setActiveClass(headerNav);
+  }
+
+  // set active class for side bar navigation
+  const sidebarNav = document.querySelector('.side-menu nav');
+  if (sidebarNav) {
+    setActiveClass(sidebarNav);
   }
 });

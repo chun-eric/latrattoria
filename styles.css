@@ -256,6 +256,12 @@ header .columns nav a:hover {
   transition: all 0.3s ease-in-out;
 }
 
+header nav a.active,
+.side-menu nav a.active {
+  color: var(--primary-color);
+  /* Add any other styles you want for the active state */
+}
+
 header .columns nav a.active {
   color: var(--primary-color);
 }
