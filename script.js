@@ -597,33 +597,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* --------------------------------------------------- */
   // function to handle active state Nav links
-  const currentPage = window.location.pathname.split('/').pop();
-
-  // set active class
-  const setActiveClass = nav => {
-    const links = nav.getElementByTagName('a');
-    for (let link of links) {
-      const linkPage = link.getAttribute('href');
-      if (
-        linkPage === currentPage ||
-        (currentPage === '' && linkPage === 'index.html')
-      ) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    }
-  };
-
-  // set active class for the header navigation
-  const headerNav = document.querySelector('header nav');
-  if (headerNav) {
-    setActiveClass(headerNav);
-  }
-
-  // set active class for side bar navigation
-  const sidebarNav = document.querySelector('.side-menu nav');
-  if (sidebarNav) {
-    setActiveClass(sidebarNav);
-  }
+  
 });
