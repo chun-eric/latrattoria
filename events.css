@@ -1037,8 +1037,10 @@ header .columns nav a.active {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 40px;
+  max-width: 1000px;
   width: 100%;
-  margin-bottom: 40px;
+  margin: 0 auto;
 }
 
 .calendar-navigation button {
@@ -1058,18 +1060,23 @@ header .columns nav a.active {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
+  gap: 10px;
+  max-width: 800px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .calendar-day {
-  aspect-ratio: 1;
+  aspect-ratio: 1; /* reduce height while maintaing width*/
   background-color: #f1eee8;
+  width: 100%;
+  height: 100%;
+  max-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 5px;
   font-family: 'Cormorant', serif;
   color: var(--primary-heading-color);
   position: relative;
@@ -1083,7 +1090,7 @@ header .columns nav a.active {
 }
 
 .calendar-day .date {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
@@ -1120,7 +1127,7 @@ header .columns nav a.active {
 
 .calendar-day.has-event span.event {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 80%;
   margin-top: 10px;
 }
@@ -1143,6 +1150,10 @@ header .columns nav a.active {
 @media (max-width: 1024px) {
   .calendar-grid {
     grid-template-columns: repeat(4, 1fr);
+    max-width: 900px;
+    width: 80%;
+    margin: 0 auto;
+    gap: 10px;
   }
   .calendar-day {
     padding: 5px;
@@ -1161,6 +1172,9 @@ header .columns nav a.active {
   .calendar-grid {
     gap: 5px;
     grid-template-columns: repeat(3, 1fr);
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 10px;
   }
 
   .calendar-day:hover {
@@ -1177,6 +1191,13 @@ header .columns nav a.active {
 }
 
 @media (max-width: 600px) {
+  .calendar-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+  }
+
   .calendar-day {
     aspect-ratio: auto;
     height: 100%;
@@ -1208,11 +1229,16 @@ header .columns nav a.active {
 
   .calendar-grid {
     grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   .calendar-day {
     min-height: 140px;
     padding: 2px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .calendar-day .date {
@@ -1788,166 +1814,11 @@ address {
 }
 
 @media (max-width: 460px) {
-  .icon-wrapper svg {
-    left: 2.2%;
-  }
-}
-
-/* Big Banner */
-.big-banner {
-  width: 100vw;
-  height: 700px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.banner-overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-image: url('./images/pasta4.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.3;
-}
-
-.big-banner-container {
-  width: 1200px;
-  max-width: 100%;
-  opacity: 1;
-  z-index: 2;
-  box-sizing: border-box;
-  /* Ensures padding is included in the width */
-  color: #fff;
-  text-align: left;
-  padding: 0 40px;
-}
-
-.banner-text {
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.banner-text h2 {
-  font-size: 3.8rem;
-  font-family: 'Cormorant', serif;
-  color: #fff;
-  display: block;
-  margin: 0;
-  padding-bottom: 20px;
-}
-
-.banner-text p {
-  font-family: 'Sacramento', cursive;
-  color: var(--primary-color);
-  font-size: 2.6rem;
-  position: relative;
-}
-
-.banner-text p::before,
-.banner-text p::after {
-  content: '';
-  left: 0;
-  display: block;
-  position: absolute;
-  height: 2px;
-  background-color: var(--primary-color);
-}
-
-.banner-text p::before {
-  bottom: -14px; /* Position of the first underline */
-  width: 20%; /* Width of the first underline */
-}
-
-.banner-text p::after {
-  bottom: -24px; /* Position of the second underline */
-  width: 15%; /* Width of the second underline */
-}
-
-@media (max-width: 1200px) {
-  .banner-text {
-    margin: 0 auto;
-    text-align: center;
-  }
-  .banner-text p {
-    display: inline-block;
-    position: relative;
-    padding-bottom: 10px;
-  }
-
-  .banner-text p::before,
-  .banner-text p::after {
-    content: '';
-    left: 35%;
-    position: absolute;
-    height: 2px;
-    background-color: var(--primary-color);
-  }
-
-  .banner-text p::before {
-    bottom: -14px; /* Position of the first underline */
-    width: 20%; /* Width of the first underline */
-  }
-
-  .banner-text p::after {
-    bottom: -24px; /* Position of the second underline */
-    width: 15%; /* Width of the second underline */
-  }
-}
-
-@media (max-width: 799px) {
-  .banner-text h2 {
-    font-size: 3rem; /* Adjusted for mid-range */
-  }
-
-  .banner-text p {
-    font-size: 2.3rem; /* Adjusted for mid-range */
-    padding-bottom: 25px; /* Slightly reduced padding */
-  }
-
-  .banner-text p::before,
-  .banner-text p::after {
-    left: 30%; /* Adjusted for better alignment in this range */
-  }
-
-  .banner-text p::before {
-    bottom: 8px;
-    width: 30%;
-  }
-
-  .banner-text p::after {
-    bottom: 3px;
-    width: 25%;
-  }
-}
-
-@media (max-width: 480px) {
-  .banner-text h2 {
-    font-size: 2.6rem;
-  }
-
-  .banner-text p {
+  .form-left h2 {
     font-size: 2rem;
   }
-
-  .banner-text p::before {
-    bottom: -8px; /* Adjusted position for smaller screens */
-    width: 40%; /* Adjusted width for smaller screens */
-  }
-
-  .banner-text p::after {
-    bottom: -14px; /* Adjusted position for smaller screens */
-    width: 35%; /* Adjusted width for smaller screens */
+  .icon-wrapper svg {
+    left: 2.2%;
   }
 }
 
@@ -2158,7 +2029,6 @@ span.event {
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-content: center;
-
     font-size: 20px;
   }
 
@@ -2309,8 +2179,8 @@ span.event {
   align-items: flex-start;
   justify-content: center;
   padding: 80px 0px 80px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px; */
   /* background-image: linear-gradient(
     to left,
     #fefefe,
