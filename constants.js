@@ -438,18 +438,62 @@ export const BLOG_POSTS = [
     date: 'July 12th, 2024',
     excerpt:
       'This year marks a significant milestone for La Trattoria as we celebrate 25 years of serving authentic Italian cuisine. In this commemorative blog post, we reflect on our journey from a small family-owned restaurant to a beloved dining destination.',
-    link: '',
+    content: `
+      <p>Twenty-five years ago, La Trattoria opened its doors with a simple mission: to bring the authentic flavors of Italy to our community. Today, we stand proud as a culinary landmark, having served generations of food lovers and created countless memories around our tables.</p>
+      
+      <h3>Our Humble Beginnings</h3>
+      <p>Founded by the Rossi family in 1999, La Trattoria started as a small, 30-seat restaurant. Armed with family recipes passed down through generations and a passion for hospitality, we set out to create a slice of Italy in the heart of our city.</p>
+      
+      <h3>Growing with Our Community</h3>
+      <p>As word spread about our homemade pasta and wood-fired pizzas, so did our restaurant. We expanded our dining room, added a charming patio, and continued to refine our menu while staying true to our roots.</p>
+      
+      <h3>Milestones Along the Way</h3>
+      <ul>
+        <li>2004: Voted "Best Italian Restaurant" in the city</li>
+        <li>2010: Expanded to include our now-famous wine cellar</li>
+        <li>2015: Launched our cooking class program</li>
+        <li>2020: Adapted to challenges with our successful "La Trattoria at Home" meal kits</li>
+      </ul>
+      
+      <h3>Looking to the Future</h3>
+      <p>As we celebrate this milestone, we're filled with gratitude for our loyal patrons, dedicated staff, and the enduring allure of Italian cuisine. Here's to another 25 years of delicious food, warm hospitality, and the joy of bringing people together around the table.</p>
+      
+      <p>Join us all month long for special anniversary menus, events, and a chance to share your favorite La Trattoria memories. Grazie mille to everyone who has been part of our journey!</p>
+    `,
+    link: 'celebrating-25-years',
   },
   {
     id: 2,
     image: './images/blogImages/blog2.jpg',
     commentCount: 8,
     likeCount: 33,
-    title: 'Tradition and Taste of La Trattroia',
+    title: 'Tradition and Taste of La Trattoria',
     date: 'July 7th, 2024',
     excerpt:
       'Explore the timeless recipes and cherished flavors that have made La Trattoria a beloved destination. In this blog post, we delve into the culinary traditions that continue to inspire our dishes and delight our guests.',
-    link: '',
+    content: `
+      <p>At La Trattoria, our commitment to authentic Italian cuisine is at the heart of everything we do. Our menu is a celebration of traditional recipes, high-quality ingredients, and the passionate craftsmanship of our chefs.</p>
+
+      <h3>The Secrets of Our Kitchen</h3>
+      <p>From hand-rolled pasta to slow-simmered sauces, every dish at La Trattoria is prepared with meticulous care and respect for Italian culinary traditions. Our head chef, Maria Bianchi, shares some insights into what makes our food special:</p>
+      
+      <blockquote>"We source the finest ingredients, many imported directly from Italy. But the real magic happens in how we prepare them – with patience, skill, and a lot of love."</blockquote>
+
+      <h3>Signature Dishes</h3>
+      <p>While our menu evolves with the seasons, some dishes have become beloved classics that our regulars can't do without:</p>
+      <ul>
+        <li>Nonna's Lasagna: A family recipe passed down through generations</li>
+        <li>Osso Buco alla Milanese: Tender veal shanks braised to perfection</li>
+        <li>Tiramisu: Our award-winning dessert that's been on the menu since day one</li>
+      </ul>
+
+      <h3>Wine Pairing Excellence</h3>
+      <p>Our sommelier, Luca Rossi, works closely with our chefs to curate a wine list that perfectly complements our menu. From robust reds to crisp whites, we offer a selection that enhances every meal.</p>
+
+      <h3>Join Us for a Taste of Italy</h3>
+      <p>Whether you're a long-time fan or new to La Trattoria, we invite you to experience the tradition and taste that have made us a culinary destination for 25 years. Book your table today and savor the flavors of authentic Italy.</p>
+    `,
+    link: 'tradition-and-taste',
   },
   {
     id: 3,
@@ -460,7 +504,34 @@ export const BLOG_POSTS = [
     date: 'June 28th, 2024',
     excerpt:
       'This year, we pay tribute to our culinary roots and the journey that has shaped La Trattoria. In this special blog post, we celebrate our heritage and the authentic Italian cuisine that has delighted our guests for 25 years.',
-    link: '',
+    content: `
+      <p>As La Trattoria marks its 25th anniversary, we take a moment to honor the rich culinary heritage that has been the foundation of our success. Our journey is not just about food; it's about family, tradition, and the art of Italian hospitality.</p>
+
+      <h3>A Family Legacy</h3>
+      <p>La Trattoria was born from the dreams of the Conti family, who brought their passion for Italian cuisine from the hills of Tuscany to our vibrant city. Three generations later, we continue to uphold the values and recipes that make our restaurant unique.</p>
+
+      <h3>From Italy to Your Plate</h3>
+      <p>Our commitment to authenticity means going the extra mile – sometimes literally. We import key ingredients directly from Italy, including:</p>
+      <ul>
+        <li>San Marzano tomatoes for our signature sauces</li>
+        <li>Extra virgin olive oil from small, family-owned groves</li>
+        <li>Parmigiano-Reggiano aged for a minimum of 24 months</li>
+      </ul>
+
+      <h3>Culinary Innovation Rooted in Tradition</h3>
+      <p>While we honor traditional recipes, we also embrace culinary innovation. Our seasonal menus showcase creative dishes that blend time-honored techniques with modern twists, always respecting the core principles of Italian cooking.</p>
+
+      <h3>Celebrating with Our Community</h3>
+      <p>Our 25-year journey wouldn't be possible without the support of our loyal patrons and the local community. To express our gratitude, we're planning a series of events throughout the year:</p>
+      <ul>
+        <li>Cooking classes featuring our most requested dishes</li>
+        <li>Wine tasting evenings showcasing Italian vintages</li>
+        <li>A grand anniversary gala with a menu that tells our 25-year story</li>
+      </ul>
+
+      <p>Join us in celebrating 25 years of flavors, memories, and the enduring spirit of Italian cuisine. Here's to many more years of serving our community with passion and dedication!</p>
+    `,
+    link: 'honoring-our-heritage',
   },
   {
     id: 4,
@@ -470,8 +541,42 @@ export const BLOG_POSTS = [
     title: 'From Family Roots to Culinary Heights',
     date: 'June 20th, 2024',
     excerpt:
-      'Discover the story of La Trattoria’s growth from a humble family restaurant to a culinary landmark. This post delves into our rich history and the passion behind every dish we serve.',
-    link: '',
+      "Discover the story of La Trattoria's growth from a humble family restaurant to a culinary landmark. This post delves into our rich history and the passion behind every dish we serve.",
+    content: `
+      <p>The story of La Trattoria is one of passion, perseverance, and the power of good food to bring people together. As we celebrate our 25th anniversary, we look back at the journey that took us from a small family-run eatery to one of the city's most beloved culinary destinations.</p>
+
+      <h3>The Early Days</h3>
+      <p>In 1999, Giovanni and Maria Russo opened the doors of La Trattoria with nothing more than a handful of family recipes and a dream. The restaurant, with just ten tables, quickly became known for its warm atmosphere and authentic flavors.</p>
+
+      <blockquote>"We wanted to recreate the feeling of Sunday dinners at our grandmother's house – where the food was abundant, the wine flowed freely, and everyone felt like family." - Maria Russo</blockquote>
+
+      <h3>Growing Pains and Triumphs</h3>
+      <p>As word spread, La Trattoria faced the challenges of success. Expanding the restaurant while maintaining the quality and intimacy that made it special was no small feat. Key moments in our growth include:</p>
+      <ul>
+        <li>2005: Expansion to 50 seats and introduction of our outdoor patio</li>
+        <li>2010: Launch of our catering services</li>
+        <li>2015: Opening of our adjacent deli, offering take-home Italian specialties</li>
+        <li>2020: Adaptation to changing times with enhanced takeout and delivery options</li>
+      </ul>
+
+      <h3>A New Generation Takes the Helm</h3>
+      <p>Today, La Trattoria is led by Giovanni and Maria's children, Marco and Sophia Russo. Trained in both traditional Italian cooking and modern culinary techniques, they bring a fresh perspective while honoring the restaurant's roots.</p>
+
+      <h3>Our Recipe for Success</h3>
+      <p>What's the secret to La Trattoria's enduring appeal? We believe it's a combination of:</p>
+      <ul>
+        <li>Unwavering commitment to quality ingredients</li>
+        <li>Respect for traditional recipes and techniques</li>
+        <li>Willingness to innovate and evolve</li>
+        <li>Treating every guest like a member of our extended family</li>
+      </ul>
+
+      <h3>Looking Ahead</h3>
+      <p>As we celebrate 25 years, we're excited about what the future holds. We're committed to continuing our legacy of excellent food and warm hospitality while exploring new ways to delight our patrons.</p>
+
+      <p>Thank you to everyone who has been part of the La Trattoria story. Here's to the next 25 years of creating delicious memories together!</p>
+    `,
+    link: 'family-roots-to-culinary-heights',
   },
 ];
 

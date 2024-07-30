@@ -30,7 +30,7 @@ function createBlogCard(post) {
           <p class="blog-date">${post.date}</p>
         </div>
         <p class="blog-text">${post.excerpt}</p>
-        <p class="read-more"><a href="${post.link}">Read more...</a></p>
+        <p class="read-more"><a href="blog-post.html?id=${post.id}">Read more...</a></p>
       </div>
     </div>
   `;
@@ -45,4 +45,52 @@ function renderBlogSection() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', renderBlogSection);
+function renderSingleBlogPost() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = parseInt(urlParams.get('id'));
+  const post = BLOG_POSTS.find(p => p.id === postId);
+
+  if (post) {
+    document.title = `${post.title} - La Trattoria Blog`;
+
+    const content = `
+      <article class="blog-post">
+        <nav class="blog-nav">
+          <a href="blogs.html" class="back-button">&larr; Back to All Posts</a>
+        </nav>
+        <h1>${post.title}</h1>
+        <img src="${post.image}" alt="${post.title}" class="blog-image">
+        <div class="blog-meta">
+          <span class="blog-date">${post.date}</span>
+          <span class="blog-comments">${post.commentCount} comments</span>
+          <span class="blog-likes">${post.likeCount} likes</span>
+        </div>
+        <div class="blog-content">
+          ${post.content}
+        </div>
+      </article>
+    `;
+
+    const blogPostContent = document.getElementById('blog-post-content');
+    if (blogPostContent) {
+      blogPostContent.innerHTML = content;
+    }
+  } else {
+    const blogPostContent = document.getElementById('blog-post-content');
+    if (blogPostContent) {
+      blogPostContent.innerHTML = '<p>Blog post not found.</p>';
+    }
+  }
+}
+
+function init() {
+  const currentPage = window.location.pathname;
+
+  if (currentPage.includes('blogs.html')) {
+    renderBlogSection();
+  } else if (currentPage.includes('blog-post.html')) {
+    renderSingleBlogPost();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);

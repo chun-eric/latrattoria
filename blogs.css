@@ -1480,6 +1480,65 @@ header .columns nav a.active {
   color: #1a1c1c;
 }
 
+/* single blog post styles */
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.blog-nav {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  text-decoration: none;
+  color: var(--primary-heading-color);
+}
+
+.blog-post h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post .blog-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.blog-post .blog-meta {
+  margin-bottom: 2rem;
+}
+
+.blog-post .blog-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.blog-post .blog-content h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post .blog-content p {
+  margin-bottom: 1rem;
+}
+
+.blog-post .blog-content ul,
+.blog-post .blog-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.blog-post .blog-content blockquote {
+  border-left: 4px solid #007bff;
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
 @media (max-width: 1000px) {
   .blog-card {
     display: flex;
