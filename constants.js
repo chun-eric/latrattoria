@@ -439,9 +439,10 @@ export const BLOG_POSTS = [
     excerpt:
       'This year marks a significant milestone for La Trattoria as we celebrate 25 years of serving authentic Italian cuisine. In this commemorative blog post, we reflect on our journey from a small family-owned restaurant to a beloved dining destination.',
     content: `
+     <h3>Our Humble Beginnings</h3>
       <p>Twenty-five years ago, La Trattoria opened its doors with a simple mission: to bring the authentic flavors of Italy to our community. Today, we stand proud as a culinary landmark, having served generations of food lovers and created countless memories around our tables.</p>
       
-      <h3>Our Humble Beginnings</h3>
+     
       <p>Founded by the Rossi family in 1999, La Trattoria started as a small, 30-seat restaurant. Armed with family recipes passed down through generations and a passion for hospitality, we set out to create a slice of Italy in the heart of our city.</p>
       
       <h3>Growing with Our Community</h3>
@@ -472,9 +473,9 @@ export const BLOG_POSTS = [
     excerpt:
       'Explore the timeless recipes and cherished flavors that have made La Trattoria a beloved destination. In this blog post, we delve into the culinary traditions that continue to inspire our dishes and delight our guests.',
     content: `
-      <p>At La Trattoria, our commitment to authentic Italian cuisine is at the heart of everything we do. Our menu is a celebration of traditional recipes, high-quality ingredients, and the passionate craftsmanship of our chefs.</p>
+    <h3>The Secrets of Our Kitchen</h3>
+    <p>At La Trattoria, our commitment to authentic Italian cuisine is at the heart of everything we do. Our menu is a celebration of traditional recipes, high-quality ingredients, and the passionate craftsmanship of our chefs.</p>
 
-      <h3>The Secrets of Our Kitchen</h3>
       <p>From hand-rolled pasta to slow-simmered sauces, every dish at La Trattoria is prepared with meticulous care and respect for Italian culinary traditions. Our head chef, Maria Bianchi, shares some insights into what makes our food special:</p>
       
       <blockquote>"We source the finest ingredients, many imported directly from Italy. But the real magic happens in how we prepare them – with patience, skill, and a lot of love."</blockquote>
@@ -505,9 +506,9 @@ export const BLOG_POSTS = [
     excerpt:
       'This year, we pay tribute to our culinary roots and the journey that has shaped La Trattoria. In this special blog post, we celebrate our heritage and the authentic Italian cuisine that has delighted our guests for 25 years.',
     content: `
+      <h3>A Family Legacy</h3>
       <p>As La Trattoria marks its 25th anniversary, we take a moment to honor the rich culinary heritage that has been the foundation of our success. Our journey is not just about food; it's about family, tradition, and the art of Italian hospitality.</p>
 
-      <h3>A Family Legacy</h3>
       <p>La Trattoria was born from the dreams of the Conti family, who brought their passion for Italian cuisine from the hills of Tuscany to our vibrant city. Three generations later, we continue to uphold the values and recipes that make our restaurant unique.</p>
 
       <h3>From Italy to Your Plate</h3>
@@ -543,9 +544,9 @@ export const BLOG_POSTS = [
     excerpt:
       "Discover the story of La Trattoria's growth from a humble family restaurant to a culinary landmark. This post delves into our rich history and the passion behind every dish we serve.",
     content: `
+    <h3>The Early Days</h3>
       <p>The story of La Trattoria is one of passion, perseverance, and the power of good food to bring people together. As we celebrate our 25th anniversary, we look back at the journey that took us from a small family-run eatery to one of the city's most beloved culinary destinations.</p>
 
-      <h3>The Early Days</h3>
       <p>In 1999, Giovanni and Maria Russo opened the doors of La Trattoria with nothing more than a handful of family recipes and a dream. The restaurant, with just ten tables, quickly became known for its warm atmosphere and authentic flavors.</p>
 
       <blockquote>"We wanted to recreate the feeling of Sunday dinners at our grandmother's house – where the food was abundant, the wine flowed freely, and everyone felt like family." - Maria Russo</blockquote>
