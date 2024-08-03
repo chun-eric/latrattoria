@@ -23,10 +23,53 @@ window.addEventListener('load', function () {
   }, 3000);
 });
 
+/* --------------------------------------------------- */
+// function to scroll to top of the page
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+const rootElement = document.documentElement;
+console.log(rootElement);
+
+// function to handle scroll down and show scroll to top button
+function handleScroll() {
+  const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+  const scrollFraction = rootElement.scrollTop / scrollTotal;
+  console.log('scrollFraction: ', scrollFraction);
+  if (scrollFraction > 0.05) {
+    console.log('Showing scroll to top button');
+    // show button
+    scrollToTopBtn.classList.add('show');
+    console.log('scroll to top button showing');
+  } else {
+    // hide button
+    scrollToTopBtn.classList.remove('show');
+
+    console.log('scroll to top button hidden');
+  }
+}
+
+// function to handle scroll to top
+function scrollToTop() {
+  rootElement.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+
+// Add event listeners outside of DOMContent Loaded
+if (scrollToTopBtn) {
+  scrollToTopBtn.addEventListener('click', scrollToTop);
+  document.addEventListener('scroll', handleScroll);
+} else {
+  console.error('Scroll to top button not found');
+}
+
 // dom to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
+  // Call handlescroll once to check initial scroll position
   console.log('DOM Fully loaded in script.js');
 
+  handleScroll();
+  console.log('Scroll to top function initialized');
   // function to initialize the header
   function initializeHeader() {
     console.log('Initializing header');
@@ -584,7 +627,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ------------------------------------------------- */
   // function to handle the click for event details
-  const eventDetails = document.querySelectorAll('.event-item.details a');
+  // const eventDetails = document.querySelectorAll('.event-item.details a');
 
   eventLinks.forEach(link => {
     link.addEventListener('click', function (e) {
@@ -594,8 +637,4 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = this.href;
     });
   });
-
-  /* --------------------------------------------------- */
-  // function to handle active state Nav links
-  
 });
