@@ -27,6 +27,24 @@ document.addEventListener('DOMContentLoaded', function () {
           ${post.content}
         </div>
     </article>
+    <section class="comments-section">
+    <h3>Comments</h3>
+    <form id="comment-form" class="comment-form">
+        <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+            <textarea id="comment" name="comment" placeholder="Your Comment" required></textarea>
+        </div>
+        <button type="submit" class="submit-comment">Post Comment</button>
+    </form>
+    <div class="comments-list">
+        <!-- Existing comments will be added here -->
+    </div>
+</section>
     `;
 
     document.getElementById('blog-post-content').innerHTML = content;

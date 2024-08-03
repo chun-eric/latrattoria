@@ -1065,11 +1065,12 @@ header .columns nav a.active {
   text-align: left;
 }
 
-.blog-post .blog-content blockquote {
+blockquote {
   padding-left: 1rem;
   font-style: italic;
   margin: 1rem 0;
   color: var(--primary-heading-color);
+  font-family: 'Cormorant', serif;
 }
 
 @media (max-width: 1000px) {
