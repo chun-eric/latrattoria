@@ -604,26 +604,25 @@ header .columns nav a.active {
 
 .intro .content > * {
   opacity: 0;
-  animation: fadeIn 3.8s ease-out forwards;
+  animation: fadeIn 3.8s ease-in forwards;
 }
 
 /* all children of has opacity 0 */
 .fade-in-content > * {
-  opacity: 0;
+  opacity: 0.2;
+  transform: translateY(30px);
 }
 
 /* applies a show class to all children */
-.fade-in-content > *.show {
-  animation: fadeIn 0.8s ease-out forwards;
+.fade-in-content > *.animate {
+  animation: fadeInUp 2s ease-out forwards;
 }
 
-@keyframes fadeIn {
-  /* starts 20px lower */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
-  /* ends at original vertical position */
   to {
     opacity: 1;
     transform: translateY(0);
@@ -631,10 +630,10 @@ header .columns nav a.active {
 }
 
 .intr .content h1 {
-  animation-delay: 0.2s;
+  animation-delay: 0.4s;
 }
 .intr .content h2 {
-  animation-delay: 0.4s;
+  animation-delay: 0.6s;
 }
 
 .intr .content > *:nth-child(3) {

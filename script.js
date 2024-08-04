@@ -14,6 +14,7 @@ window.addEventListener('load', function () {
   preloader.style.opacity = 0;
   preloader.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 
+  // hide the preloader
   this.setTimeout(() => {
     preloader.style.transform = 'translateY(-100%)';
 
@@ -21,6 +22,19 @@ window.addEventListener('load', function () {
       preloader.style.display = 'none';
     }, 1000);
   }, 3000);
+
+  // Delay the hero animation start
+  setTimeout(() => {
+    const content = document.querySelector('.fade-in-content');
+    const elements = Array.from(content.children);
+
+    elements.forEach((element, index) => {
+      element.style.animationDelay = `${index * 0.5}s`;
+      setTimeout(() => {
+        element.classList.add('animate');
+      }, index * 100); //small delay to ensure styles are applied
+    });
+  }, 500); //  increase initial delay by 500ms
 });
 
 /* --------------------------------------------------- */
@@ -42,7 +56,6 @@ function handleScroll() {
   } else {
     // hide button
     scrollToTopBtn.classList.remove('show');
-
     console.log('scroll to top button hidden');
   }
 }
@@ -138,11 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize the changeHeroImage function
   setInterval(changeHeroImage, 10000);
 
-  // function to add staggered animation to the hero intro content
-  const content = document.querySelector('.fade-in-content');
-  // returns the html collection of all the children of the content element
-  const elements = content.children;
-  console.log(elements);
+  /* ------------------------------------------------- */
 
   // function to show each element with a delay
   function showElement(index) {
