@@ -194,37 +194,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ------------------------------------------------- */
   // function to render  all the menu Items from constants.js
-  function renderMenuItems(items) {
-    const menuBoardContainer = document.querySelector('.menu-board-container');
-    if (!menuBoardContainer) {
-      console.error('Menu board container not found');
-      return;
-    }
+  // Make renderMenuItems available globally
+  window.renderMenuItems = function (items) {
+    const renderAttempt = () => {
+      const menuBoardContainer = document.querySelector(
+        '.menu-board-container'
+      );
+      if (!menuBoardContainer) {
+        console.error('Menu board container not found');
+        setTimeout(renderAttempt, 100); // Retry after 100ms
+        return;
+      }
 
-    menuBoardContainer.innerHTML = '';
+      console.log('Rendering menu items');
+      menuBoardContainer.innerHTML = '';
 
-    items.forEach(item => {
-      const menuBoard = document.createElement('div');
-      menuBoard.className = 'menu-board';
-      menuBoard.setAttribute('data-category', item.category);
+      items.forEach(item => {
+        const menuBoard = document.createElement('div');
+        menuBoard.className = 'menu-board';
+        menuBoard.setAttribute('data-category', item.category);
 
-      menuBoard.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" loading="lazy" />
-        <div class="description-container">
-          <div class="menu-description">
-            <p class="item-name">${item.name}</p>
-            <p class="item-price">${item.price}</p>
+        menuBoard.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" loading="lazy" />
+          <div class="description-container">
+            <div class="menu-description">
+              <p class="item-name">${item.name}</p>
+              <p class="item-price">${item.price}</p>
+            </div>
+            <p class="item-description">${item.description}</p>
           </div>
-          <p class="item-description">${item.description}</p>
-        </div>
-      `;
+        `;
 
-      menuBoardContainer.appendChild(menuBoard);
-    });
+        menuBoardContainer.appendChild(menuBoard);
+      });
 
-    return document.querySelectorAll('.menu-board');
-  }
+      return document.querySelectorAll('.menu-board');
+    };
 
+    renderAttempt();
+  };
+  // Make menuData global as well
+  window.menuData = menuData;
+
+  // Initial render (this wont work until header is loaded)
+  renderMenuItems(menuData.menuItems);
+
+  /* ------------------------------------------------- */
+  // function to filter menu items
   function filterMenuItems(filter) {
     const filteredItems =
       filter === 'all'

@@ -82,7 +82,6 @@ img {
   position: fixed;
   top: 0%;
   left: 0;
-
   width: 100%;
   height: 100%;
   background-color: #e4c590;
@@ -120,6 +119,16 @@ img {
   font-size: 68px;
   color: #292723;
   margin-top: 30px;
+}
+
+@media (max-width: 399px) {
+  .spinner {
+    width: 35px;
+    height: 35px;
+  }
+  .preloader-logo {
+    font-size: 35px;
+  }
 }
 
 /* success message */
@@ -629,6 +638,15 @@ header .columns nav a.active {
   }
 }
 
+/* fallback for animation delay for different browsers */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-content > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .intr .content h1 {
   animation-delay: 0.4s;
 }
@@ -969,9 +987,6 @@ header .columns nav a.active {
     display: none;
   }
 
-  .top-right {
-  }
-
   @keyframes float {
     0% {
       transform: translateY(0);
@@ -1005,6 +1020,21 @@ header .columns nav a.active {
 
   p.content-text {
     width: 50%;
+  }
+}
+
+@media (max-width: 399px) {
+  .about-text h2 {
+    width: 90%;
+    font-size: 2.4rem;
+  }
+  .floating-image.top-right {
+    width: 180px;
+    height: 180px;
+  }
+  .about-welcome-content .content-text {
+    font-size: 19px;
+    width: 90%;
   }
 }
 
@@ -1460,10 +1490,19 @@ header .columns nav a.active {
     margin: 0 auto;
   }
 
-  .menu-category {
-    flex-direction: column;
-    align-items: left;
-    padding-left: 2px;
+  .menu-header h2 {
+    font-weight: normal;
+    align-items: center;
+    text-align: center !important;
+  }
+  .menu-items {
+    text-align: center !important;
+    align-items: center !important;
+  }
+  .menu-items h2 {
+    font-size: 2.5rem;
+    align-items: center;
+    text-align: center !important;
   }
 
   .menu-board {
@@ -1495,11 +1534,11 @@ header .columns nav a.active {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 10px;
-    padding-left: 0;
     margin-top: 15px;
+    font-size: 18px;
   }
 
   .menu-category .filter-btn {
@@ -1815,6 +1854,21 @@ header .columns nav a.active {
     border: 1px solid #b7b095;
     border-radius: 50%;
     box-sizing: border-box;
+  }
+}
+
+@media (max-width: 440px) {
+  .review .left {
+    font-size: 24px;
+    width: 80%;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 330px) {
+  .review .left {
+    font-size: 18px;
+    width: 80%;
   }
 }
 
@@ -2225,6 +2279,7 @@ input[type='checkbox'] {
 @media (max-width: 480px) {
   .email-section h2 {
     font-size: 20px;
+    width: 80%;
   }
 
   .email-section p {
@@ -2551,6 +2606,30 @@ input[type='checkbox'] {
   .content-text,
   .view-all-team {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 399px) {
+  .team-heading {
+    font-size: 40px;
+  }
+  .team-left {
+    padding: 60px 30px;
+  }
+  .team-left-content {
+    gap: 20px;
+  }
+  .team-left h2 {
+    font-size: 2.5rem;
+    width: 90%;
+  }
+
+  .team-left .content-text {
+    font-size: 19px;
+    width: 90%;
+  }
+  .team-right {
+    padding: 40px 10px;
   }
 }
 
@@ -3376,8 +3455,12 @@ address {
 }
 
 @media (max-width: 480px) {
+  .banner-text {
+    width: 90%;
+  }
   .banner-text h2 {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
+    width: 90%;
   }
 
   .banner-text p {

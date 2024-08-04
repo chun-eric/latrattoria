@@ -13,7 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Add the set active navigation class
       setActiveNavigation();
-    });
+
+      // Render Menu items
+      // this function is globally available and is first loaded from script.js
+      if (window.renderMenuItems && window.menuData) {
+        window.renderMenuItems(window.menuData.menuItems);
+      } else {
+        console.error('renderMenuItems or menuData not found');
+      }
+    })
+    .catch(error => console.error('Error loading header:', error));
 
   // Load the header and then run the navigation script
   function setActiveNavigation() {
