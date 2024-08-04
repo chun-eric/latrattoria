@@ -4,63 +4,169 @@ console.log('Script file loaded');
 import { menuData } from './constants.js';
 console.log(menuData);
 
+// Make menuData global
+window.menuData = menuData;
+
 // Show preloader immediately
 document.getElementById('preloader').style.display = 'flex';
 
-// window loading the preloader
-window.addEventListener('load', function () {
-  const preloader = document.getElementById('preloader');
-  preloader.style.display = 'flex';
-  preloader.style.opacity = 0;
-  preloader.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+// Global functions
 
-  // hide the preloader
-  this.setTimeout(() => {
-    preloader.style.transform = 'translateY(-100%)';
+function renderMenuItems(items) {
+  const menuBoardContainer = document.querySelector('.menu-board-container');
+  if (!menuBoardContainer) {
+    console.error('Menu board container not found');
+    return;
+  }
 
-    this.setTimeout(() => {
-      preloader.style.display = 'none';
-    }, 1000);
-  }, 3000);
+  console.log('Rendering menu items');
+  menuBoardContainer.innerHTML = '';
 
-  // Delay the hero animation start
-  setTimeout(() => {
-    const content = document.querySelector('.fade-in-content');
-    const elements = Array.from(content.children);
+  items.forEach(item => {
+    const menuBoard = document.createElement('div');
+    menuBoard.className = 'menu-board';
+    menuBoard.setAttribute('data-category', item.category);
 
-    elements.forEach((element, index) => {
-      element.style.animationDelay = `${index * 0.5}s`;
-      setTimeout(() => {
-        element.classList.add('animate');
-      }, index * 100); //small delay to ensure styles are applied
+    menuBoard.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" loading="lazy" />
+      <div class="description-container">
+        <div class="menu-description">
+          <p class="item-name">${item.name}</p>
+          <p class="item-price">${item.price}</p>
+        </div>
+        <p class="item-description">${item.description}</p>
+      </div>
+    `;
+
+    menuBoardContainer.appendChild(menuBoard);
+  });
+
+  return document.querySelectorAll('.menu-board');
+}
+
+function initPhotoCarousel() {
+  const images = document.querySelectorAll(
+    '.photo-carousel-container .images img'
+  );
+  const photoCarouselButtons = document.querySelectorAll('.carousel-button');
+  const carousel = document.querySelector('.photo-carousel');
+
+  if (images.length === 0 || !carousel) {
+    console.error('Photo carousel elements not found');
+    return;
+  }
+
+  let currentPhotoCarouselIndex = 0;
+  let carouselIntervalId;
+
+  function showPhoto(index) {
+    console.log('showPhoto called with index:', index);
+    images.forEach((image, i) => {
+      image.style.opacity = i === index ? '1' : '0';
     });
-  }, 500); //  increase initial delay by 500ms
-});
 
-/* --------------------------------------------------- */
-// function to scroll to top of the page
+    photoCarouselButtons.forEach((button, i) => {
+      i === index
+        ? button.classList.toggle('active', i === index)
+        : button.classList.remove('active');
+    });
+  }
+
+  function nextPhoto() {
+    console.log('nextPhoto called');
+    currentPhotoCarouselIndex = (currentPhotoCarouselIndex + 1) % images.length;
+    showPhoto(currentPhotoCarouselIndex);
+  }
+
+  function carouselStartAutoSlide() {
+    carouselIntervalId = setInterval(nextPhoto, 6000);
+  }
+
+  function carouselStopAutoSlide() {
+    clearInterval(carouselIntervalId);
+  }
+
+  photoCarouselButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      currentPhotoCarouselIndex = index;
+      showPhoto(index);
+      carouselStopAutoSlide();
+      carouselStartAutoSlide();
+    });
+  });
+
+  carousel.addEventListener('mouseover', carouselStopAutoSlide);
+  carousel.addEventListener('mouseout', carouselStartAutoSlide);
+
+  carouselStartAutoSlide();
+}
+
+function initTestimonialReview() {
+  const reviewsGrid = document.querySelector('.reviews-grid');
+  const reviewButtons = document.querySelectorAll('.review-button');
+  const reviews = document.querySelectorAll('.review');
+
+  if (!reviewsGrid || reviews.length === 0) {
+    console.error('Testimonial review elements not found');
+    return;
+  }
+
+  let currentIndex = 0;
+  let intervalId;
+
+  function showReview(index) {
+    console.log('showReview called with index:', index);
+    reviewsGrid.style.transform = `translateX(-${index * 100}%)`;
+    reviewButtons.forEach((button, i) => {
+      button.classList.toggle('active', i === index);
+    });
+    currentIndex = index;
+  }
+
+  function nextReview() {
+    console.log('nextReview called');
+    currentIndex = (currentIndex + 1) % reviews.length;
+    showReview(currentIndex);
+  }
+
+  function startAutoSlide() {
+    console.log('startAutoSlide called');
+    intervalId = setInterval(nextReview, 6000);
+  }
+
+  function stopAutoSlide() {
+    console.log('stopAutoSlide called');
+    clearInterval(intervalId);
+  }
+
+  reviewButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      stopAutoSlide();
+      showReview(index);
+      startAutoSlide();
+    });
+  });
+
+  reviewsGrid.addEventListener('mouseover', stopAutoSlide);
+  reviewsGrid.addEventListener('mouseout', startAutoSlide);
+
+  startAutoSlide();
+}
+
+// Scroll to top functionality
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 const rootElement = document.documentElement;
-console.log(rootElement);
 
-// function to handle scroll down and show scroll to top button
 function handleScroll() {
   const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
   const scrollFraction = rootElement.scrollTop / scrollTotal;
-  console.log('scrollFraction: ', scrollFraction);
   if (scrollFraction > 0.05) {
-    console.log('Showing scroll to top button');
-    // show button
     scrollToTopBtn.classList.add('show');
-    console.log('scroll to top button showing');
   } else {
-    // hide button
     scrollToTopBtn.classList.remove('show');
-    console.log('scroll to top button hidden');
   }
 }
 
-// function to handle scroll to top
 function scrollToTop() {
   rootElement.scrollTo({
     top: 0,
@@ -68,7 +174,6 @@ function scrollToTop() {
   });
 }
 
-// Add event listeners outside of DOMContent Loaded
 if (scrollToTopBtn) {
   scrollToTopBtn.addEventListener('click', scrollToTop);
   document.addEventListener('scroll', handleScroll);
@@ -76,168 +181,24 @@ if (scrollToTopBtn) {
   console.error('Scroll to top button not found');
 }
 
-// dom to be fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-  // Call handlescroll once to check initial scroll position
-  console.log('DOM Fully loaded in script.js');
+// Main initialization function
+function initializeAllComponents() {
+  console.log('Initializing all components');
 
   handleScroll();
   console.log('Scroll to top function initialized');
-  // function to initialize the header
-  function initializeHeader() {
-    console.log('Initializing header');
 
-    const header = document.querySelector('header');
-    if (!header) {
-      console.error('Header element not found');
-      return;
-    }
-
-    const body = document.body;
-    const isHomePage =
-      window.location.pathname === '/' ||
-      window.location.pathname.endsWith('index.html');
-
-    if (isHomePage) {
-      body.classList.add('home-page');
-    }
-
-    function handleScroll() {
-      // A value to determine when header should change to scrolled state
-      const scrollThreshold = 60;
-      console.log('Scrolled: ', window.pageYOffset);
-      console.log('Is home page: ', isHomePage);
-      // function to handle scroll down and show the header
-      // check if the window has scrolled past the threshold
-      if (isHomePage && window.pageYOffset > scrollThreshold) {
-        console.log('adding scrolled class');
-        header.classList.add('scrolled');
-      } else if (isHomePage) {
-        console.log('removing scrolled class');
-        header.classList.remove('scrolled');
-      }
-    }
-
-    // Call handleScroll on window scroll
-    window.addEventListener('scroll', handleScroll);
-    // Call the handleScroll function to check the initial scroll position
-    handleScroll();
+  if (window.menuData && window.menuData.menuItems) {
+    renderMenuItems(window.menuData.menuItems);
+  } else {
+    console.error('Menu data not found');
   }
-  // Make initializeHeader available Globally
-  window.initializeHeader = initializeHeader;
 
-  /* ------------------------------------------------- */
-  // function to handle the active state of the navigation links
+  initPhotoCarousel();
+  initTestimonialReview();
 
-  /* ------------------------------------------------- */
-  // function to handle hero overlay image transitions
-  // select all hero images
-  const heroImages = document.querySelectorAll('.intro .background img');
-  // set the current image index to 0
-  let currentImageIndex = 0;
-
-  function changeHeroImage() {
-    console.log('Changing hero image');
-
-    // remove active class from current image
-    heroImages[currentImageIndex].classList.remove('active');
-
-    // update current image index
-    currentImageIndex = (currentImageIndex + 1) % heroImages.length;
-
-    // add active class to the new image
-    heroImages[currentImageIndex].classList.add('active');
-  }
-  // Initialize the changeHeroImage function
-  setInterval(changeHeroImage, 10000);
-
-  /* ------------------------------------------------- */
-
-  // function to show each element with a delay
-  function showElement(index) {
-    console.log('showElement called with index:', index);
-    if (index < elements.length) {
-      elements[index].classList.add('show');
-      // call the showElement function recursively with a delay
-      setTimeout(() => showElement(index + 1), 1000);
-    }
-  }
-  // Run the function and start the animation when the page loads
-  showElement(0);
-
-  /* ------------------------------------------------- */
-  // function to handle smooth scrolling to the reservation form when clicking the book button
-  const bookButtons = document.querySelectorAll('.book-btn a');
-
-  // adding click event listener to all book buttons
-  bookButtons.forEach(button => {
-    button.addEventListener('click', function (e) {
-      // prevents the default navigation to the url link
-      e.preventDefault();
-
-      // getting the href attribute of the button aka the #contact-section
-      const targetId = this.getAttribute('href');
-      console.log(targetId);
-
-      // our target section element which is the #contact-section
-      const targetSection = document.querySelector(targetId);
-
-      // check if the target section exists
-      // then scroll to the target section smoothly
-      if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-        });
-      }
-    });
-  });
-
-  /* ------------------------------------------------- */
-  // function to render  all the menu Items from constants.js
-  // Make renderMenuItems available globally
-  window.renderMenuItems = function (items) {
-    const renderAttempt = () => {
-      const menuBoardContainer = document.querySelector(
-        '.menu-board-container'
-      );
-      if (!menuBoardContainer) {
-        console.error('Menu board container not found');
-        setTimeout(renderAttempt, 100); // Retry after 100ms
-        return;
-      }
-
-      console.log('Rendering menu items');
-      menuBoardContainer.innerHTML = '';
-
-      items.forEach(item => {
-        const menuBoard = document.createElement('div');
-        menuBoard.className = 'menu-board';
-        menuBoard.setAttribute('data-category', item.category);
-
-        menuBoard.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" loading="lazy" />
-          <div class="description-container">
-            <div class="menu-description">
-              <p class="item-name">${item.name}</p>
-              <p class="item-price">${item.price}</p>
-            </div>
-            <p class="item-description">${item.description}</p>
-          </div>
-        `;
-
-        menuBoardContainer.appendChild(menuBoard);
-      });
-
-      return document.querySelectorAll('.menu-board');
-    };
-
-    renderAttempt();
-  };
-  // Make menuData global as well
-  window.menuData = menuData;
-
-  // Initial render (this wont work until header is loaded)
-  renderMenuItems(menuData.menuItems);
+  // Your existing code for other initializations...
+  // (e.g., smooth scrolling, email validation, form validation, etc.)
 
   /* ------------------------------------------------- */
   // function to filter menu items
@@ -268,149 +229,6 @@ document.addEventListener('DOMContentLoaded', function () {
       filterMenuItems(filter);
     });
   });
-
-  //Initial Render
-  renderMenuItems(menuData.menuItems);
-
-  /* ------------------------------------------------- */
-  // function to handle Testimonial Review Slider
-  const reviewsGrid = document.querySelector('.reviews-grid');
-  const reviewButtons = document.querySelectorAll('.review-button');
-  const reviews = document.querySelectorAll('.review');
-  let currentIndex = 0;
-  let intervalId;
-
-  // function to show the review at given index
-  function showReview(index) {
-    // not working
-    console.log('showReview called with index:', index);
-    // move the reviewsGrid to show the review at the given index on the x axis
-    reviewsGrid.style.transform = `translateX(-${index * 100}%)`;
-
-    // loop through the reviewButtons and add the active class to the button at the given
-    // index and remove the active class from the rest
-    reviewButtons.forEach((button, i) => {
-      button.classList.toggle('active', i === index);
-    });
-
-    // update the currentIndex to the given index
-    currentIndex = index;
-  }
-
-  // function to show the next review
-  function nextReview() {
-    // not working
-    console.log('nextReview called');
-
-    currentIndex = currentIndex + 1 >= reviews.length ? 0 : currentIndex + 1;
-    showReview(currentIndex);
-  }
-
-  // function for the autoslide
-  function startAutoSlide() {
-    // not working
-    console.log('startAutoSlide called');
-    intervalId = setInterval(nextReview, 6000);
-  }
-
-  // function to stop the autoslide
-  function stopAutoSlide() {
-    // not working
-    console.log('stopAutoSlide called');
-    clearInterval(intervalId);
-  }
-
-  // Add click event listener to the review buttons
-  reviewButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      // stop the autoslide
-      stopAutoSlide();
-      // show the review at the clicked button index
-      showReview(index);
-      // start the autoslide
-      startAutoSlide();
-    });
-  });
-
-  // start the autoslide when the page loads
-  startAutoSlide();
-
-  // Pause autoslide on hover
-  reviewsGrid.addEventListener('mouseover', stopAutoSlide);
-  reviewsGrid.addEventListener('mouseout', startAutoSlide);
-
-  // function to handle Photo Carousel Slider
-  const images = document.querySelectorAll(
-    '.photo-carousel-container .images img'
-  );
-  const photoCarouselButtons = document.querySelectorAll('.carousel-button');
-  const carousel = document.querySelector('.photo-carousel');
-  let currentPhotoCarouselIndex = 0;
-  let carouselIntervalId;
-
-  // function to show the photo at given index
-  function showPhoto(index) {
-    // not working
-    console.log('showPhoto called with index:', index);
-
-    // loop through the images and set the opacity of the image at the given index to 1
-    images.forEach((image, i) => {
-      image.style.opacity = i === index ? '1' : '0';
-    });
-
-    // loop through the photoCarouselButtons and toggle active class to the button at the given index
-    photoCarouselButtons.forEach((button, i) => {
-      i === index
-        ? button.classList.toggle('active', i === index)
-        : button.classList.remove('active');
-    });
-  }
-
-  // function to show the next photo
-  function nextPhoto() {
-    // not working
-    console.log('nextPhoto called');
-
-    currentPhotoCarouselIndex =
-      currentPhotoCarouselIndex + 1 >= images.length
-        ? 0
-        : currentPhotoCarouselIndex + 1;
-    showPhoto(currentPhotoCarouselIndex);
-  }
-
-  // function to start carousel autoslide
-  function carouselStartAutoSlide() {
-    carouselIntervalId = setInterval(nextPhoto, 7000);
-  }
-
-  // function to stop carousel autoslide
-  function carouselStopAutoSlide() {
-    clearInterval(carouselIntervalId);
-  }
-
-  // Add click event listener to the photoCarouselButtons
-  photoCarouselButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      // update the currentPhotoCarouselIndex to the clicked button index
-      currentPhotoCarouselIndex = index;
-
-      // show the photo at the clicked button index
-      showPhoto(index);
-
-      // stop the autoslide
-      carouselStopAutoSlide();
-
-      // start the autoslide after manual intervention
-      carouselStartAutoSlide();
-    });
-  });
-
-  // start the carousel autoslide
-  carouselStartAutoSlide();
-
-  // Pause autoslide on hover
-  carousel.addEventListener('mouseover', carouselStopAutoSlide);
-  carousel.addEventListener('mouseout', carouselStartAutoSlide);
 
   // function to handle Email Validation
   const emailForm = document.getElementById('email-form');
@@ -662,4 +480,41 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = this.href;
     });
   });
+}
+
+// DOM Content Loaded Event Listener
+document.addEventListener('DOMContentLoaded', initializeAllComponents);
+
+// Window Load Event Listener
+window.addEventListener('load', function () {
+  const preloader = document.getElementById('preloader');
+  preloader.style.display = 'flex';
+  preloader.style.opacity = 0;
+  preloader.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+  // Hide the preloader
+  setTimeout(() => {
+    preloader.style.transform = 'translateY(-100%)';
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 1000);
+  }, 3000);
+
+  // Delay the hero animation start
+  setTimeout(() => {
+    const content = document.querySelector('.fade-in-content');
+    if (content) {
+      const elements = Array.from(content.children);
+      elements.forEach((element, index) => {
+        element.style.animationDelay = `${index * 0.5}s`;
+        setTimeout(() => {
+          element.classList.add('animate');
+        }, index * 100);
+      });
+    }
+  }, 500);
 });
+
+// Make certain functions globally available
+window.renderMenuItems = renderMenuItems;
+window.initializeHeader = initializeHeader;

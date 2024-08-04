@@ -1023,7 +1023,7 @@ header .columns nav a.active {
   }
 }
 
-@media (max-width: 399px) {
+@media (max-width: 450px) {
   .about-text h2 {
     width: 90%;
     font-size: 2.4rem;
@@ -2609,7 +2609,7 @@ input[type='checkbox'] {
   }
 }
 
-@media (max-width: 399px) {
+@media (max-width: 440px) {
   .team-heading {
     font-size: 40px;
   }
@@ -2620,7 +2620,7 @@ input[type='checkbox'] {
     gap: 20px;
   }
   .team-left h2 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     width: 90%;
   }
 
@@ -2954,6 +2954,12 @@ input[type='checkbox'] {
   .likes-info i {
     margin-right: 2px;
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 399px) {
+  .gallery-carousel-container {
+    gap: 10px;
   }
 }
 
@@ -3880,6 +3886,7 @@ address {
 .directions-right h2 {
   color: #fff;
 }
+
 
 .directions-left .direction-heading {
   color: #343332;
