@@ -1527,10 +1527,6 @@ address {
   font-weight: bold;
 }
 
-.directions-right svg {
-  color: #343332 !important;
-}
-
 .directions-left .direction-heading {
   color: #343332;
   font-weight: bold;
@@ -1605,6 +1601,14 @@ address {
   .directions-right {
     background-color: #1a1c1b;
     padding-bottom: 80px;
+  }
+
+  .directions-right h2 {
+    color: #ffffff !important;
+  }
+  .directions-right svg.map-icon {
+    color: #ffffff !important;
+    fill: #ffffff !important;
   }
 
   .google-map {

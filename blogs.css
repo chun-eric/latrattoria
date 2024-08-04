@@ -2503,6 +2503,13 @@ address {
     background-color: #1a1c1b;
     padding-bottom: 80px;
   }
+  .directions-right h2 {
+    color: #ffffff !important;
+  }
+  .directions-right svg.map-icon {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+  }
 
   .google-map {
     width: 90%;

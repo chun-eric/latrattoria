@@ -1346,20 +1346,11 @@ address {
 .directions-left a {
   color: #888473;
 }
-.directions-left h2 {
+.directions-left h2,
+.directions-right h2 {
   font-size: 2.4rem;
   color: #343332 !important;
   font-weight: bold;
-}
-
-.directions-right h2 {
-  font-size: 2.4rem;
-  color: #fff;
-  font-weight: bold;
-}
-
-.directions-right svg.map-icon path {
-  fill: currentColor;
 }
 
 .directions-left .direction-heading {
@@ -1436,6 +1427,14 @@ address {
   .directions-right {
     background-color: #1a1c1b;
     padding-bottom: 80px;
+  }
+
+  .directions-right h2 {
+    color: #ffffff !important;
+  }
+  .directions-right svg.map-icon {
+    color: #ffffff !important;
+    fill: #ffffff !important;
   }
 
   .google-map {
