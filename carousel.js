@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     imageContainer.className = 'image-container';
     imageContainer.innerHTML = `
       <img src="${imageInfo.src}" loading="lazy" alt="Instagram image" draggable="false" />
-      <div class="image-overlay">
+       <div class="mask-custom"></div>
+      <div class="image-overlay ">
         <div class="instagram-info">
           <i class="fab fa-instagram"></i>
           <span class="username">${imageInfo.username}</span>
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="like-count">${imageInfo.likes}</span>
         </div>
       </div>
+     
     `;
     imageContainer.addEventListener('click', () =>
       console.log('Image clicked:', imageInfo.src)
