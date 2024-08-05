@@ -1546,7 +1546,7 @@ address {
   width: 80%;
   height: 100vh;
   justify-content: flex-start;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .directions-right > * {

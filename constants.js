@@ -47,21 +47,21 @@ export const menuData = {
       category: 'main',
       image: './images/menuImages/Gnocchi alla Sorrentina.webp',
     },
-    {
-      name: 'Linguine alle Vongole',
-      price: '$24.00',
-      description: 'Linguine pasta with clams, garlic, and parsley',
-      category: 'main',
-      image: './images/menuImages/Linguine alle Vongole.webp',
-    },
-    {
-      name: 'Filetto di Manzo',
-      price: '$32.00',
-      description:
-        'Grilled beef tenderloin with a side of vegetables and a wine reduction sauce',
-      category: 'main',
-      image: './images/menuImages/Filetto di Manzo.webp',
-    },
+    // {
+    //   name: 'Linguine alle Vongole',
+    //   price: '$24.00',
+    //   description: 'Linguine pasta with clams, garlic, and parsley',
+    //   category: 'main',
+    //   image: './images/menuImages/Linguine alle Vongole.webp',
+    // },
+    // {
+    //   name: 'Filetto di Manzo',
+    //   price: '$32.00',
+    //   description:
+    //     'Grilled beef tenderloin with a side of vegetables and a wine reduction sauce',
+    //   category: 'main',
+    //   image: './images/menuImages/Filetto di Manzo.webp',
+    // },
 
     {
       name: 'Patate al Rosmarino',
@@ -77,14 +77,14 @@ export const menuData = {
       category: 'side',
       image: './images/menuImages/Spinaci Saltati.webp',
     },
-    {
-      name: 'Insalata Mista',
-      price: '$10.00',
-      description:
-        'Mixed green salad with various vegetables and a light dressing',
-      category: 'side',
-      image: './images/menuImages/Insalata Mista.webp',
-    },
+    // {
+    //   name: 'Insalata Mista',
+    //   price: '$10.00',
+    //   description:
+    //     'Mixed green salad with various vegetables and a light dressing',
+    //   category: 'side',
+    //   image: './images/menuImages/Insalata Mista.webp',
+    // },
     {
       name: 'Tiramisu',
       price: '$10.00',
@@ -100,20 +100,20 @@ export const menuData = {
       category: 'dessert',
       image: './images/menuImages/Panna Cotta.webp',
     },
-    {
-      name: 'Cannoli Siciliani',
-      price: '$8.00',
-      description: 'Crispy cannoli shells filled with ricotta cream',
-      category: 'dessert',
-      image: './images/menuImages/Cannoli Siciliani.webp',
-    },
-    {
-      name: 'Torta al Limone',
-      price: '$8.00',
-      description: 'Lemon tart with a golden crust and lemon filling',
-      category: 'dessert',
-      image: './images/menuImages/Torta al Limone.webp',
-    },
+    // {
+    //   name: 'Cannoli Siciliani',
+    //   price: '$8.00',
+    //   description: 'Crispy cannoli shells filled with ricotta cream',
+    //   category: 'dessert',
+    //   image: './images/menuImages/Cannoli Siciliani.webp',
+    // },
+    // {
+    //   name: 'Torta al Limone',
+    //   price: '$8.00',
+    //   description: 'Lemon tart with a golden crust and lemon filling',
+    //   category: 'dessert',
+    //   image: './images/menuImages/Torta al Limone.webp',
+    // },
   ],
 };
 

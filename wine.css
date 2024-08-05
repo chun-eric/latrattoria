@@ -609,7 +609,9 @@ header .columns nav a.active {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: 1000px;
   gap: 40px;
+  margin: 0 auto;
 }
 
 .wine-menu-board {
@@ -647,6 +649,7 @@ header .columns nav a.active {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding-right: 20px;
 }
 
 .wine-description-container .wine-name {
@@ -676,6 +679,7 @@ p.wine-description {
 @media (max-width: 1100px) {
   .wine-menu-board {
     flex-direction: column;
+    gap: 10px;
   }
 
   .wine-menu-board img {
@@ -714,6 +718,10 @@ p.wine-description {
   .wine-menu-description {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+  }
+  .wine-description {
+    margin-top: 10px;
   }
 }
 /* Email Subscribe */
@@ -1372,7 +1380,7 @@ address {
   width: 80%;
   height: 100vh;
   justify-content: flex-start;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .directions-right > * {
