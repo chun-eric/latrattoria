@@ -1,6 +1,6 @@
 'use strict';
 
-function initializeSideMenu() {
+export function initializeSideMenu() {
   const hamburger = document.querySelector('.hamburger-menu');
   const closeBtn = document.querySelector('.close-btn');
   const sideMenu = document.querySelector('.side-menu');

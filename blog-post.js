@@ -1,6 +1,7 @@
 'use strict';
 
 import { BLOG_POSTS } from './constants.js';
+import { initializeSideMenu } from './hamburger.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
@@ -82,4 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
     commentsList.prepend(newComment);
     form.reset();
   });
+
+  initializeSideMenu();
 });
