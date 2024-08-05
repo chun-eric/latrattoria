@@ -2253,7 +2253,7 @@ span.event {
   width: 80%;
   height: 100vh;
   justify-content: flex-start;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .directions-right > * {
@@ -2310,6 +2310,13 @@ span.event {
     padding-bottom: 80px;
   }
 
+  .directions-right h2 {
+    color: #ffffff !important;
+  }
+  .directions-right svg.map-icon {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+  }
   .google-map {
     width: 90%;
   }
