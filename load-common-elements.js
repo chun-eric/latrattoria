@@ -1,79 +1,33 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Load header
+  // Load header (including side menu)
   fetch('header.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('header-placeholder').innerHTML = data;
-      // After header is loaded, initialize header functionality
-      if (window.initializeHeader) {
-        window.initializeHeader();
-      }
 
-      // Add the set active navigation class
-      setActiveNavigation();
-
-      // Render Menu items
-      // this function is globally available and is first loaded from script.js
-      if (window.renderMenuItems && window.menuData) {
-        window.renderMenuItems(window.menuData.menuItems);
-      } else {
-        console.error('renderMenuItems or menuData not found');
-      }
-    })
-    .catch(error => console.error('Error loading header:', error));
-
-  // Load the header and then run the navigation script
-  function setActiveNavigation() {
-    const currentPage = window.location.pathname.split('/').pop();
-    console.log('Current page:', currentPage);
-
-    // set active class
-    const setActiveClass = nav => {
-      const links = nav.getElementsByTagName('a');
-      console.log('Navigation links:', links);
-      for (let link of links) {
-        let linkPage = link.getAttribute('href');
-
-        // remove .html extension
-        linkPage = linkPage.replace('.html', '');
-        let currentPageName = currentPage.replace('.html', '');
-
-        console.log(`Comparing: ${linkPage} with ${currentPageName}`);
-
-        // compare the link page with the current page
-        if (
-          linkPage === currentPageName ||
-          (currentPageName === '' && linkPage === 'index')
-        ) {
+      // Add active class to current page link
+      const currentPage =
+        window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll(
+        '#main-header nav a, .side-menu nav a'
+      );
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
           link.classList.add('active');
-          console.log(`Added active class to: ${linkPage}`);
-        } else {
-          link.classList.remove('active');
-          console.log(`Removed active class from: ${linkPage}`);
         }
+      });
+
+      // Initialize side menu functionality
+      initializeSideMenu();
+
+      // Add home page class to body if on index.html
+      if (currentPage === 'index.html' || currentPage === '') {
+        document.body.classList.add('home-page');
+        initalizeHeaderScroll();
       }
-    };
-
-    // set active class for the header navigation
-    const headerNav = document.querySelector('header nav');
-    if (headerNav) {
-      console.log('Setting active class for header navigation');
-      setActiveClass(headerNav);
-    } else {
-      console.log('Header navigation not found');
-    }
-
-    // set active class for side bar navigation
-    const sidebarNav = document.querySelector('.side-menu nav');
-    if (sidebarNav) {
-      console.log('Setting active class for sidebar navigation');
-      setActiveClass(sidebarNav);
-    } else {
-      console.log('Sidebar navigation not found');
-    }
-  }
+    });
 
   // Load footer
   fetch('footer.html')
@@ -82,3 +36,61 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('footer-placeholder').innerHTML = data;
     });
 });
+
+// Initialize side menu
+function initializeSideMenu() {
+  const hamburger = document.querySelector('.hamburger-menu');
+  const sideMenu = document.querySelector('.side-menu');
+  const closeBtn = document.querySelector('.close-btn');
+  const overlay = document.querySelector('.overlay');
+
+  function toggleMenu() {
+    sideMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+    hamburger.classList.toggle('active');
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleMenu);
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', toggleMenu);
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', toggleMenu);
+  }
+
+  // Close side menu when a link is clicked
+  const sideMenuLinks = document.querySelectorAll('.side-menu nav a');
+  sideMenuLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      if (!link.getAttribute('href').startsWith('#')) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        toggleMenu();
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
+      } else {
+        toggleMenu();
+      }
+    });
+  });
+}
+
+// Initialize header scroll
+function initalizeHeaderScroll() {
+  const header = document.querySelector('header');
+  const scrollThreshold = window.innerHeight * 0.1; /* 5% of viewport height */
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > scrollThreshold) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+}

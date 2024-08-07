@@ -1489,7 +1489,6 @@ input[type='checkbox'] {
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: #f0ede7;
   padding: 100px 0;
 }

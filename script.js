@@ -11,7 +11,6 @@ window.menuData = menuData;
 document.getElementById('preloader').style.display = 'flex';
 
 // Global functions
-
 function renderMenuItems(items) {
   const menuBoardContainer = document.querySelector('.menu-board-container');
   if (!menuBoardContainer) {
@@ -44,6 +43,7 @@ function renderMenuItems(items) {
   return document.querySelectorAll('.menu-board');
 }
 
+/** Photo Carousel Initialization */
 function initPhotoCarousel() {
   const images = document.querySelectorAll(
     '.photo-carousel-container .images img'
@@ -101,6 +101,7 @@ function initPhotoCarousel() {
   carouselStartAutoSlide();
 }
 
+/* Testimonial Review Initialization */
 function initTestimonialReview() {
   const reviewsGrid = document.querySelector('.reviews-grid');
   const reviewButtons = document.querySelectorAll('.review-button');
@@ -153,7 +154,7 @@ function initTestimonialReview() {
   startAutoSlide();
 }
 
-// Scroll to top functionality
+// Scroll to top function
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 const rootElement = document.documentElement;
 
@@ -181,7 +182,7 @@ if (scrollToTopBtn) {
   console.error('Scroll to top button not found');
 }
 
-// Main initialization function
+// All Components initialization function
 function initializeAllComponents() {
   console.log('Initializing all components');
 
@@ -200,7 +201,6 @@ function initializeAllComponents() {
   // Your existing code for other initializations...
   // (e.g., smooth scrolling, email validation, form validation, etc.)
 
-  /* ------------------------------------------------- */
   // function to filter menu items
   function filterMenuItems(filter) {
     const filteredItems =
@@ -470,16 +470,18 @@ function initializeAllComponents() {
 
   /* ------------------------------------------------- */
   // function to handle the click for event details
-  // const eventDetails = document.querySelectorAll('.event-item.details a');
+  const eventLinks = document.querySelectorAll('.event-item.details a');
 
-  eventLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const eventDate = this.getAttribute('data-event-date');
-      localStorage.setItem('eventDate', eventDate);
-      window.location.href = this.href;
+  if (eventLinks) {
+    eventLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const eventDate = this.getAttribute('data-event-date');
+        localStorage.setItem('eventDate', eventDate);
+        window.location.href = this.href;
+      });
     });
-  });
+  }
 }
 
 // DOM Content Loaded Event Listener
@@ -517,4 +519,4 @@ window.addEventListener('load', function () {
 
 // Make certain functions globally available
 window.renderMenuItems = renderMenuItems;
-window.initializeHeader = initializeHeader;
+// window.initializeHeader = initializeHeader;
