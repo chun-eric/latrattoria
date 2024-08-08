@@ -16,7 +16,7 @@
 }
 
 html {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -3034,7 +3034,7 @@ input[type='checkbox'] {
   width: 1200px;
   max-width: 100%;
   height: 100%;
-  padding-inline: 16px;
+  /* padding-inline: 16px; */
 }
 
 .form {

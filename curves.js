@@ -28,6 +28,9 @@ function updateSVG() {
     'd',
     `M${startPoint} C${controlPoint1} ${controlPoint2} ${endPoint} L${width},${height} Z`
   );
+
+  // fill color
+  path.setAttribute('fill', '#fefdfb');
 }
 
 window.addEventListener('resize', updateSVG);
