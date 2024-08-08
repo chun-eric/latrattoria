@@ -16,7 +16,7 @@
 }
 
 html {
-  background-color: #f3e6d5;
+  background-color: #fffefc;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background-color: #f3e6d5;
+  background-color: #fffefc;
   color: #fff;
   font-family: 'Montserrat', serif;
   margin: 0 auto;

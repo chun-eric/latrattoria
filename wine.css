@@ -529,7 +529,7 @@ header .columns nav a.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #fcf9f3;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -730,7 +730,7 @@ p.wine-description {
   min-height: 500px; /* Ensure a minimum height */
   padding: 80px;
   /* background-color: hsl(43, 100%, 96%) !important; */
-  background: linear-gradient(to top right, #f3e6d5, #f9f5f0) !important;
+  background: #fcf9f3 !important;
   /* background-color: #f0e8da !important; */
   display: flex;
   align-items: center;
