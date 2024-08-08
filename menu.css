@@ -908,7 +908,7 @@ header .columns nav a.active {
   width: 100%;
   min-height: 500px; /* Ensure a minimum height */
   padding: 80px;
-  background-color: #FCF9F3 !important;
+  background-color: #fcf9f3 !important;
   display: flex;
   align-items: center;
   justify-content: center;
