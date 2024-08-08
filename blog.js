@@ -42,6 +42,8 @@ function renderBlogSection() {
     blogContainer.innerHTML = BLOG_POSTS.map(post => createBlogCard(post)).join(
       ''
     );
+  } else {
+    console.log('Cards not renderings');
   }
 }
 

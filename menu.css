@@ -530,9 +530,8 @@ header .columns nav a.active {
   display: flex;
   align-items: center;
   justify-content: center;
-
   /* background-color: #1a1c1b; */
-  background-color: #ffffff;
+  background-color: #fcf9f3 !important;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

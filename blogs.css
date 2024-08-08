@@ -16,7 +16,7 @@
 }
 
 html {
-  background-color: #fff;
+  background-color: #f3e6d5;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #f3e6d5;
   color: #fff;
   font-family: 'Montserrat', serif;
   margin: 0 auto;
@@ -752,7 +752,7 @@ header .columns nav a.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #f0ede7 !important;
   margin: auto;
 }
 
@@ -792,7 +792,7 @@ header .columns nav a.active {
 /* container for all the blog cards */
 .blog-feed {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr)) !important;
   gap: 60px;
   align-items: center;
   justify-content: center;
@@ -812,7 +812,7 @@ header .columns nav a.active {
   border-radius: 2px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  background-color: #f5f1ec;
+  background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
 }
@@ -1315,8 +1315,7 @@ blockquote {
 .email-container {
   width: 100%;
   min-height: 500px; /* Ensure a minimum height */
-  padding: 80px;
-  background-color: #ffffff;
+  background: #f0ede7 !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1945,10 +1944,6 @@ address {
   font-size: 2.4rem;
   color: #343332 !important;
   font-weight: bold;
-}
-
-.directions-right svg {
-  color: #343332 !important;
 }
 
 .directions-left .direction-heading {
