@@ -3,9 +3,18 @@
 import { BLOG_POSTS } from './constants.js';
 import { initializeSideMenu } from './hamburger.js';
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get('id');
+
+  if (!postId) {
+    displayErrorMessage(
+      'No blog post ID provided. Please select a valid blog post.'
+    );
+    return;
+  }
 
   const post = BLOG_POSTS.find(post => post.id === parseInt(postId));
 
@@ -45,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="comments-list">
         <!-- Existing comments will be added here -->
     </div>
-</section>
+    </section>
     `;
 
     document.getElementById('blog-post-content').innerHTML = content;
@@ -62,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
 
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
     const comment = document.getElementById('comment').value;
     const date = new Date().toLocaleDateString('en-US', {
       year: 'numeric',

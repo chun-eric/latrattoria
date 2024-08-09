@@ -55,7 +55,6 @@ export const menuData = {
       category: 'main',
       image: './images/menuImages/Gnocchi alla Sorrentina.webp',
     },
-   
 
     {
       name: 'Patate al Rosmarino',
@@ -71,7 +70,7 @@ export const menuData = {
       category: 'side',
       image: './images/menuImages/Spinaci Saltati.webp',
     },
- 
+
     {
       name: 'Tiramisu',
       price: '$10.00',

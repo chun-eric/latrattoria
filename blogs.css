@@ -968,36 +968,50 @@ header .columns nav a.active {
 
 /* single blog post styles */
 #blog-post-content {
-  background-color: #ffffff;
+  background-color: #f5f1ec !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
 }
 
-.blog-post-container {
-  max-width: 800px;
+#blog-post-content .blog-post {
+  max-width: 800px !important;
+  background-color: #fff;
+}
+
+#blog-post-content .blog-post-container {
+  width: 800px;
+  max-width: 800px !important;
   margin: 80px auto;
   background-color: #f5f1ec;
   color: var(--secondary-bg-color);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 5px;
+  background-color: #ffffff;
 }
 
-.single-blog-post {
+#blog-post-content .single-blog-post {
   max-width: 800px;
   margin: 80px auto;
   padding: 3rem 5rem;
-  background-color: #f5f1ec;
+  background-color: #fff;
   color: var(--secondary-bg-color);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 5px;
   min-height: calc(100vh - 260px);
+  border-radius: 5px;
 }
 
-.blog-nav {
-  margin-bottom: 2rem;
+#blog-post-content .blog-nav {
+  background-color: #fff;
+  padding-bottom: 20px;
 }
 
-.back-button {
+#blog-post-content .back-button {
   text-decoration: none;
   color: var(--primary-heading-color);
   font-family: 'Cormorant', serif;
@@ -1005,13 +1019,17 @@ header .columns nav a.active {
   margin: 10px;
   cursor: pointer;
 }
-
-.single-blog-post h2 {
+#blog-post-content h1 {
+  display: none;
+}
+#blog-post-content .single-blog-post h2 {
   font-size: 3.4rem;
   margin: 0 0 50px;
   font-family: 'Cormorant', serif;
   display: block;
   color: var(--primary-heading-color);
+  color: #0b1315;
+  padding-top: 40px;
 }
 
 .single-blog-post .blog-image {
@@ -1202,10 +1220,11 @@ blockquote {
 
 /* Comments Section */
 .comments-section {
+  width: 100%;
   max-width: 800px;
   margin: 60px auto;
-  padding: 40px 0px;
-  background-color: #ffffff;
+  padding: 20px;
+
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -2086,7 +2105,6 @@ address {
 }
 
 /* footer */
-/* footer */
 footer {
   width: 100%;
   display: flex;
@@ -2151,18 +2169,6 @@ footer .columns div.a {
   text-align: left;
   align-items: center;
 }
-
-/* .middle-column {
-  width: 100%;
-}
-.middle-column h4 {
-  padding-bottom: 20px;
-}
-.footer-image-container {
-  width: 100%;
-  max-width: 100%;
-  padding-top: 10px;
-} */
 
 .middle-column img {
   margin: 0 auto;
