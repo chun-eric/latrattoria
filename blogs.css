@@ -1125,6 +1125,13 @@ blockquote {
   .blog-post .blog-content {
     font-size: 1rem;
   }
+
+  #blog-post-content .single-blog-post {
+    padding: 2rem 4rem;
+  }
+  #blog-post-content .single-blog-post h2 {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 599px) {
@@ -1136,6 +1143,9 @@ blockquote {
     width: 30px;
     height: 30px;
     padding: 8px;
+  }
+  #blog-post-content .single-blog-post {
+    padding: 1rem 3rem;
   }
 }
 
@@ -1223,6 +1233,18 @@ blockquote {
   .read-more {
     font-size: 1rem;
   }
+  #blog-post-content .blog-nav {
+    font-size: 0.7rem;
+  }
+
+  #blog-post-content .single-blog-post h2 {
+    font-size: 2rem;
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+  #blog-post-content .single-blog-post {
+    padding: 1rem 1.3rem;
+  }
 }
 
 @media (max-width: 299px) {
@@ -1286,7 +1308,7 @@ blockquote {
 }
 
 .submit-comment {
-  background-color: #f5f1ec;
+  background-color: #d4d0bb;
   border: none;
   padding: 15px 30px;
   font-size: 1rem;
@@ -1298,12 +1320,12 @@ blockquote {
   transition: background-color 0.3s ease;
 }
 
-.submit-comment:hover {
-  background-color: #d4d0bb;
+button.submit-comment:hover {
+  background-color: hsl(38, 61%, 73%);
 }
 
 .comments-list {
-  background-color: #fdfdfd;
+  background-color: #ffffff;
   padding: 20px 0px;
   border-radius: 3px;
   margin-bottom: 20px;
