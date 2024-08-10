@@ -2118,8 +2118,16 @@ header .columns nav a.active {
 }
 
 @media (max-width: 399px) {
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 30px;
+    width: 90%;
+  }
   .blog-icons {
     width: 50%;
+    padding-bottom: 30px;
   }
   .blog-icons svg {
     width: 2rem;
@@ -2127,7 +2135,6 @@ header .columns nav a.active {
     padding: 5px;
   }
 }
-
 
 /* Email Subscribe */
 .email-container {

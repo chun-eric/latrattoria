@@ -26,7 +26,7 @@ html {
 
 body {
   background-color: #fffefc;
-  color: #fff;
+  /* color: #fff; */
   font-family: 'Montserrat', serif;
   margin: 0 auto;
   letter-spacing: -0.2;
@@ -169,20 +169,19 @@ main {
 header {
   position: fixed;
   width: 100%;
-  padding: 20px;
+  /* padding: 20px; */
   z-index: 1000;
   top: 0;
   left: 0;
   transition: background-color 0.3s ease;
   background-color: transparent;
-  /* position: absolute; */
-  /* height: 100%; */
 }
 
 .site-header {
   position: fixed;
   width: 100%;
-  padding: 20px;
+  padding: 25px;
+  background-color: #f0ede7;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -331,7 +330,7 @@ header .columns nav a.active {
   .hamburger-menu {
     display: block;
     position: fixed;
-    top: 40px;
+    top: 50px;
     right: 40px;
     z-index: 1000;
     cursor: pointer;
@@ -339,6 +338,7 @@ header .columns nav a.active {
     flex-direction: column;
     gap: 6px;
     transition: transform 0.3s ease;
+    align-items: center;
   }
   .hamburger-menu .bar {
     width: 35px;
@@ -753,7 +753,7 @@ header .columns nav a.active {
   align-items: center;
   justify-content: center;
   background-color: #f0ede7 !important;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .blog {
@@ -792,7 +792,7 @@ header .columns nav a.active {
 /* container for all the blog cards */
 .blog-feed {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr)) !important;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 2fr)) !important;
   gap: 60px;
   align-items: center;
   justify-content: center;
@@ -815,6 +815,7 @@ header .columns nav a.active {
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+  transition: transform 0.3s ease-in-out;
 }
 
 .blog-content {
@@ -1148,24 +1149,30 @@ blockquote {
 
 @media (max-width: 399px) {
   .blog-feed {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
     gap: 30px;
   }
   .blog-card {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
+    max-width: 80%;
+    margin: 0 auto;
   }
   .blog-icons {
     width: 50%;
+    bottom: 10px;
+  }
+
+  .blog-content {
+    padding: 15px;
   }
   .blog-icons svg {
     width: 2rem;
     height: 2rem;
     padding: 5px;
   }
+
   .blog-image img {
-    height: 200px;
+    /* height: 200px; */
+    height: 100%;
   }
   .blog-title {
     font-size: 1.4rem;
@@ -1218,12 +1225,25 @@ blockquote {
   }
 }
 
+@media (max-width: 299px) {
+  .blog-feed {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 30px;
+  }
+  .blog-content {
+    padding-top: 2px !important;
+  }
+  .blog-card {
+    gap: 15px;
+  }
+}
+
 /* Comments Section */
 .comments-section {
   width: 100%;
   max-width: 800px;
   margin: 60px auto;
-  padding: 20px;
+  padding: 10px;
 
   border-radius: 5px;
   display: flex;
@@ -1531,6 +1551,7 @@ input[type='checkbox'] {
   }
 
   .email-section h2 {
+    width: 80%;
     font-size: 20px;
   }
 
