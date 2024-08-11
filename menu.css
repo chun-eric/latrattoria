@@ -792,7 +792,7 @@ header .columns nav a.active {
   .menu {
     width: 100%;
     max-width: 100%;
-    padding: 160px 0;
+    padding: 160px 0 0;
     margin: 0 auto;
   }
 
@@ -935,7 +935,7 @@ header .columns nav a.active {
 /* Email Subscribe */
 .email-container {
   width: 100%;
-  min-height: 500px; /* Ensure a minimum height */
+  min-height: 400px; /* Ensure a minimum height */
   padding: 40px;
   background-color: #fcf9f3 !important;
   display: flex;

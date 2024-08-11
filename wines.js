@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     wineMenuBoardContainer.innerHTML = '';
-    items.forEach(item => {
+    items.forEach((item, index) => {
       const wineBoard = document.createElement('div');
       wineBoard.className = 'wine-menu-board';
       wineBoard.setAttribute('data-category', item.category);
@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
 
       wineMenuBoardContainer.appendChild(wineBoard);
+
+      // staggered fade in effect
+      setTimeout(() => {
+        wineBoard.classList.add('fade-in');
+      }, index * 300);
     });
     lazyLoadImages();
   }
