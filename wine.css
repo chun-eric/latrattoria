@@ -523,6 +523,32 @@ header .columns nav a.active {
   }
 }
 
+@media (max-width: 299px) {
+  .columns {
+    padding: 10px 10px;
+  }
+  header#main-header.site-header {
+    display: flex;
+    align-items: center;
+    padding: 20px !important;
+    justify-content: center;
+  }
+  a.logo {
+    font-size: 20px;
+    text-align: center;
+    padding-left: 0px !important;
+  }
+  div.logo-div {
+    display: none;
+  }
+  .hamburger-menu {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    top: 4%;
+  }
+}
+
 .wine-menu-container {
   width: 100%;
   height: 100%;
@@ -604,7 +630,7 @@ header .columns nav a.active {
 }
 
 .wine-menu-board-container {
-  padding: 50px 0 80px;
+  padding: 50px 0 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -662,8 +688,7 @@ header .columns nav a.active {
 .wine-description-container .wine-price {
   font-size: 24px;
   font-family: 'Cormorant', serif;
-  font-weight: bold;
-  color: #a7a084;
+  color: var(--secondary-bg-color);
 }
 
 .wine-description-container .wine-description {
@@ -758,7 +783,7 @@ p.wine-description {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   color: #fcf9f3;
   z-index: 1; /* Lower z-index to ensure it's behind the content */
 }
@@ -890,7 +915,7 @@ input[type='checkbox'] {
 
 @media (max-width: 768px) {
   .email-container {
-    padding: 80px 0;
+    padding: 10px 0;
   }
 
   .email-container {

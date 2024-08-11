@@ -521,6 +521,32 @@ header .columns nav a.active {
   }
 }
 
+@media (max-width: 299px) {
+  .columns {
+    padding: 10px 10px;
+  }
+  header#main-header.site-header {
+    display: flex;
+    align-items: center;
+    padding: 20px !important;
+    justify-content: center;
+  }
+  a.logo {
+    font-size: 20px;
+    text-align: center;
+    padding-left: 0px !important;
+  }
+  div.logo-div {
+    display: none;
+  }
+  .hamburger-menu {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    top: 4%;
+  }
+}
+
 /* intro / hero */
 .intro {
   position: relative;
@@ -1270,7 +1296,7 @@ header .columns nav a.active {
 
 .email-section {
   width: 800px;
-  max-width: 100%;
+  max-width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;

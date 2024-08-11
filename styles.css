@@ -1540,6 +1540,7 @@ header .columns nav a.active {
   .menu-board-container {
     width: 100%;
     padding: 20px 0;
+    margin: 0 auto;
   }
   .menu-container {
     /* padding: 0 15px; */
@@ -1548,10 +1549,14 @@ header .columns nav a.active {
   }
 
   .menu {
-    width: 90%;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-board {
     margin: 0 auto;
   }
-
   .menu-header h2 {
     font-weight: normal;
     align-items: center;
@@ -3212,6 +3217,7 @@ textarea.input-field {
 .icon-wrapper ion-icon {
   position: absolute;
   font-size: 1rem;
+  color: #ffffff;
 }
 
 .icon-wrapper ion-icon:first-child {

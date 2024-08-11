@@ -522,7 +522,31 @@ header .columns nav a.active {
     right: -100%;
   }
 }
-
+@media (max-width: 299px) {
+  .columns {
+    padding: 10px 10px;
+  }
+  header#main-header.site-header {
+    display: flex;
+    align-items: center;
+    padding: 20px !important;
+    justify-content: center;
+  }
+  a.logo {
+    font-size: 20px;
+    text-align: center;
+    padding-left: 0px !important;
+  }
+  div.logo-div {
+    display: none;
+  }
+  .hamburger-menu {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    top: 4%;
+  }
+}
 /* Menu */
 .menu-container {
   width: 100%;
@@ -547,8 +571,8 @@ header .columns nav a.active {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 120px 0;
-  padding-bottom: 60px;
+  padding: 120px 0 10px;
+
   margin-top: 60px;
 }
 
@@ -619,7 +643,7 @@ header .columns nav a.active {
 }
 
 .menu-board-container {
-  padding: 50px 0 80px;
+  padding: 50px 0px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -736,7 +760,7 @@ header .columns nav a.active {
     padding: 0 20px;
   }
   .menu-board-container {
-    padding: 40px 0;
+    padding: 40px 0 0;
   }
   .menu-board {
     gap: 30px;
@@ -757,6 +781,7 @@ header .columns nav a.active {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
   }
   .menu-container {
     /* padding: 0 15px; */
@@ -890,6 +915,10 @@ header .columns nav a.active {
 .menu-description .item-description {
   font-size: 14px;
 }
+.menu-items h4 {
+  margin: 0;
+  font-size: 24px;
+}
 
 @media (max-screen: 700px) {
   .menu-description .item-description {
@@ -897,16 +926,17 @@ header .columns nav a.active {
   }
 }
 
-.menu-items h4 {
-  margin: 0;
-  font-size: 24px;
+@media (max-screen: 299px) {
+  .description-container p {
+    font-size: 14px !important;
+  }
 }
 
 /* Email Subscribe */
 .email-container {
   width: 100%;
   min-height: 500px; /* Ensure a minimum height */
-  padding: 80px;
+  padding: 40px;
   background-color: #fcf9f3 !important;
   display: flex;
   align-items: center;
@@ -934,7 +964,7 @@ header .columns nav a.active {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 80%;
   color: #fcf9f3 !important;
   z-index: 1; /* Lower z-index to ensure it's behind the content */
 }
@@ -1065,7 +1095,7 @@ input[type='checkbox'] {
 
 @media (max-width: 768px) {
   .email-container {
-    padding: 80px 0;
+    padding: 10px 0;
   }
 
   .email-container {

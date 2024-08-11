@@ -789,8 +789,7 @@ header .columns nav a.active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
-  padding-bottom: 50px;
+  padding: 80px 20px 10px;
   /* margin-bottom: 60px; */
 }
 
@@ -1459,7 +1458,7 @@ button.submit-comment:hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   color: #f0ede7;
   z-index: 1; /* Lower z-index to ensure it's behind the content */
 }
@@ -1601,6 +1600,7 @@ input[type='checkbox'] {
 
   .email-section h2 {
     font-size: 24px;
+    width: 80%;
   }
 
   .email-section p {
@@ -1666,7 +1666,7 @@ input[type='checkbox'] {
   justify-content: center;
   align-items: center;
 
-  background-color: #f0ede7;
+  background-color: #fefdfb;
   padding: 100px 0;
 }
 
@@ -1696,6 +1696,10 @@ input,
 select,
 textarea {
   width: 100%;
+}
+
+.icon-wrapper ion-icon {
+  color: #ffffff;
 }
 
 .input-field {
@@ -1873,7 +1877,6 @@ textarea.input-field {
   background-color: #161718;
 }
 
-.form-right h2,
 .form-right p {
   font-family: 'DM Sans', sans-serif;
 }
@@ -1882,6 +1885,7 @@ textarea.input-field {
   font-size: 3rem;
   padding-bottom: 15px;
   font-family: 'Playfair Display', serif;
+  color: #ffffff;
 }
 
 .form-right .contact-number {
