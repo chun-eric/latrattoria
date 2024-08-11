@@ -553,6 +553,32 @@ header .columns nav a.active {
   }
 }
 
+@media (max-width: 299px) {
+  .columns {
+    padding: 10px 10px;
+  }
+  header#main-header.site-header {
+    display: flex;
+    align-items: center;
+    padding: 20px !important;
+    justify-content: center;
+  }
+  a.logo {
+    font-size: 20px;
+    text-align: center;
+    padding-left: 0px !important;
+  }
+  div.logo-div {
+    display: none;
+  }
+  .hamburger-menu {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    top: 4%;
+  }
+}
+
 /* intro / hero */
 .intro {
   position: relative;
@@ -775,6 +801,19 @@ header .columns nav a.active {
   }
 }
 
+@media (max-width: 299px) {
+  .intro .content h1 {
+    font-size: 3rem;
+  }
+  .content .book-btn {
+    width: 80%;
+  }
+
+  .content .book-btn.book-btn.reserve-button a {
+    font-size: 0.8rem;
+  }
+}
+
 /* About Section */
 .about-section {
   width: 100%;
@@ -878,7 +917,7 @@ header .columns nav a.active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 60px;
   height: 90%;
   max-width: 100%;
   width: 1200px;
@@ -1050,6 +1089,21 @@ header .columns nav a.active {
   .about-welcome-content .content-text {
     font-size: 19px;
     width: 90%;
+  }
+}
+
+@media (max-width: 299px) {
+  .about-contents {
+    padding: 0 20px;
+  }
+  .about-welcome-text {
+    font-size: 2rem;
+  }
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+  .about-welcome-content .context-text {
+    font-size: 14px !important;
   }
 }
 
@@ -1516,11 +1570,11 @@ header .columns nav a.active {
   .menu-board {
     gap: 15px;
     height: auto;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
   }
-
   .menu-board img {
     width: 400px !important;
     max-width: 100%;
@@ -1554,6 +1608,12 @@ header .columns nav a.active {
     margin-right: 0;
     padding: 5px 10px;
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 299px) {
+  .menu-category .filter-btn {
+    font-size: 18px;
   }
 }
 
@@ -1627,15 +1687,24 @@ header .columns nav a.active {
   font-size: 14px;
 }
 
+.menu-items h4 {
+  margin: 0;
+  font-size: 24px;
+}
+
 @media (max-screen: 700px) {
   .menu-description .item-description {
     font-size: 14px;
   }
 }
 
-.menu-items h4 {
-  margin: 0;
-  font-size: 24px;
+@media (max-width: 299px) {
+  .menu-description p {
+    font-size: 18px;
+  }
+  .description-container p {
+    font-size: 16px;
+  }
 }
 
 /* Reviews */
@@ -2122,7 +2191,7 @@ header .columns nav a.active {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 30px;
+    gap: 10px;
     width: 90%;
   }
   .blog-icons {
@@ -2133,6 +2202,21 @@ header .columns nav a.active {
     width: 2rem;
     height: 2rem;
     padding: 5px;
+  }
+}
+
+@media (max-width: 300px) {
+  h3.blog-title {
+    font-size: 1.2rem;
+  }
+  .blog-meta {
+    font-size: 0.8rem;
+  }
+  .blog-text {
+    font-size: 1rem;
+  }
+  .read-more a {
+    font-size: 0.9rem;
   }
 }
 
@@ -2623,6 +2707,10 @@ input[type='checkbox'] {
   .view-all-team {
     font-size: 14px;
   }
+  .team-left h2 {
+    font-size: 2.4rem;
+    width: 90%;
+  }
 }
 
 @media (max-width: 440px) {
@@ -2634,10 +2722,6 @@ input[type='checkbox'] {
   }
   .team-left-content {
     gap: 20px;
-  }
-  .team-left h2 {
-    font-size: 2.6rem;
-    width: 90%;
   }
 
   .team-left .content-text {
