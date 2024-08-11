@@ -44,23 +44,48 @@ function initializeSideMenu() {
   const closeBtn = document.querySelector('.close-btn');
   const overlay = document.querySelector('.overlay');
 
-  function toggleMenu() {
-    sideMenu.classList.toggle('active');
-    overlay.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-    hamburger.classList.toggle('active');
+  function openMenu() {
+    sideMenu.classList.add('active');
+    overlay.classList.add('active');
+    document.body.classList.add('menu-open');
+    hamburger.classList.add('active');
+  }
+
+  function closeMenu() {
+    sideMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    hamburger.classList.remove('active');
   }
 
   if (hamburger) {
-    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('click', openMenu);
   }
 
   if (closeBtn) {
-    closeBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', closeMenu);
   }
 
   if (overlay) {
-    overlay.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', closeMenu);
+  }
+
+  // Close side menu when clicking outside
+  document.addEventListener('click', e => {
+    if (
+      sideMenu.classList.contains('active') &&
+      !sideMenu.contains(e.target) &&
+      !hamburger.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  // Prevent clicks on the side menu from closing it
+  if (sideMenu) {
+    sideMenu.addEventListener('click', e => {
+      e.stopPropagation();
+    });
   }
 
   // Close side menu when a link is clicked
@@ -70,7 +95,7 @@ function initializeSideMenu() {
       if (!link.getAttribute('href').startsWith('#')) {
         e.preventDefault();
         const href = link.getAttribute('href');
-        toggleMenu();
+        closeMenu();
         setTimeout(() => {
           window.location.href = href;
         }, 300);
