@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-La Trattoria
-=======
-## La Trattoria - High End Italian Fine Dining Restaurant
+## La Trattoria - A High End Italian Fine Dining Restaurant
 
 This is my personal portfolio website built with React, showcasing my work and skills as a Front-End React and Email Developer. I am currently based in Osaka, Japan so my design combines both Western and Eastern aesthetics to reflect my unique cultural background and design philosophy.
 
@@ -103,4 +100,4 @@ I also spent a significant amount of time making sure the website was responsive
 - CSS3
 - Git (Version control)
 - Vercel (For Deployment)
->>>>>>> 33e8b1d (Uploaded images to readme and fixed basic outline structure)
+  > > > > > > > 33e8b1d (Uploaded images to readme and fixed basic outline structure)
