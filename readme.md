@@ -67,29 +67,17 @@ There were many challenges throughout this project that had to solved but the ma
 <br>
 
 1. How do I position the hero picture to be the main background and make the navbar sit ontop while also allowing it zoom infinitely in and out?
-
 2. How do I create an automatic and also manual photo slider carousel that is also mobile responsiveness and shrinks proportionally to the screen size?
-
 3. How do I create a menu filtering system that is smooth and fast?
-
 4. How do I create hovering up and down animation on shapes in pure CSS?
-
 5. How do I get the active button on the slider to match the correct the index of the photo in the slider and transition accordingly?
-
 6. How do I get the Gallery carousel to be an automatic slider but automaticaly stops and allows it be manually controlled/grabbed to allow for manual sliding?
-
 7. How do I get the Gallery carousel to be mobile responsive?
-
 8. How to add a loader after a valid input has been submitted?
-
 9. How do we ensure that a click event only occurs on the arrow and not the icon in the reservation form?
-
 10. How do we get the parent container to receive a border color only when we click on the arrow dropdown in the reservation form?
-
 11. How do you make elements enter the webpage sequentially in a smooth transition upon loading the initial website.
-
 12. How can I speed up photo loading times?
-
 13. If I wanted to stretch this project even more, what are some other features I could consider adding?
 
   <br>
