@@ -22,7 +22,7 @@ Live and actively maintained
 <h5>Home Page</h5>
 
 <div style="text-align: left;">
-  <img src="./images/homescreens/latratoria-homepage.webp" alt="Homepage-small" width="780">
+  <img src="./images/homescreens/latrattoria-homepage.webp" alt="Homepage-small" width="780">
 </div>
 
 <br/>
@@ -58,10 +58,7 @@ Live and actively maintained
 ### Reflection
 
 <h5>Context:</h5>
-<p>[Add content]</p>
-
-<h5>Objective:</h5>
-<p>[Add content]</p>
+<p>The reason for building this project was twofold. One to pay homage to one of my favorite Italian restuarants here in Osaka but the second was of real world application. What kind of website would a fine dining restaurant have? How would you build a website for a fine dining customers so people would want to visit and ultimately book a reservation?</p>
 
 <h5>Challenges:</h5>
 There were many challenges throughout this project that had to solved but the main big challenges were:
